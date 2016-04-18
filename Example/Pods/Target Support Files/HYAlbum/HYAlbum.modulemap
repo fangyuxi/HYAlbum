@@ -1,0 +1,6 @@
+framework module HYAlbum {
+  umbrella header "HYAlbum-umbrella.h"
+
+  export *
+  module * { export * }
+}
