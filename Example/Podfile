@@ -1,0 +1,15 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'HYAlbum_Example', :exclusive => true do
+  pod 'HYAlbum', :path => '../'
+end
+
+target 'HYAlbum_Tests', :exclusive => true do
+  pod 'HYAlbum', :path => '../'
+
+  pod 'Specta'
+  pod 'Expecta'
+  pod 'FBSnapshotTestCase'
+  pod 'Expecta+Snapshots'
+end
