@@ -11,5 +11,9 @@
 /** 管理相册中的资源 **/
 
 @interface HYAlbumManager : NSObject
+{
+    
+}
+
 
 @end

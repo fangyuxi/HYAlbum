@@ -39,6 +39,8 @@
 		1EF44E381CC5CB0D0026A517 /* HYAlbumItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF44E361CC5CB0D0026A517 /* HYAlbumItem.m */; };
 		1EF44E3B1CC5CB460026A517 /* HYAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF44E391CC5CB460026A517 /* HYAlbum.h */; };
 		1EF44E3C1CC5CB460026A517 /* HYAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF44E3A1CC5CB460026A517 /* HYAlbum.m */; };
+		1EF44E3F1CC651060026A517 /* HYAlbumImageGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF44E3D1CC651060026A517 /* HYAlbumImageGenerator.h */; };
+		1EF44E401CC651060026A517 /* HYAlbumImageGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF44E3E1CC651060026A517 /* HYAlbumImageGenerator.m */; };
 		201BF9C605852822CA5A65ADE282A310 /* EXPMatcherHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C22221B3B6D1F46AB81218794BF7243C /* EXPMatcherHelpers.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		204D694B03BFF3B244A6AB73FACFFC43 /* Expecta-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4579B877C302F516E9CEE77766372 /* Expecta-dummy.m */; };
 		21B54CBFCD48E0B8E4B3EC34B00E6452 /* FBSnapshotTestCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93D23F4DB7569CC800036F3F8FAFE2E /* FBSnapshotTestCase.framework */; };
@@ -281,6 +283,8 @@
 		1EF44E361CC5CB0D0026A517 /* HYAlbumItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYAlbumItem.m; sourceTree = "<group>"; };
 		1EF44E391CC5CB460026A517 /* HYAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAlbum.h; sourceTree = "<group>"; };
 		1EF44E3A1CC5CB460026A517 /* HYAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYAlbum.m; sourceTree = "<group>"; };
+		1EF44E3D1CC651060026A517 /* HYAlbumImageGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAlbumImageGenerator.h; sourceTree = "<group>"; };
+		1EF44E3E1CC651060026A517 /* HYAlbumImageGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYAlbumImageGenerator.m; sourceTree = "<group>"; };
 		222277628576E6CB279473688BA88F01 /* EXPMatchers+conformTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+conformTo.m"; path = "Expecta/Matchers/EXPMatchers+conformTo.m"; sourceTree = "<group>"; };
 		222B35F590250B97F30D1C37C402B693 /* EXPMatchers+beInTheRangeOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beInTheRangeOf.h"; path = "Expecta/Matchers/EXPMatchers+beInTheRangeOf.h"; sourceTree = "<group>"; };
 		22C6E607E674AB20554080B3E2A4B463 /* EXPMatchers+FBSnapshotTest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EXPMatchers+FBSnapshotTest.m"; sourceTree = "<group>"; };
@@ -570,6 +574,8 @@
 		1EF44E1F1CC5C7970026A517 /* AlbumManager */ = {
 			isa = PBXGroup;
 			children = (
+				1EF44E3D1CC651060026A517 /* HYAlbumImageGenerator.h */,
+				1EF44E3E1CC651060026A517 /* HYAlbumImageGenerator.m */,
 				1EF44E311CC5CAF70026A517 /* HYAlbumManager.h */,
 				1EF44E321CC5CAF70026A517 /* HYAlbumManager.m */,
 				1EF44E351CC5CB0D0026A517 /* HYAlbumItem.h */,
@@ -1037,6 +1043,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF44E3F1CC651060026A517 /* HYAlbumImageGenerator.h in Headers */,
 				1EF44E371CC5CB0D0026A517 /* HYAlbumItem.h in Headers */,
 				1EF44E3B1CC5CB460026A517 /* HYAlbum.h in Headers */,
 				1EF44E271CC5C80A0026A517 /* HYImagePickerAlbumViewController.h in Headers */,
@@ -1257,6 +1264,7 @@
 				3A2D9FBC39AEFF5B1A7055F6A68F0725 /* HYAlbum-dummy.m in Sources */,
 				1EF44E381CC5CB0D0026A517 /* HYAlbumItem.m in Sources */,
 				1EF44E281CC5C80A0026A517 /* HYImagePickerAlbumViewController.m in Sources */,
+				1EF44E401CC651060026A517 /* HYAlbumImageGenerator.m in Sources */,
 				1EF44E241CC5C7B30026A517 /* HYImagePickerViewController.m in Sources */,
 				1EF44E2C1CC5C8A80026A517 /* HYImagePickerCollectionViewController.m in Sources */,
 				1EF44E341CC5CAF70026A517 /* HYAlbumManager.m in Sources */,

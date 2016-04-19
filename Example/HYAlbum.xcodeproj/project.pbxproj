@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E2A287E1CC470A5007A262A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2A287D1CC470A5007A262A /* AssetsLibrary.framework */; };
+		1EF44E421CC654330026A517 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF44E411CC654330026A517 /* Photos.framework */; };
 		478D06D2A6260711E2D1424C /* Pods_HYAlbum_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F680D039DE77F1C594B23989 /* Pods_HYAlbum_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		1E2A287D1CC470A5007A262A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		1EF44E411CC654330026A517 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		34985F8C2599689C6CD6FC75 /* Pods-HYAlbum_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYAlbum_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HYAlbum_Tests/Pods-HYAlbum_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		34F63CDB2C49B3C364F323AB /* Pods-HYAlbum_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYAlbum_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HYAlbum_Tests/Pods-HYAlbum_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		357BD8E151FD9EF65D801F16 /* HYAlbum.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HYAlbum.podspec; path = ../HYAlbum.podspec; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF44E421CC654330026A517 /* Photos.framework in Frameworks */,
 				1E2A287E1CC470A5007A262A /* AssetsLibrary.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
@@ -131,6 +134,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1EF44E411CC654330026A517 /* Photos.framework */,
 				1E2A287D1CC470A5007A262A /* AssetsLibrary.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
