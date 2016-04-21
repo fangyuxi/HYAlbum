@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-/** 获取合适格式的图片 **/
+/** 获取合适尺寸的图片 **/
 
 @interface HYAlbumImageGenerator : NSObject
 

@@ -17,7 +17,11 @@
     
 }
 
-- (instancetype)initWithALAsset:(ALAsset *)asset;
+- (instancetype)init UNAVAILABLE_ATTRIBUTE;
++ (instancetype)new UNAVAILABLE_ATTRIBUTE;
+
+- (instancetype)initWithALAsset:(ALAsset *)asset NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithPHAsset:(PHAsset *)asset NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic, copy, readonly) NSString *identifier;
 
@@ -38,6 +42,6 @@
 @property (nonatomic, strong) UIImage *fullResolutionImage;
 
 @property (nonatomic, strong) ALAsset *alAsset;
-@property (nonatomic, strong) PHAsset *plAsset;
+@property (nonatomic, strong) PHAsset *phAsset;
 
 @end
