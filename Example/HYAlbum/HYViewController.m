@@ -7,6 +7,7 @@
 //
 
 #import "HYViewController.h"
+#import "HYImagePickerViewController.h"
 
 @interface HYViewController ()
 
@@ -18,6 +19,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        HYImagePickerViewController *controller = [[HYImagePickerViewController alloc] init];
+        [self presentViewController:controller animated:YES completion:^{
+            
+        }];
+        
+    });
+    
 }
 
 - (void)didReceiveMemoryWarning

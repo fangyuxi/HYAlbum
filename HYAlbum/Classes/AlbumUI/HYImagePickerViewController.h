@@ -8,6 +8,13 @@
 
 #import <UIkit/UIkit.h>
 
+@class HYImagePickerHelper;
+
 @interface HYImagePickerViewController : UINavigationController
+{
+    
+}
+
+@property (nonatomic, strong, readonly) HYImagePickerHelper *helper;
 
 @end

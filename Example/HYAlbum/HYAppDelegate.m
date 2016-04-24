@@ -7,12 +7,33 @@
 //
 
 #import "HYAppDelegate.h"
+#import "HYAlbumManager.h"
+#import "HYViewController.h"
 
 @implementation HYAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    window.backgroundColor = [UIColor whiteColor];
+    self.window = window;
+    
+    HYViewController *controller = [HYViewController new];
+    window.rootViewController = controller;
+    
+    [window makeKeyAndVisible];
+    
+    HYAlbumManager *manager = [HYAlbumManager sharedManager];
+    
+//    [manager getAllAlbumListWithResult:^(NSArray<HYAlbum *> *albums, NSError *error) {
+//        
+//    }];
+    
+    [manager getItemsInCameraRollWithResult:^(NSArray<HYAlbumItem *> *items, NSError *error) {
+        
+    }];
     return YES;
 }
 

@@ -1,0 +1,1 @@
+../../../../../HYAlbum/Classes/AlbumUI/HYImagePickerCollectionViewController.h

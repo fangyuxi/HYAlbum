@@ -23,6 +23,7 @@
     {
         self.alAsset = asset;
         self.phAsset = nil;
+        return self;
     }
     return nil;
 }
@@ -34,8 +35,19 @@
     {
         self.phAsset = asset;
         self.alAsset = nil;
+        return self;
     }
     return nil;
 }
 
+- (UIImage *)thumbImage
+{
+    return [UIImage imageWithCGImage:self.alAsset.thumbnail];
+}
+
+
+- (UIImage *)fullScreenImage
+{
+    return [UIImage imageWithCGImage:self.alAsset.defaultRepresentation.fullScreenImage];
+}
 @end

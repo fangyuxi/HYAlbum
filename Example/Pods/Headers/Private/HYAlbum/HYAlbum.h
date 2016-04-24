@@ -1,0 +1,1 @@
+../../../../../HYAlbum/Classes/AlbumManager/HYAlbum.h

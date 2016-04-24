@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
+#import "HYAlbumConstant.h"
 
 /** 代表相册中的一个资源 **/
 
@@ -22,6 +23,8 @@
 
 - (instancetype)initWithALAsset:(ALAsset *)asset NS_DESIGNATED_INITIALIZER;
 - (instancetype)initWithPHAsset:(PHAsset *)asset NS_DESIGNATED_INITIALIZER;
+
+@property (nonatomic, assign, readonly) HYAlbumItemType itemType;
 
 @property (nonatomic, copy, readonly) NSString *identifier;
 
