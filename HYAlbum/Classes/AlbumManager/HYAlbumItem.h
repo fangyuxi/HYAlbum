@@ -38,13 +38,17 @@
 
 @property (nonatomic, strong, readonly) NSDate *moditionDate;
 
-@property (nonatomic, strong) UIImage *thumbImage;
-
-@property (nonatomic, strong) UIImage *fullScreenImage;
-
-@property (nonatomic, strong) UIImage *fullResolutionImage;
-
 @property (nonatomic, strong) ALAsset *alAsset;
 @property (nonatomic, strong) PHAsset *phAsset;
+
+
+- (void)getThumbImageWithSize:(CGSize)size
+                       result:(void(^)(UIImage *image))handler;
+
+- (void)getFullScreenImageWithSize:(CGSize)size
+                            result:(void(^)(UIImage *image))handler;
+
+- (void)getFullResolutionImageWithSize:(CGSize)size
+                                result:(void(^)(UIImage *image))handler;
 
 @end

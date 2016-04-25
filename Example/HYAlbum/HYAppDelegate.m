@@ -25,15 +25,6 @@
     
     [window makeKeyAndVisible];
     
-    HYAlbumManager *manager = [HYAlbumManager sharedManager];
-    
-//    [manager getAllAlbumListWithResult:^(NSArray<HYAlbum *> *albums, NSError *error) {
-//        
-//    }];
-    
-    [manager getItemsInCameraRollWithResult:^(NSArray<HYAlbumItem *> *items, NSError *error) {
-        
-    }];
     return YES;
 }
 

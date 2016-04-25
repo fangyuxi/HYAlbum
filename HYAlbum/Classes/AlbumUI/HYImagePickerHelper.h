@@ -13,6 +13,8 @@
     
 }
 
++ (HYImagePickerHelper *)sharedHelper;
+
 /**
  *  所有相册的数组
  */

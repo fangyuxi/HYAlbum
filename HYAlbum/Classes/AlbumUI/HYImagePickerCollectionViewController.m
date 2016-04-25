@@ -13,6 +13,7 @@
 #import "HYAlbumManager.h"
 #import "HYImagePickerHelper.h"
 #import "HYImagePickerViewController.h"
+#import "HYAlbumImageGenerator.h"
 
 @interface HYImagePickerCollectionViewController ()<UICollectionViewDataSource,
                                                     UICollectionViewDelegate>
@@ -49,6 +50,16 @@
     return [self initWithAlbum:nil];
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
+        return self;
+    }
+    return nil;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -59,14 +70,15 @@
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.minimumLineSpacing = 0;
-    NSInteger size = [UIScreen mainScreen].bounds.size.width / 4;
+    flowLayout.minimumLineSpacing = 3;
+    NSInteger size = [UIScreen mainScreen].bounds.size.width / 4 - 1;
+    if (size % 2 != 0)
+    {
+        size -= 1;
+    }
     flowLayout.itemSize = CGSizeMake(size, size);
-    flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
-    _collectionView.contentInset = UIEdgeInsetsMake(0, 0, 64, 0);
-    _collectionView.scrollIndicatorInsets = _collectionView.contentInset;
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = [UIColor whiteColor];
@@ -80,25 +92,6 @@
         [_collectionView reloadData];
         
     }];
-//    [ASSETHELPER getPhotoListOfGroupByIndex:ASSETHELPER.currentGroupIndex result:^(NSArray *r) {
-//        [[JFImageManager sharedManager] startCahcePhotoThumbWithSize:CGSizeMake(size, size)];
-//        [photosList reloadData];
-//        if (ASSETHELPER.previewIndex>=0) {
-//            JFPhotoBrowserViewController *photoBrowser = [[JFPhotoBrowserViewController alloc] initWithPreview];
-//            photoBrowser.delegate = self.navigationController;
-//            [self.navigationController pushViewController:photoBrowser animated:YES];
-//        }
-//        
-//        for (NSDictionary *dict in ASSETHELPER.selectdPhotos) {
-//            NSArray *temp = [[[dict allKeys] firstObject] componentsSeparatedByString:@"-"];
-//            NSInteger row = [temp[0] integerValue];
-//            NSInteger group = [temp[1] integerValue];
-//            if (group==ASSETHELPER.currentGroupIndex) {
-//                [photosList scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
-//                break;
-//            }
-//        }
-//    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -123,16 +116,18 @@
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HYImagePickerCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imagePickerCell" forIndexPath:indexPath];
-    //cell.indexPath = indexPath;
-    //cell.tag = indexPath.item;
+    cell.tag = indexPath.item;
+    cell.imageView.image = nil;
     HYAlbumItem *item = [((HYImagePickerViewController *)self.navigationController).helper.currentPhotos objectAtIndex:indexPath.item];
-    cell.imageView.image = item.thumbImage;
     
-//    [[JFImageManager sharedManager] thumbWithAsset:asset resultHandler:^(UIImage *result) {
-//        if (cell.tag==indexPath.item) {
-//            cell.imageView.image = result;
-//        }
-//    }];
+    [item getThumbImageWithSize:CGSizeZero result:^(UIImage *image) {
+       
+        if (cell.tag == indexPath.item)
+        {
+            cell.imageView.image = image;
+        }
+    }];
+
     return cell;
 }
 

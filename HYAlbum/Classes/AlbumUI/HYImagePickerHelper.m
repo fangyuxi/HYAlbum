@@ -10,6 +10,16 @@
 
 @implementation HYImagePickerHelper
 
++ (HYImagePickerHelper *)sharedHelper
+{
+    static HYImagePickerHelper *_sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedInstance = [[HYImagePickerHelper alloc] init];
+    });
+    return _sharedInstance;
+}
+
 - (instancetype)init
 {
     self = [super init];

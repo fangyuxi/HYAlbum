@@ -50,6 +50,8 @@
 - (void)createView
 {
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    _tableView.separatorColor = self.view.backgroundColor;
     [self.view addSubview:_tableView];
     
     _tableView.backgroundColor = [UIColor whiteColor];
@@ -60,8 +62,15 @@
 
 - (void)configNavBar
 {
-    UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
-    self.navigationItem.rightBarButtonItem = cancel;
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    self.navigationItem.leftBarButtonItem = back;
+}
+
+- (void)backAction
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -85,17 +94,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
-    if (cell==nil)
+    if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     HYAlbum *album = [((HYImagePickerViewController *)self.navigationController).helper.albums objectAtIndex:indexPath.row];
 
-    cell.imageView.image = album.albumPosterImage;
+    [album getPosterThumbImageWithSize:CGSizeMake(80, 80) result:^(UIImage *image) {
+       
+        cell.imageView.image = image;
+        [cell setNeedsLayout];
+    }];
+    
     cell.textLabel.text = album.albumTitle;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu张照片", (unsigned long)album.count];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     return cell;
 }
 

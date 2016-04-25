@@ -9,10 +9,15 @@
 #import "HYAlbumItem.h"
 #import "HYAlbumImageGenerator.h"
 
-@implementation HYAlbumItem
+@implementation HYAlbumItem{
+
+    UIImage *_thumbImage;
+
+}
 
 - (instancetype)init
 {
+    _thumbImage = nil;
     return [self initWithALAsset:nil];
 }
 
@@ -40,14 +45,38 @@
     return nil;
 }
 
-- (UIImage *)thumbImage
+- (void)getThumbImageWithSize:(CGSize)size
+                       result:(void(^)(UIImage *image))handler
 {
-    return [UIImage imageWithCGImage:self.alAsset.thumbnail];
+    if (!handler) {
+        return;
+    }
+    
+    if (_thumbImage) {
+        handler(_thumbImage);
+    }
+    
+    [[HYAlbumImageGenerator sharedGenerator] getThumbImageWithAlbumItem:self imageSize:CGSizeZero result:^(UIImage *image) {
+       
+        _thumbImage = image;
+        handler(_thumbImage);
+    }];
 }
 
-
-- (UIImage *)fullScreenImage
+- (void)getFullScreenImageWithSize:(CGSize)size
+                            result:(void(^)(UIImage *image))handler
 {
-    return [UIImage imageWithCGImage:self.alAsset.defaultRepresentation.fullScreenImage];
+    if (!handler) {
+        return;
+    }
 }
+
+- (void)getFullResolutionImageWithSize:(CGSize)size
+                                result:(void(^)(UIImage *image))handler
+{
+    if (!handler) {
+        return;
+    }
+}
+
 @end

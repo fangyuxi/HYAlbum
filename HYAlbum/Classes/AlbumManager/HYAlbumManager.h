@@ -12,11 +12,25 @@
 
 /** 目前仅支持照片获取 **/
 
-typedef NS_OPTIONS(NSInteger, HYAlbumFilterType) {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
 
+typedef NS_OPTIONS(NSInteger, HYAlbumFilterType) {
+    
+    HYAlbumFilterTypeAll = 1,
+    HYAlbumFilterTypeCameraRoll = 2,
+};
+
+#else
+
+typedef NS_OPTIONS(NSInteger, HYAlbumFilterType) {
+    
     HYAlbumFilterTypeAll = (NSInteger)ALAssetsGroupAll,
     HYAlbumFilterTypeCameraRoll = (NSInteger)ALAssetsGroupSavedPhotos,
 };
+
+#endif
+
+
 
 
 

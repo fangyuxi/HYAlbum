@@ -12,7 +12,11 @@
 
 @implementation HYAlbumManager{
 
-    ALAssetsLibrary *_library;
+    ALAssetsLibrary *_assetsLibrary;
+    PHPhotoLibrary  *_phPhotoLibrary;
+    
+    PHAsset *_phAsset;
+    PHAssetCollection *_phCollection;
 }
 
 + (HYAlbumManager *)sharedManager
@@ -30,7 +34,15 @@
     self = [super init];
     if (self)
     {
-        _library = [[ALAssetsLibrary alloc] init];
+        
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
+        
+        _phPhotoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
+#else
+        _assetsLibrary = [[ALAssetsLibrary alloc] init];
+#endif
+        
+        
         return self;
     }
     return nil;
@@ -46,7 +58,12 @@
 - (void)getAlbumListWithResult:(HYAlbumManagerAlbumsListBlock)result
                      byFilterType:(HYAlbumFilterType)type
 {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
+    
+    [self p_getCollectionByPHPhotoKitWithResult:result byType:type];
+#else
     [self p_getGroupsByALAssetLibraryWithResult:result byType:type];
+#endif
 }
 
 - (void)getItemsInAlbum:(HYAlbum *)album
@@ -105,7 +122,7 @@
         }
     };
     
-    [_library enumerateGroupsWithTypes:type
+    [_assetsLibrary enumerateGroupsWithTypes:type
                             usingBlock:enumerateGroups
                           failureBlock:emuerateGroupsError];
 }
@@ -137,5 +154,124 @@
 }
 
 #pragma mark get album & item by PhotoKit -- private
+
+- (void)p_getCollectionByPHPhotoKitWithResult:(HYAlbumManagerAlbumsListBlock)result
+                                       byType:(HYAlbumFilterType)type
+{
+    NSMutableArray *collections = [NSMutableArray new];
+    
+    switch (type)
+    {
+        case HYAlbumFilterTypeAll:
+        {
+            dispatch_group_t group =  dispatch_group_create();
+            
+            PHFetchResult *fetchResultSmartCameraRoll = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil];
+            
+            if (fetchResultSmartCameraRoll.count > 0)
+            {
+                dispatch_group_enter(group);
+                [fetchResultSmartCameraRoll enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    
+                    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:obj options:nil];
+                    if (result.count != 0)
+                    {
+                        HYAlbum *album = [[HYAlbum alloc] initWithPHCollection:obj];
+                        [collections addObject:album];
+                    }
+                    
+                    if (idx == fetchResultSmartCameraRoll.count - 1)
+                    {
+                        dispatch_group_leave(group);
+                    }
+                    
+                }];
+            }
+            
+            PHFetchResult *fetchResultAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
+            
+            if (fetchResultAlbum.count > 0)
+            {
+                dispatch_group_enter(group);
+                [fetchResultAlbum enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    
+                    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:obj options:nil];
+                    if (result.count != 0)
+                    {
+                        HYAlbum *album = [[HYAlbum alloc] initWithPHCollection:obj];
+                        [collections addObject:album];
+                    }
+                    
+                    if (idx == fetchResultAlbum.count - 1)
+                    {
+                        dispatch_group_leave(group);
+                    }
+                    
+                }];
+            }
+            
+            PHFetchResult *fetchResultSmartRecentlyAdded = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumRecentlyAdded options:nil];
+            
+            if (fetchResultSmartRecentlyAdded.count > 0)
+            {
+                dispatch_group_enter(group);
+                [fetchResultSmartRecentlyAdded enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    
+                    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:obj options:nil];
+                    if (result.count != 0)
+                    {
+                        HYAlbum *album = [[HYAlbum alloc] initWithPHCollection:obj];
+                        [collections addObject:album];
+                    }
+                    
+                    if (idx == fetchResultSmartRecentlyAdded.count - 1)
+                    {
+                        dispatch_group_leave(group);
+                    }
+                    
+                }];
+            }
+            
+            PHFetchResult *fetchResultSmartPanoramas = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumPanoramas options:nil];
+            
+            if (fetchResultSmartPanoramas.count > 0)
+            {
+                dispatch_group_enter(group);
+                [fetchResultSmartPanoramas enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    
+                    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:obj options:nil];
+                    if (result.count != 0)
+                    {
+                        HYAlbum *album = [[HYAlbum alloc] initWithPHCollection:obj];
+                        [collections addObject:album];
+                    }
+                    
+                    if (idx == fetchResultSmartPanoramas.count - 1)
+                    {
+                        dispatch_group_leave(group);
+                    }
+                    
+                }];
+            }
+            
+            dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                
+                result(collections, nil);
+            });
+            
+        }
+        break;
+        case HYAlbumFilterTypeCameraRoll:
+        {
+            
+        }
+        break;
+        default:
+            break;
+    }
+    
+    
+}
+
 
 @end

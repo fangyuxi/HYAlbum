@@ -38,7 +38,7 @@
 {
     [super viewDidLoad];
     
-    self.helper = [[HYImagePickerHelper alloc] init];
+    self.helper = [HYImagePickerHelper sharedHelper];
     
     self.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationBar.translucent = YES;

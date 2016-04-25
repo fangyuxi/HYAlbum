@@ -15,5 +15,6 @@
 @interface HYImagePickerCollectionViewController : UIViewController
 
 - (instancetype)initWithAlbum:(HYAlbum *)album NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
 
 @end
