@@ -56,7 +56,7 @@
         handler(_thumbImage);
     }
     
-    [[HYAlbumImageGenerator sharedGenerator] getThumbImageWithAlbumItem:self imageSize:CGSizeZero result:^(UIImage *image) {
+    [[HYAlbumImageGenerator sharedGenerator] getThumbImageWithAlbumItem:self imageSize:size result:^(UIImage *image) {
        
         _thumbImage = image;
         handler(_thumbImage);

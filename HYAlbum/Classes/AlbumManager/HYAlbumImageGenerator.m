@@ -44,7 +44,16 @@
         return;
     }
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
+    NSInteger retinaMultiplier = [UIScreen mainScreen].scale;
+    CGSize retinaSquare = CGSizeMake(size.width * retinaMultiplier, size.height * retinaMultiplier);
     
+    PHImageRequestOptions *option = [PHImageRequestOptions new];
+    option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    option.resizeMode = PHImageRequestOptionsResizeModeExact;
+    [[PHImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
+        
+        handler(poster);
+    }];
 #else
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         

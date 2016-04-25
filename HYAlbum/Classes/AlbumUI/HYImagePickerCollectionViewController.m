@@ -120,7 +120,7 @@
     cell.imageView.image = nil;
     HYAlbumItem *item = [((HYImagePickerViewController *)self.navigationController).helper.currentPhotos objectAtIndex:indexPath.item];
     
-    [item getThumbImageWithSize:CGSizeZero result:^(UIImage *image) {
+    [item getThumbImageWithSize:collectionView.(UICollectionViewFlowLayout *)collectionViewLayout.itemSize result:^(UIImage *image) {
        
         if (cell.tag == indexPath.item)
         {
