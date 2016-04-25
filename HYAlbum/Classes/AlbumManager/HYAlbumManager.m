@@ -73,7 +73,12 @@
     {
         return;
     }
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
+    [self p_getItemsByPHPhotoKitInAlbum:album.collection result:result];
+#else
     [self p_getItemsByALAssetLibraryInAlbum:album.group result:result];
+#endif
+    
 }
 
 - (void)getItemsInCameraRollWithResult:(HYAlbumManagerAlbumPhotosBlock)result
@@ -273,5 +278,40 @@
     
 }
 
+- (void)p_getItemsByPHPhotoKitInAlbum:(PHAssetCollection *)collection
+                                   result:(HYAlbumManagerAlbumPhotosBlock)handler
+{
+    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:collection options:nil];
+    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:result.count];
+    
+    [result enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        PHAsset *asset = obj;
+        
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
+        if (asset.mediaType == PHAssetMediaTypeImage &&
+            asset.mediaSubtypes != PHAssetMediaSubtypePhotoLive &&
+            asset)
+        {
+            HYAlbumItem *item = [[HYAlbumItem alloc] initWithPHAsset:asset];
+            [items addObject:item];
+        }
+#else
+        if (asset.mediaType == PHAssetMediaTypeImage &&
+            asset)
+        {
+            HYAlbumItem *item = [[HYAlbumItem alloc] initWithPHAsset:asset];
+            [items addObject:item];
+        }
+#endif
+        if (idx == result.count - 1)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+               
+                handler(items, nil);
+            });
+        }
+    }];
+}
 
 @end

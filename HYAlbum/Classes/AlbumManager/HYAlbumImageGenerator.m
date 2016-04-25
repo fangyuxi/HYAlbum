@@ -40,12 +40,14 @@
                          imageSize:(CGSize)size
                             result:(void(^)(UIImage *image))handler
 {
-    if (!item || !item.alAsset) {
+    if (!item) {
         return;
     }
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
     
+#else
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-       
+        
         UIImage *image = [UIImage imageWithCGImage:item.alAsset.aspectRatioThumbnail];
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -54,13 +56,14 @@
             
         });
     });
+#endif
 }
 
 - (void)getPosterThumbImageWithSize:(CGSize)size
                               album:(HYAlbum *)album
                              result:(void(^)(UIImage *image))handler
 {
-    if (!album || !album.collection || CGSizeEqualToSize(size, CGSizeZero)) {
+    if (!album) {
         
         handler(nil);
         return;

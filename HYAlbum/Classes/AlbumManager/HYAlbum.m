@@ -59,6 +59,16 @@
    
 }
 
+- (NSDate *)createDate
+{
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
+    
+    return [self.collection startDate];
+#else
+    return nil;
+#endif
+}
+
 - (NSUInteger)count
 {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
