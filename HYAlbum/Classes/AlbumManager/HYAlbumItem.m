@@ -15,6 +15,11 @@
 
 }
 
+- (void)dealloc
+{
+    
+}
+
 - (instancetype)init
 {
     _thumbImage = nil;

@@ -44,4 +44,7 @@
  */
 @property (nonatomic, assign) NSInteger currentShowItem;
 
+- (void)clearCurrentPhotos;
+- (void)clearAlbums;
+
 @end

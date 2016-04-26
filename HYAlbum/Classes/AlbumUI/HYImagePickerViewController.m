@@ -18,6 +18,10 @@
 
 @implementation HYImagePickerViewController
 
+- (void)dealloc
+{
+    [[HYImagePickerHelper sharedHelper] clearAlbums];
+}
 
 - (instancetype)init
 {

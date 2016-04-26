@@ -25,7 +25,15 @@
 @implementation HYImagePickerCollectionViewController{
 
     UICollectionView *_collectionView;
+    CGSize _itemSize;
 
+}
+
+- (void)dealloc
+{
+    [HYImagePickerHelper sharedHelper].currentShowItem = -1;
+    [HYImagePickerHelper sharedHelper].currentAlbumIndex = -1;
+    [[HYImagePickerHelper sharedHelper] clearCurrentPhotos];
 }
 
 - (instancetype)initWithAlbum:(HYAlbum *)album
@@ -76,7 +84,8 @@
     {
         size -= 1;
     }
-    flowLayout.itemSize = CGSizeMake(size, size);
+    _itemSize = CGSizeMake(size, size);
+    flowLayout.itemSize = _itemSize;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
     _collectionView.delegate = self;
@@ -120,7 +129,7 @@
     cell.imageView.image = nil;
     HYAlbumItem *item = [((HYImagePickerViewController *)self.navigationController).helper.currentPhotos objectAtIndex:indexPath.item];
     
-    [item getThumbImageWithSize:collectionView.(UICollectionViewFlowLayout *)collectionViewLayout.itemSize result:^(UIImage *image) {
+    [item getThumbImageWithSize:_itemSize result:^(UIImage *image) {
        
         if (cell.tag == indexPath.item)
         {

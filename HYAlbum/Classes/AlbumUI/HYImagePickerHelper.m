@@ -42,4 +42,14 @@
     return [self.currentPhotos count];
 }
 
+- (void)clearCurrentPhotos
+{
+    self.currentPhotos = nil;
+}
+
+- (void)clearAlbums
+{
+    self.albums = nil;
+}
+
 @end
