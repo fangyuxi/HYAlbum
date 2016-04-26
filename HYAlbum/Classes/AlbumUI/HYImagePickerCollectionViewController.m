@@ -31,7 +31,7 @@
 
 - (void)dealloc
 {
-    [HYImagePickerHelper sharedHelper].currentShowItem = -1;
+    [HYImagePickerHelper sharedHelper].currentShowItemIndex = -1;
     [HYImagePickerHelper sharedHelper].currentAlbumIndex = -1;
     [[HYImagePickerHelper sharedHelper] clearCurrentPhotos];
 }
@@ -125,18 +125,26 @@
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HYImagePickerCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imagePickerCell" forIndexPath:indexPath];
+    cell.indexPath = indexPath;
     cell.tag = indexPath.item;
-    cell.imageView.image = nil;
+    
     HYAlbumItem *item = [((HYImagePickerViewController *)self.navigationController).helper.currentPhotos objectAtIndex:indexPath.item];
+    
+    if ([[HYImagePickerHelper sharedHelper].selectedItems containsObject:item]) {
+        [cell selectCell];
+    }
+    else{
+        [cell unSelectCell];
+    }
     
     [item getThumbImageWithSize:_itemSize result:^(UIImage *image) {
        
-        if (cell.tag == indexPath.item)
+        if (cell.indexPath == indexPath)
         {
             cell.imageView.image = image;
         }
     }];
-
+    
     return cell;
 }
 

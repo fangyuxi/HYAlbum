@@ -11,5 +11,9 @@
 @interface HYImagePickerCollectionCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+
+- (void)selectCell;
+- (void)unSelectCell;
 
 @end

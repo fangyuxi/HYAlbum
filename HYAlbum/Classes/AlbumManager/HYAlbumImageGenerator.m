@@ -7,7 +7,6 @@
 //
 
 #import "HYAlbumImageGenerator.h"
-#import "HYImagePickerHelper.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
 

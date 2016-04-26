@@ -16,9 +16,5 @@
     "ios": "8.0"
   },
   "source_files": "HYAlbum/Classes/**/*",
-  "resource_bundles": {
-    "HYAlbum": [
-      "HYAlbum/Assets/*.png"
-    ]
-  }
+  "resources": "HYAlbum/Resources/*.{bundle}"
 }

@@ -10,7 +10,7 @@
 
 @implementation HYImagePickerCollectionCell{
 
-    UIView *_placeHolder;
+    UIButton *_selecteButton;
 
 }
 
@@ -21,22 +21,41 @@
     {
         _imageView = [[UIImageView alloc] initWithFrame:self.bounds];
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
-        _imageView.clipsToBounds = YES;
         [self addSubview:_imageView];
         
-        _placeHolder = [[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width - 30, 4, 26, 26)];
-        _placeHolder.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.1];
-        _placeHolder.layer.cornerRadius = 13;
-        _placeHolder.layer.borderColor = [UIColor whiteColor].CGColor;
-        _placeHolder.layer.borderWidth = 1;
-        _placeHolder.userInteractionEnabled = NO;
-        [self addSubview:_placeHolder];
         
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapCell:)];
-//        [self addGestureRecognizer:tap];
+        _selecteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_selecteButton setBackgroundColor:[UIColor redColor]];
+        _selecteButton.frame = CGRectMake(frame.size.width - 24, 4, 20, 20);
+        [_selecteButton addTarget:self action:@selector(selectButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self addSubview:_selecteButton];
+        
         return self;
     }
     return nil;
+}
+
+
+- (void)selectButtonClick:(UIButton *)button
+{
+    if (button.selected) {
+        [self unSelectCell];
+    }
+    else{
+        [self selectCell];
+    }
+}
+
+
+- (void)selectCell
+{
+    
+}
+
+- (void)unSelectCell
+{
+    
 }
 
 @end

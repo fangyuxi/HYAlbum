@@ -16,23 +16,39 @@
 
 @end
 
-@implementation HYImagePickerViewController
+@implementation HYImagePickerViewController{
+
+    NSInteger _maxSelectedAlow;
+}
 
 - (void)dealloc
 {
     [[HYImagePickerHelper sharedHelper] clearAlbums];
+    [[HYImagePickerHelper sharedHelper] removeAllSelected];
 }
 
 - (instancetype)init
 {
-    return [self initWithRootViewController:[HYImagePickerAlbumViewController new]];
+    return [self initWithRootViewController:[[HYImagePickerAlbumViewController alloc] init]];
 }
 
 - (instancetype)initWithRootViewController:(UIViewController *)rootViewController
 {
-    self = [super initWithRootViewController:[HYImagePickerAlbumViewController new]];
+    self = [super initWithRootViewController:[[HYImagePickerAlbumViewController alloc] init]];
     if (self)
     {
+        _maxSelectedAlow = 9;
+        return self;
+    }
+    return nil;
+}
+
+- (instancetype)initWithMaxSelectedAllow:(NSInteger)maxSelectedAlow
+{
+    self = [super initWithRootViewController:[[HYImagePickerAlbumViewController alloc] init]];
+    if (self)
+    {
+        _maxSelectedAlow = maxSelectedAlow;
         return self;
     }
     return nil;
@@ -43,6 +59,7 @@
     [super viewDidLoad];
     
     self.helper = [HYImagePickerHelper sharedHelper];
+    self.helper.maxSelectedCountAllow = _maxSelectedAlow;
     
     self.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationBar.translucent = YES;
