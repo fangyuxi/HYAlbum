@@ -38,5 +38,16 @@
                          imageSize:(CGSize)size
                             result:(void(^)(UIImage *image))handler;
 
+/**
+ *  获取指定尺寸的全屏预览图
+ *
+ *  @param item    item
+ *  @param size    size
+ *  @param handler handler 运行在主线程中
+ */
+- (void)getFullPreViewImageWithAlbumItem:(HYAlbumItem *)item
+                               imageSize:(CGSize)size
+                                  result:(void(^)(UIImage *image))handler;
+
 
 @end

@@ -66,10 +66,10 @@
     self.selectedItems = [NSMutableArray array];
 }
 
-- (void)addSelectedItem:(HYAlbumItem *)item
+- (BOOL)addSelectedItem:(HYAlbumItem *)item
 {
     if (!item) {
-        return;
+        return NO;
     }
     
     if (self.maxSelectedCountAllow == [self.selectedItems count])
@@ -81,10 +81,11 @@
                                               otherButtonTitles:nil, nil];
         [alert show];
         
-        return;
+        return NO;
     }
     
     [self.selectedItems addObject:item];
+    return YES;
 }
 
 - (void)deleteSelectedItem:(HYAlbumItem *)item

@@ -7,6 +7,7 @@
 //
 
 #import "HYImagePickerCollectionViewController.h"
+#import "HYImagePickerPhotoBrowserViewController.h"
 #import "HYImagePickerCollectionCell.h"
 #import "HYAlbum.h"
 #import "HYAlbumItem.h"
@@ -148,5 +149,24 @@
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView
+            didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [HYImagePickerHelper sharedHelper].currentShowItemIndex = indexPath.item;
+    HYImagePickerPhotoBrowserViewController *controller = [[HYImagePickerPhotoBrowserViewController alloc] initWithBrowserType:HYAlbumPhotoBrowserTypeNormal];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 
 @end
+
+
+
+
+
+
+
+
+
+
+

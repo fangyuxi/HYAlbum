@@ -49,9 +49,11 @@
     else
     {
         HYAlbumItem *item = [[HYImagePickerHelper sharedHelper].currentPhotos objectAtIndex:self.indexPath.item];
-        [[HYImagePickerHelper sharedHelper] addSelectedItem:item];
         
-        [self selectCell];
+        if([[HYImagePickerHelper sharedHelper] addSelectedItem:item])
+        {
+            [self selectCell];
+        }
     }
 }
 

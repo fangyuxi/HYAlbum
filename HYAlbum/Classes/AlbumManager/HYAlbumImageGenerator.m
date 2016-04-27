@@ -101,10 +101,44 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        handler([UIImage imageWithCGImage:self.group.posterImage]);
+        handler([UIImage imageWithCGImage:album.group.posterImage]);
     });
     
 #endif
+}
+
+- (void)getFullPreViewImageWithAlbumItem:(HYAlbumItem *)item
+                               imageSize:(CGSize)size
+                                  result:(void(^)(UIImage *image))handler
+{
+    if (!item) {
+        handler(nil);
+        return;
+    }
+    
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
+    
+    NSInteger retinaMultiplier = [UIScreen mainScreen].scale;
+    CGSize retinaSquare = CGSizeMake(size.width * retinaMultiplier, size.height * retinaMultiplier);
+    
+    PHImageRequestOptions *option = [PHImageRequestOptions new];
+    option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    option.resizeMode = PHImageRequestOptionsResizeModeExact;
+    [[PHImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
+        
+        handler(poster);
+    }];
+    
+#else
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        handler([UIImage imageWithCGImage:item.alAsset.defaultRepresentation.fullResolutionImage]);
+    });
+    
+#endif
+    
+    
 }
 
 @end

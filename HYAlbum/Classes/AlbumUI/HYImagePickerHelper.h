@@ -61,7 +61,7 @@
  *
  *  @param item item
  */
-- (void)addSelectedItem:(HYAlbumItem *)item;
+- (BOOL)addSelectedItem:(HYAlbumItem *)item;
 
 /**
  *  取消选中
