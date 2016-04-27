@@ -32,8 +32,6 @@
 
 @property (nonatomic, assign, readonly) CGSize dimensions;
 
-@property (nonatomic, assign, readonly) long long fileSize;
-
 @property (nonatomic, strong, readonly) NSDate *createDate;
 
 @property (nonatomic, strong, readonly) NSDate *moditionDate;

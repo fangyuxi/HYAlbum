@@ -7,6 +7,7 @@
 //
 
 #import "HYImagePickerCollectionCell.h"
+#import "HYImagePickerHelper.h"
 
 @implementation HYImagePickerCollectionCell{
 
@@ -39,10 +40,17 @@
 
 - (void)selectButtonClick:(UIButton *)button
 {
-    if (button.selected) {
+    if (button.selected)
+    {
+        HYAlbumItem *item = [[HYImagePickerHelper sharedHelper].currentPhotos objectAtIndex:self.indexPath.item];
+        [[HYImagePickerHelper sharedHelper] deleteSelectedItem:item];
         [self unSelectCell];
     }
-    else{
+    else
+    {
+        HYAlbumItem *item = [[HYImagePickerHelper sharedHelper].currentPhotos objectAtIndex:self.indexPath.item];
+        [[HYImagePickerHelper sharedHelper] addSelectedItem:item];
+        
         [self selectCell];
     }
 }
@@ -50,12 +58,27 @@
 
 - (void)selectCell
 {
+    if (_selecteButton.selected) {
+        return;
+    }
     
+    _selecteButton.selected = YES;
+    _selecteButton.backgroundColor = [UIColor blueColor];
 }
 
 - (void)unSelectCell
 {
+    if (!_selecteButton.selected) {
+        return;
+    }
     
+    _selecteButton.selected = NO;
+    _selecteButton.backgroundColor = [UIColor redColor];
 }
 
 @end
+
+
+
+
+

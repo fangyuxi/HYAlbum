@@ -74,6 +74,13 @@
     
     if (self.maxSelectedCountAllow == [self.selectedItems count])
     {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:@"超过选图最大限制"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"好的"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
+        
         return;
     }
     

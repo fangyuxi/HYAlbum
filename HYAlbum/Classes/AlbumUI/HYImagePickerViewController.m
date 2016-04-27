@@ -59,7 +59,7 @@
     [super viewDidLoad];
     
     self.helper = [HYImagePickerHelper sharedHelper];
-    self.helper.maxSelectedCountAllow = _maxSelectedAlow;
+    self.helper.maxSelectedCountAllow = 9;
     
     self.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationBar.translucent = YES;
