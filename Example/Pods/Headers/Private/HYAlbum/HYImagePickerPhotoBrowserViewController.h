@@ -1,1 +1,1 @@
-../../../../../HYAlbum/Classes/AlbumUI/HYImagePickerPhotoBrowserViewController.h
+../../../../../Pod/Classes/AlbumUI/HYImagePickerPhotoBrowserViewController.h

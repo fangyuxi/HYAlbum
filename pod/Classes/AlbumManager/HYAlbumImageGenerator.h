@@ -50,4 +50,6 @@
                                   result:(void(^)(UIImage *image))handler;
 
 
+- (void)clearMemory;
+
 @end

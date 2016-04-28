@@ -1,1 +1,1 @@
-../../../../../HYAlbum/Classes/AlbumManager/HYAlbumImageGenerator.h
+../../../../../Pod/Classes/AlbumManager/HYAlbumImageGenerator.h

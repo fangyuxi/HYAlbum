@@ -29,8 +29,8 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'HYAlbum/Classes/**/*'
-s.resources = 'HYAlbum/Resources/*.{bundle}'
+  s.source_files = 'Pod/Classes/**/*'
+s.resources = 'Pod/Resources/*.{bundle}'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

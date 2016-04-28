@@ -1,1 +1,1 @@
-../../../../../HYAlbum/Classes/AlbumManager/HYAlbumConstant.h
+../../../../../Pod/Classes/AlbumManager/HYAlbumConstant.h

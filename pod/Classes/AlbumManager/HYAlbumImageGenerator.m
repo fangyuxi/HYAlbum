@@ -9,10 +9,11 @@
 #import "HYAlbumImageGenerator.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
+#import "HYMemoryCache.h"
 
 @implementation HYAlbumImageGenerator{
 
-
+    HYMemoryCache *_cache;
 }
 
 + (HYAlbumImageGenerator *)sharedGenerator
@@ -30,6 +31,7 @@
     self = [super init];
     if (self)
     {
+        _cache = [[HYMemoryCache alloc] initWithName:@"com.HYAlbum.ImageCache"];
         return self;
     }
     return nil;
@@ -116,6 +118,12 @@
         return;
     }
     
+    UIImage *poster = [_cache objectForKey:item.identifier];
+    if (poster) {
+        handler(poster);
+        return;
+    }
+    
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
     
     NSInteger retinaMultiplier = [UIScreen mainScreen].scale;
@@ -125,6 +133,10 @@
     option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
     option.resizeMode = PHImageRequestOptionsResizeModeExact;
     [[PHImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
+        
+        [_cache setObject:poster forKey:item.identifier withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
+            
+        }];
         
         handler(poster);
     }];
@@ -139,6 +151,13 @@
 #endif
     
     
+}
+
+- (void)clearMemory
+{
+    [_cache removeAllObjectWithBlock:^(HYMemoryCache * _Nonnull cache) {
+        
+    }];
 }
 
 @end

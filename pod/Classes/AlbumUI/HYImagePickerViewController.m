@@ -9,6 +9,7 @@
 #import "HYImagePickerViewController.h"
 #import "HYImagePickerAlbumViewController.h"
 #import "HYImagePickerHelper.h"
+#import "HYAlbumImageGenerator.h"
 
 @interface HYImagePickerViewController ()
 
@@ -25,6 +26,7 @@
 {
     [[HYImagePickerHelper sharedHelper] clearAlbums];
     [[HYImagePickerHelper sharedHelper] removeAllSelected];
+    [[HYAlbumImageGenerator sharedGenerator] clearMemory];
 }
 
 - (instancetype)init

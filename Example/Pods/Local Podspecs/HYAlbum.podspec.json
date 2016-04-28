@@ -15,6 +15,6 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "HYAlbum/Classes/**/*",
-  "resources": "HYAlbum/Resources/*.{bundle}"
+  "source_files": "Pod/Classes/**/*",
+  "resources": "Pod/Resources/*.{bundle}"
 }

@@ -11,6 +11,7 @@
 #import "HYImagePickerHelper.h"
 #import "HYImagePickerPhotoBrowserViewController.h"
 #import "HYImagePickerViewController.h"
+#import "HYImagePickerZoomView.h"
 
 FOUNDATION_EXPORT double HYAlbumVersionNumber;
 FOUNDATION_EXPORT const unsigned char HYAlbumVersionString[];

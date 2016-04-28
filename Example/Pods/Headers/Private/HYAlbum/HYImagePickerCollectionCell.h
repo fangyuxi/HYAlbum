@@ -1,1 +1,1 @@
-../../../../../HYAlbum/Classes/AlbumUI/HYImagePickerCollectionCell.h
+../../../../../Pod/Classes/AlbumUI/HYImagePickerCollectionCell.h
