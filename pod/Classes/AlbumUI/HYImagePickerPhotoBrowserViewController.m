@@ -12,7 +12,7 @@
 
 #define HYImagePickerZoomViewTag 100
 
-@interface HYImagePickerPhotoBrowserViewController()<UIScrollViewDelegate>
+@interface HYImagePickerPhotoBrowserViewController()<UIScrollViewDelegate, HYImagePickerZoomViewDelegate>
 
 @end
 
@@ -20,6 +20,7 @@
 
     UIScrollView *_scrollView;
     HYAlbumPhotoBrowserType _browserType;
+    BOOL _hidenStatusBar;
 }
 
 - (void)dealloc
@@ -33,6 +34,8 @@
     if (self)
     {
         _browserType = browserType;
+        _hidenStatusBar = NO;
+        
         self.automaticallyAdjustsScrollViewInsets = NO;
         self.extendedLayoutIncludesOpaqueBars = YES;
         
@@ -104,7 +107,7 @@
     {
         return;
     }
-    if (pageNum >= [[HYImagePickerHelper sharedHelper].currentPhotos count])
+    if (pageNum >= [self p_numberOfBrowserPhoto])
     {
         return;
     }
@@ -114,6 +117,7 @@
     if (zoomView == nil)
     {
         zoomView = [[HYImagePickerZoomView alloc] initWithFrame:CGRectMake(_scrollView.frame.size.width*pageNum, 0, _scrollView.frame.size.width, _scrollView.frame.size.height)];
+        zoomView.tapDelegate = self;
         [_scrollView addSubview:zoomView];
          zoomView.tag = pageNum + HYImagePickerZoomViewTag;
         [zoomView fetchWithItemIndex:pageNum];
@@ -131,7 +135,7 @@
     {
         return;
     }
-    if (pageNum >= [[HYImagePickerHelper sharedHelper].currentPhotos count])
+    if (pageNum >= [self p_numberOfBrowserPhoto])
     {
         return;
     }
@@ -151,7 +155,7 @@
     {
         return;
     }
-    
+
     NSInteger page = floor((scrollView.contentOffset.x - scrollView.frame.size.width / 2) / scrollView.frame.size.width) + 1;
     
     [HYImagePickerHelper sharedHelper].currentShowItemIndex = page;
@@ -162,6 +166,42 @@
     [self p_fetchZoomViewWithPageNum:[HYImagePickerHelper sharedHelper].currentShowItemIndex];
     [self p_fetchZoomViewWithPageNum:[HYImagePickerHelper sharedHelper].currentShowItemIndex - 1];
     [self p_fetchZoomViewWithPageNum:[HYImagePickerHelper sharedHelper].currentShowItemIndex + 1];
+}
+
+#pragma mark notification 
+
+- (void)HYImagePickerZoomViewTapped:(HYImagePickerZoomView *)view
+{
+    if (self.navigationController.navigationBarHidden)
+    {
+        _hidenStatusBar = NO;
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            
+            [self setNeedsStatusBarAppearanceUpdate];
+        }];
+        
+        
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    }
+    else
+    {
+        _hidenStatusBar = YES;
+        [UIView animateWithDuration:0.2 animations:^{
+            
+            [self setNeedsStatusBarAppearanceUpdate];
+        }];
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+- (BOOL)prefersStatusBarHidden
+{
+    return _hidenStatusBar;
 }
 
 @end

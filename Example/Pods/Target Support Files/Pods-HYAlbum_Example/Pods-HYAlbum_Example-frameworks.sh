@@ -82,12 +82,3 @@ strip_invalid_archs() {
   fi
 }
 
-
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-HYAlbum_Example/HYAlbum.framework"
-  install_framework "Pods-HYAlbum_Example/HYCache.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-HYAlbum_Example/HYAlbum.framework"
-  install_framework "Pods-HYAlbum_Example/HYCache.framework"
-fi

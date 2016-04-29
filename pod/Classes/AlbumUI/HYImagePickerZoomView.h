@@ -8,14 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class HYImagePickerZoomView;
+
+@protocol HYImagePickerZoomViewDelegate <NSObject>
+
+- (void)HYImagePickerZoomViewTapped:(HYImagePickerZoomView *)view;
+
+@end
+
 @interface HYImagePickerZoomView : UIScrollView
 {
     
 }
 
-@property (nonatomic, assign, getter=isShow) BOOL show;
-
 - (void)fetchWithItemIndex:(NSInteger)index;
 - (void)ressetZoomView;
+
+@property (nonatomic, weak) id<HYImagePickerZoomViewDelegate> tapDelegate;
 
 @end

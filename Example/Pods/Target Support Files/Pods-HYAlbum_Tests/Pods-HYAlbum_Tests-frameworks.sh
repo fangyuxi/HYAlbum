@@ -82,18 +82,3 @@ strip_invalid_archs() {
   fi
 }
 
-
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-HYAlbum_Tests/HYAlbum.framework"
-  install_framework "Pods-HYAlbum_Tests/Expecta.framework"
-  install_framework "Pods-HYAlbum_Tests/Expecta_Snapshots.framework"
-  install_framework "Pods-HYAlbum_Tests/FBSnapshotTestCase.framework"
-  install_framework "Pods-HYAlbum_Tests/Specta.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-HYAlbum_Tests/HYAlbum.framework"
-  install_framework "Pods-HYAlbum_Tests/Expecta.framework"
-  install_framework "Pods-HYAlbum_Tests/Expecta_Snapshots.framework"
-  install_framework "Pods-HYAlbum_Tests/FBSnapshotTestCase.framework"
-  install_framework "Pods-HYAlbum_Tests/Specta.framework"
-fi

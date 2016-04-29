@@ -76,6 +76,11 @@
     if (!handler) {
         return;
     }
+    
+    [[HYAlbumImageGenerator sharedGenerator] getFullPreViewImageWithAlbumItem:self imageSize:size result:^(UIImage *image) {
+       
+        handler(image);
+    }];
 }
 
 - (void)getFullResolutionImageWithSize:(CGSize)size
@@ -84,6 +89,7 @@
     if (!handler) {
         return;
     }
+    
 }
 
 #pragma mark getters
@@ -106,7 +112,14 @@
 
 - (CGSize)dimensions
 {
-    return CGSizeZero;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
+    
+    CGSize size = CGSizeMake(self.phAsset.pixelWidth, self.phAsset.pixelHeight);
+    return size;
+#else
+    
+    return self.alAsset.defaultRepresentation.dimensions;
+#endif
 }
 
 #pragma mark equal

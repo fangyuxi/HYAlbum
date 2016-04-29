@@ -50,6 +50,9 @@
                                   result:(void(^)(UIImage *image))handler;
 
 
+/**
+ *  清空缓存
+ */
 - (void)clearMemory;
 
 @end

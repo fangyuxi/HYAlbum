@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/AlbumManager/HYAlbumManager.h
