@@ -15,11 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HYCache : NSObject
 
 /**
- *  Default memCache
+ *  内存缓存 可配置
  */
 @property (nonatomic, readonly) HYMemoryCache *memCache;
 /**
- *  Default diskCache
+ *  闪存缓存 可配置
  */
 @property (nonatomic, readonly) HYDiskCache *diskCache;
 
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  存储Object 会阻塞线程
  *
  *  @param key    key
- *  @param inDisk 是否存储在disk中 默认NO
+ *  @param inDisk 是否存储在disk中
  */
 - (void)setObject:(id<NSCoding>)object
            forKey:(NSString *)key
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  存储Object 不阻塞线程，存储完毕回调block
  *
  *  @param key    key
- *  @param inDisk 是否存储在disk中 默认NO
+ *  @param inDisk 是否存储在disk中
  *  @param block  block
  */
 - (void)setObject:(id<NSCoding>)object

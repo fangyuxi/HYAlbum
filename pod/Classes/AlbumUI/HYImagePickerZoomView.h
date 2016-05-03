@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HYAlbumItem.h"
 
 @class HYImagePickerZoomView;
 
@@ -21,7 +22,8 @@
     
 }
 
-- (void)fetchWithItemIndex:(NSInteger)index;
+- (void)fetchImageWithItem:(HYAlbumItem *)item;
+
 - (void)ressetZoomView;
 
 @property (nonatomic, weak) id<HYImagePickerZoomViewDelegate> tapDelegate;

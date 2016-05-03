@@ -394,11 +394,11 @@ inline void _p_removeItem(NSString *key, _HYDiskCacheItemLinkMap *map, _HYDiskCa
 - (BOOL)_removeValueForKey:(NSString *)key
 {
     if (key.length == 0 || ![key isKindOfClass:[NSString class]])
-        return nil;
+        return NO;
     
     _HYDiskCacheItem *item = _p_itemForKey(key, _lruMap);
     if (!item)
-        return nil;
+        return NO;
     
     _p_removeItem(key, _lruMap, item);
     return [self _p_fileDeleteWithName:item->fileName];
@@ -742,10 +742,6 @@ void _p_removeItem(NSString *key, _HYDiskCacheItemLinkMap *map, _HYDiskCacheItem
     
     lock();
     [_storage _saveCacheValue:data key:key];
-    unLock();
-    
-    lock();
-    
     unLock();
     
     if (self.totalByteCostNow >= self.byteCostLimit)

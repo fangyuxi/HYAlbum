@@ -106,6 +106,7 @@
        
         cell.imageView.image = image;
         [cell setNeedsLayout];
+        
     }];
     
     cell.textLabel.text = album.albumTitle;
@@ -130,5 +131,18 @@
     HYImagePickerCollectionViewController *controller = [[HYImagePickerCollectionViewController alloc] initWithAlbum:album];
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+
+#pragma mark rotate
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 
 @end

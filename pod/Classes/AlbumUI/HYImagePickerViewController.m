@@ -68,4 +68,15 @@
     self.navigationBar.tintColor = [UIColor whiteColor];
 }
 
+#pragma mark rotate
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 @end

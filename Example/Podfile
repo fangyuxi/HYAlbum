@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'HYAlbum_Example', :exclusive => true do
   pod 'HYAlbum', :path => '../'
-  pod 'HYCache', '~> 0.1'
+  pod 'HYCache', '~> 0.3'
 end
 
 target 'HYAlbum_Tests', :exclusive => true do

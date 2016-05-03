@@ -21,6 +21,7 @@
     UIScrollView *_scrollView;
     HYAlbumPhotoBrowserType _browserType;
     BOOL _hidenStatusBar;
+    NSInteger _nowPageNum;
 }
 
 - (void)dealloc
@@ -47,22 +48,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor blackColor];
     
     [self p_createScrollView];
-    [self p_fetchZoomViewWithPageNum:[HYImagePickerHelper sharedHelper].currentShowItemIndex];
-    [self p_fetchZoomViewWithPageNum:[HYImagePickerHelper sharedHelper].currentShowItemIndex - 1];
-    [self p_fetchZoomViewWithPageNum:[HYImagePickerHelper sharedHelper].currentShowItemIndex + 1];
     
-    if ([HYImagePickerHelper sharedHelper].currentShowItemIndex != 0) {
+    [self p_updatePageNum:0];
+    [self p_fetchZoomViewWithPageNum:_nowPageNum];
+    [self p_fetchZoomViewWithPageNum:_nowPageNum - 1];
+    [self p_fetchZoomViewWithPageNum:_nowPageNum + 1];
+    
+    if (_nowPageNum != 0) {
         
-        [_scrollView setContentOffset:CGPointMake([HYImagePickerHelper sharedHelper].currentShowItemIndex * _scrollView.frame.size.width, 0)];
+        [_scrollView setContentOffset:CGPointMake(_nowPageNum * _scrollView.frame.size.width, 0)];
     }
-}
-
-- (void)backAction
-{
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    if (_browserType == HYAlbumPhotoBrowserTypeNormal)
+    {
+        self.title = @"照片";
+    }
+    else
+    {
+        self.title = @"预览";
+    }
 }
 
 - (void)p_createScrollView
@@ -97,6 +105,32 @@
 }
 
 /**
+ *  根据预览类型返回item
+ *
+ *  @param pageNum pageNum
+ *
+ *  @return item
+ */
+- (HYAlbumItem *)p_itemAtPageNum:(NSInteger)pageNum
+{
+    HYAlbumItem *item = _browserType == HYAlbumPhotoBrowserTypeNormal ? [[HYImagePickerHelper sharedHelper].currentPhotos objectAtIndex:pageNum] : [[HYImagePickerHelper sharedHelper].selectedItems objectAtIndex:pageNum];
+    return item;
+}
+
+/**
+ *  更新当前显示的Photo index
+ *
+ *  @param pageNum pageNum
+ */
+- (void)p_updatePageNum:(NSInteger)pageNum
+{
+    _nowPageNum = pageNum;
+    if (_browserType == HYAlbumPhotoBrowserTypeNormal) {
+        [HYImagePickerHelper sharedHelper].currentShowItemIndex = pageNum;
+    }
+}
+
+/**
  *  在指定页码处添加ZoomView
  *
  *  @param pageNum pageNum
@@ -120,7 +154,8 @@
         zoomView.tapDelegate = self;
         [_scrollView addSubview:zoomView];
          zoomView.tag = pageNum + HYImagePickerZoomViewTag;
-        [zoomView fetchWithItemIndex:pageNum];
+        
+        [zoomView fetchImageWithItem:[self p_itemAtPageNum:pageNum]];
     }
 }
 
@@ -156,16 +191,16 @@
         return;
     }
 
-    NSInteger page = floor((scrollView.contentOffset.x - scrollView.frame.size.width / 2) / scrollView.frame.size.width) + 1;
+    NSInteger pageNum = floor((scrollView.contentOffset.x - scrollView.frame.size.width / 2) / scrollView.frame.size.width) + 1;
     
-    [HYImagePickerHelper sharedHelper].currentShowItemIndex = page;
+    [self p_updatePageNum:pageNum];
     
-    [self p_removeZoomViewWithPageNum:[HYImagePickerHelper sharedHelper].currentShowItemIndex - 2];
-    [self p_removeZoomViewWithPageNum:[HYImagePickerHelper sharedHelper].currentShowItemIndex + 2];
+    [self p_removeZoomViewWithPageNum:_nowPageNum - 2];
+    [self p_removeZoomViewWithPageNum:_nowPageNum + 2];
     
-    [self p_fetchZoomViewWithPageNum:[HYImagePickerHelper sharedHelper].currentShowItemIndex];
-    [self p_fetchZoomViewWithPageNum:[HYImagePickerHelper sharedHelper].currentShowItemIndex - 1];
-    [self p_fetchZoomViewWithPageNum:[HYImagePickerHelper sharedHelper].currentShowItemIndex + 1];
+    [self p_fetchZoomViewWithPageNum:_nowPageNum];
+    [self p_fetchZoomViewWithPageNum:_nowPageNum - 1];
+    [self p_fetchZoomViewWithPageNum:_nowPageNum + 1];
 }
 
 #pragma mark notification 
