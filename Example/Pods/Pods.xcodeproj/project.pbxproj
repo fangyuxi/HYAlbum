@@ -15,15 +15,15 @@
 		08AE347C00751043430C4C6895229E12 /* SPTTestSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4EB08052AA819F0A273CD4EDB4F73 /* SPTTestSuite.m */; };
 		098916B080322508F87874D4D5FC6BE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
 		09EC795B02C29B78AD7E7F8C0D02D0C6 /* SPTSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = FBC43DAEC379A100D48E346E15267487 /* SPTSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0B321FEB5BE5353308CEEAF3BD76B3E5 /* HYImagePickerPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C67589789598DE1159065CD1224FA32 /* HYImagePickerPhotoBrowserViewController.m */; };
+		0B321FEB5BE5353308CEEAF3BD76B3E5 /* HYImagePickerPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E80B7A1E995D270C4186C5EE23BCF081 /* HYImagePickerPhotoBrowserViewController.m */; };
 		0D60E2C1B560C81C72D0CD239536A6FB /* SPTSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6BC2810306608D9FFC6084C87D84D9 /* SPTSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0D927F28D7764D8603D4005BC3095E51 /* HYAlbumImageGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = BE24943D456475C2DA71E457AC95CBF8 /* HYAlbumImageGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D927F28D7764D8603D4005BC3095E51 /* HYAlbumImageGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = E61DE5214148EFD666538E17216984DB /* HYAlbumImageGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		104AFE24D01F1C4495926B40B53C5945 /* EXPExpect.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F6C44BA31F6B98F05C29D03C8D37 /* EXPExpect.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		11CF0C44A36897A963C15B74C2AEC415 /* ExpectaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3FD79B5D653CC3EEBF8E97556F032 /* ExpectaObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		12E1ECDE22B1F28D772D1D4122B5E229 /* SPTSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC90C2F8D549A405B3CBE7C99CB7D25 /* SPTSharedExampleGroups.m */; };
 		14C609D8F203FD45194E93997EFF744E /* EXPMatchers+beSubclassOf.h in Headers */ = {isa = PBXBuildFile; fileRef = D949841A1221D9A000E404C449779ECF /* EXPMatchers+beSubclassOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1E44B8318733F47BBA3FF67CCB517152 /* HYAlbumConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C2F310A142B0D07848CB9DB87C72B4C /* HYAlbumConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21D59C494507CD328A59D0CDDF027A70 /* HYImagePickerZoomView.h in Headers */ = {isa = PBXBuildFile; fileRef = 063D3C16EADE235E8AD3201E1A38E336 /* HYImagePickerZoomView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E44B8318733F47BBA3FF67CCB517152 /* HYAlbumConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ED5F5214A036473C2E2FEBB6AD84237 /* HYAlbumConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21D59C494507CD328A59D0CDDF027A70 /* HYImagePickerZoomView.h in Headers */ = {isa = PBXBuildFile; fileRef = D37CC1E96E117BBB8F0CA1B0666222C8 /* HYImagePickerZoomView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2239B5E63C5D2C1323D66F489F075C42 /* EXPMatchers+match.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCA5D5EE4C475613EAEAC8B9922885D /* EXPMatchers+match.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		237FB063FB365119546C7B5006224F3B /* EXPMatchers+haveCountOf.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FF312516B18F0DAD1E9D5D091B3E7BB /* EXPMatchers+haveCountOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		240F8F2CB515CBB8748A70317B3C39E0 /* HYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EF96DD0170404B013BA441637C828D /* HYMemoryCache.m */; };
@@ -33,7 +33,7 @@
 		2A17721E4A81DB608CA6D4FB6F0ADAFB /* EXPExpect.h in Headers */ = {isa = PBXBuildFile; fileRef = 537457FF9CE176B4258129366409F7D4 /* EXPExpect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2C8EA6A6DEA24A66B50BD939D8601E25 /* XCTest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 690FAF1B597DB7CAF30DD13D5A961FF0 /* XCTest+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F9D3747596E4E074C3B776949091047 /* EXPMatchers+beInstanceOf.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CEA05ED59AB912BF00C4CD9D4186E4 /* EXPMatchers+beInstanceOf.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		31BB6A69D78E7EEFF3F73D3D598EBDC8 /* HYImagePickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C4265BB56A749EDAFE29827E9B0A48 /* HYImagePickerCollectionViewController.m */; };
+		31BB6A69D78E7EEFF3F73D3D598EBDC8 /* HYImagePickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4920F73A67848048F63A90827808E50E /* HYImagePickerCollectionViewController.m */; };
 		339A0C1BFF72397A705959E03877DDDB /* EXPMatchers+postNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 61968563B3DA65A9104570DAD854B9C0 /* EXPMatchers+postNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		341D7536159B52F41598F730CC45D548 /* EXPFloatTuple.h in Headers */ = {isa = PBXBuildFile; fileRef = 9293E1AADCB1A0DE24E3C1A2B02FAF5F /* EXPFloatTuple.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		350DFB1E96F434ABFD93A025BDDE4D39 /* SpectaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 873C598BC82B83B880FCD1739E61E4B4 /* SpectaUtility.m */; };
@@ -45,8 +45,8 @@
 		430CE433DB59FE090A8CC6AFCFA43337 /* EXPMatchers+equal.h in Headers */ = {isa = PBXBuildFile; fileRef = FB934175F3981ACBC61CA72FD1E97DDC /* EXPMatchers+equal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4383E0DB1B07B9EB3155EF5D5F27C7BA /* ExpectaSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2108AEF63688219D0372E87706FCE0 /* ExpectaSupport.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		43A1104CA0C628C2F693902EADA32B8C /* EXPMatchers+beLessThanOrEqualTo.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EA406E18251CCA6F3523652813AC69 /* EXPMatchers+beLessThanOrEqualTo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		45989F297001D8BC5372B8099FDA87BC /* HYAlbumItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4FFE0841BBC46CB19462C530B8C613 /* HYAlbumItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		45A0C94E88B8B096B935BE72FA394BEF /* HYImagePickerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 68F04A3B8B98440230F946A27E1F9D5C /* HYImagePickerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45989F297001D8BC5372B8099FDA87BC /* HYAlbumItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 59C724C9C5D16325E60708DE68756FA4 /* HYAlbumItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45A0C94E88B8B096B935BE72FA394BEF /* HYImagePickerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 46CA32AF26E17256D2AD0FA406DF64B5 /* HYImagePickerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		462831D14472BA5B0788F656EA017496 /* HYMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = DB2F2DB9DC1C0A9AD757ABC04CD2F4FE /* HYMemoryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46F312CBB94BAE62B58D3D7AE28E8DBD /* EXPMatchers+contain.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B19944D27D89F49B773CC838170DC1 /* EXPMatchers+contain.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		48724D4E8BB548599E36DC45D3B47DEE /* XCTestCase+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE48770587FA5D8D8EE00BB3FC985C9 /* XCTestCase+Specta.m */; };
@@ -63,7 +63,7 @@
 		5E8F33E777456DA63CA2D902508A9058 /* EXPMatchers+beTruthy.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD8360DDB137BA087C583382B4B6E1C /* EXPMatchers+beTruthy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5F6D96E64F890BDC4A75B73C3D50A0DD /* EXPMatchers+beCloseTo.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3397F01FCB750D3DF800CE907366A /* EXPMatchers+beCloseTo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60D3CCEB5B53542228790ABD8885AF42 /* NSValue+Expecta.h in Headers */ = {isa = PBXBuildFile; fileRef = 8674A29421CC612BF852A83BA3DBE594 /* NSValue+Expecta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		624A8D2814A4F267135CE6F87E0C28E1 /* HYImagePickerAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359D0045778010FFF18A493BD8AD59 /* HYImagePickerAlbumViewController.m */; };
+		624A8D2814A4F267135CE6F87E0C28E1 /* HYImagePickerAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FCC7F1DBF107501A32DE340386D44B /* HYImagePickerAlbumViewController.m */; };
 		63909A562255C79A871ACEF65F7E8341 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
 		63D0CD4F0FB5A6103E1DDB46E876CBB6 /* EXPMatchers+beKindOf.m in Sources */ = {isa = PBXBuildFile; fileRef = 419D04B9DEDB6F56EFBF0759D48DFC7C /* EXPMatchers+beKindOf.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		66081D3480D1FA028C4DE2344BF616D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
@@ -77,35 +77,35 @@
 		6FD64335123350776647F0D995C56FCD /* SPTExcludeGlobalBeforeAfterEach.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BD70E26C6CDC8DF4B68BC36F51A7A4 /* SPTExcludeGlobalBeforeAfterEach.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70545E4EA86C6E593A2A9F6731DA8F6D /* EXPMatchers+beTruthy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2074104BE8305219A6F2DA7C4CF6B2C6 /* EXPMatchers+beTruthy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70E2E42634691AA4111355DC056A73F5 /* XCTestCase+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = F94AB793708C73F2F45EF72FA1BAB3B2 /* XCTestCase+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		73621293DB865AB38DD9CBAC5A07C32D /* HYAlbumManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 82CD91AF96D48EFC7657A567AFD93C50 /* HYAlbumManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		73621293DB865AB38DD9CBAC5A07C32D /* HYAlbumManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DA5F2A73AF2695DB6BAD1FAECEBC991E /* HYAlbumManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7436C602BB1CA7C91560C28DE749357B /* EXPMatchers+beInTheRangeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7C8CC645C3CC55DBFA58C272BBE0E5 /* EXPMatchers+beInTheRangeOf.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		74707D5ABEC55B3084F52C40A4227B06 /* EXPMatchers+beNil.h in Headers */ = {isa = PBXBuildFile; fileRef = 83CA4EE2C2F333E4F2985827054DAE81 /* EXPMatchers+beNil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76331E71086C8CD5118A69B046D8F0FB /* EXPMatchers+endWith.h in Headers */ = {isa = PBXBuildFile; fileRef = 17DE037982EEC9352A6BA73D8C008A1B /* EXPMatchers+endWith.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		779CFE8771E1EF63F1313ABEBCECAA4A /* EXPFloatTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E999D441F8F606A87FC7665DE9C77B7 /* EXPFloatTuple.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7AC91F55DAAA2F0223A97BEFF8BCAF68 /* ExpectaSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 9919EB319556590B0E0558A53E72010A /* ExpectaSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7CC32A9CC2C94F2C3D898FB89CA6F5F2 /* HYImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 105FDD29836DE6ADCEEDA00E4E8B2439 /* HYImagePickerHelper.m */; };
+		7CC32A9CC2C94F2C3D898FB89CA6F5F2 /* HYImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD94367BFAED04A8902C0876D4069A62 /* HYImagePickerHelper.m */; };
 		7FEE0E8D094D7BCCAC7129473EE05ADC /* EXPMatchers+raise.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4782E0830A13F3A0719DAE6A3DDB40 /* EXPMatchers+raise.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8059E5674B08670B0A002D564FFABF44 /* EXPMatchers+equal.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EE47ED34A06BC8EB86857E6BCBCF20 /* EXPMatchers+equal.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8115E4FE94CCB024F0CD44F089930771 /* HYCache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7BDCB10A95E118ED60EA3D13ECB2C1 /* HYCache-dummy.m */; };
-		832262D6473ABE0FD29A2EEB54E31DA6 /* HYImagePickerCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0A27098B02CD262B015C92D9998B5 /* HYImagePickerCollectionCell.m */; };
-		844AE80CA82F32F03F78FF00DD3EE7D7 /* HYAlbumImageGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FBED825F8480BECB846A2CE6209158 /* HYAlbumImageGenerator.m */; };
-		857BE534992CFD53B9756977CE7626C8 /* HYAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FB6E3A2B8E7311DF1F7E35F3216A7E /* HYAlbumManager.m */; };
+		832262D6473ABE0FD29A2EEB54E31DA6 /* HYImagePickerCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B716787009377BF88FF5DD636B33140 /* HYImagePickerCollectionCell.m */; };
+		844AE80CA82F32F03F78FF00DD3EE7D7 /* HYAlbumImageGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F3D9A4A49F074ED8921D90B8E68C67 /* HYAlbumImageGenerator.m */; };
+		857BE534992CFD53B9756977CE7626C8 /* HYAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D366C7C3A805829612203257E71E2B /* HYAlbumManager.m */; };
 		8677AF9ED1E68B21C86186EA99AA5379 /* HYDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2ADD7F744FC838ED33675F567F4319 /* HYDiskCache.m */; };
 		872948DAF79618AD725E0BF364E5DDD4 /* NSValue+Expecta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C520C2C4D7F661107B77790DE0B994 /* NSValue+Expecta.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		89545BDE0D5EE9A6DC14F79A578D74FA /* HYImagePickerAlbumViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C50DC66E0381AEE1AC86F273CB15EB30 /* HYImagePickerAlbumViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89545BDE0D5EE9A6DC14F79A578D74FA /* HYImagePickerAlbumViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F852D9E0F221CB8BE285C05EE19B8A8 /* HYImagePickerAlbumViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8C4F0BA242E55B8E20BB48ABA8284E44 /* Pods-HYAlbum_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C319A23EBFE841D94D6A35BF7441B /* Pods-HYAlbum_Example-dummy.m */; };
 		8D6B5EA4EE40DF66F6738843C357E1D5 /* SpectaDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C94ACE02239D3DB8810246A64A2833 /* SpectaDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DF90D623F7F9015EEE9F1D7FEE7E053 /* EXPBlockDefinedMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ACA553944E584F236DDB3DAE54461104 /* EXPBlockDefinedMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F674582EE71972EE60EFD96C1F173D5 /* EXPMatchers+beGreaterThan.h in Headers */ = {isa = PBXBuildFile; fileRef = 1660786E71989EBB2F1821313F88B42D /* EXPMatchers+beGreaterThan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9019F9233E2A8B04A82C1B8D0274F09F /* EXPMatchers+beSupersetOf.h in Headers */ = {isa = PBXBuildFile; fileRef = C489EFA97D14977E5B32DCA668922371 /* EXPMatchers+beSupersetOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		956FB3AB698AF3DA776A9F24AA79C229 /* NSObject+Expecta.h in Headers */ = {isa = PBXBuildFile; fileRef = CD8A0F790A7E341537A88BB09735F025 /* NSObject+Expecta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		974E7B21264EB13B2B3453D932A17257 /* HYImagePickerCollectionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A3C28F824C8E1029820025FFDCBDEB0 /* HYImagePickerCollectionCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		974E7B21264EB13B2B3453D932A17257 /* HYImagePickerCollectionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BB8987866B33E74F47CAB6070EF4E46 /* HYImagePickerCollectionCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		976FFF6BC96C642F4100C878C0ECADC7 /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = EB3B6C7554285BC8765531B7D4D31555 /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97E91EC237B8623D895DBF6092034AD7 /* EXPMatchers+beInTheRangeOf.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D77A5CB149ACED980C1178B87B1D979 /* EXPMatchers+beInTheRangeOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B546D0F895D9B5A8316B948CEE95C77 /* EXPMatchers+beKindOf.h in Headers */ = {isa = PBXBuildFile; fileRef = 389B791D528B7A266126ACE92BDE4028 /* EXPMatchers+beKindOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9E679C0293B6C8CFED24346423E368AF /* SPTCompiledExample.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D4545D5F7E310CC4F1B31B5AB139A3A /* SPTCompiledExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A134FCDB7CC3E40B95D730145F39A489 /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E08028183B4D6817FE621FF3368C0B26 /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A22796B98BA877CDE2FA1CD0183C4A63 /* HYAlbum-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB4F2C30044185D00261638904B7F45 /* HYAlbum-dummy.m */; };
+		A22796B98BA877CDE2FA1CD0183C4A63 /* HYAlbum-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5236C51FAB04159CF0A93DBE343E3F5D /* HYAlbum-dummy.m */; };
 		A26F992E8831118311F3DB7CB830595A /* EXPMatchers+raiseWithReason.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB3DCCB41BD7BB86041081E2DE60D0A /* EXPMatchers+raiseWithReason.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A65C491577A425AF82C53F4A40A0A24B /* EXPMatchers+beIdenticalTo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2809BC372CCC8D3F4266A84602100F2D /* EXPMatchers+beIdenticalTo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A6854D311D55E2BBD8BFCE4E82DF3EA9 /* Expecta.h in Headers */ = {isa = PBXBuildFile; fileRef = 96C98AF8E297E42786A9AAEB411B8D4B /* Expecta.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -120,26 +120,26 @@
 		B33234F432A72D5E8B65694AE937B78F /* EXPMatchers+endWith.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D9689C042DA03B15EABAE49C0BB71F /* EXPMatchers+endWith.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B4B7E943619A609F84B3245B98922E9D /* HYCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B568607A6D8F9D5D728BA712EC5375F1 /* HYCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD30B724A71CF5D6E93805B7615EC79C /* EXPMatchers+beSubclassOf.m in Sources */ = {isa = PBXBuildFile; fileRef = B2912B64A331922793AE7E75E0B5D4A1 /* EXPMatchers+beSubclassOf.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		BD7EB1CD424CEDFD626ECCB925941D7C /* HYAlbumItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FD5B4CB01344932D38BF2E0D8C34DC /* HYAlbumItem.m */; };
+		BD7EB1CD424CEDFD626ECCB925941D7C /* HYAlbumItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC04C38DF52BC1A219721477DD0897F6 /* HYAlbumItem.m */; };
 		C2BFF99EB859FD7056CF72C4850693D1 /* EXPMatchers+conformTo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEF1803A36F7C2D7ACA74A6BA540CE1 /* EXPMatchers+conformTo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C6671739E8C5904113586F8BEBBC9780 /* EXPMatchers+beLessThan.m in Sources */ = {isa = PBXBuildFile; fileRef = 1373545FA6E25CA982E9FC9E058FA3DD /* EXPMatchers+beLessThan.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C6A043D54A1300791EEDF47324561936 /* SpectaDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8EC1FBE0AB11368DBA6134C779438D /* SpectaDSL.m */; };
 		C98F5401E5C1AB6512BE50C3B7CEA9BF /* EXPMatchers+match.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D7336096F1597C328BFE20FDFA106FE /* EXPMatchers+match.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB08C9C83ABDBE55762A423ED48491EF /* EXPMatchers+beGreaterThan.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA3D497BE8C51D1F22F56CD32C2460C /* EXPMatchers+beGreaterThan.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CE12D422B96F28AE21AC3E6CAF2EF3C9 /* HYImagePickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C07479EFAA2D07372123F5FB54E8F13 /* HYImagePickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE6E4C9E8C2927BB69686E049CF65A13 /* HYAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = ACB4D7FB5EEB5C9C74A5267453DDAB1C /* HYAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE12D422B96F28AE21AC3E6CAF2EF3C9 /* HYImagePickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B184E50B912258FB1EEE54DBE1C96038 /* HYImagePickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE6E4C9E8C2927BB69686E049CF65A13 /* HYAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = DA71346A3A8D8B70052ABAA47EB7D93E /* HYAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF95446EA555B49150EA7270096D78B2 /* EXPBlockDefinedMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A41E39909BD8C7385BD92E1A0CF772 /* EXPBlockDefinedMatcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		D40D89EAC44CBE9921AB8C70EBBC3C69 /* HYAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D2B8D3F4BD8498783719D29574223 /* HYAlbum.m */; };
+		D40D89EAC44CBE9921AB8C70EBBC3C69 /* HYAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BFECE48BAB2623B4052379EB2CC8E0 /* HYAlbum.m */; };
 		D42799488F38F2DB8A580730CEE13CE6 /* EXPMatchers+beInstanceOf.h in Headers */ = {isa = PBXBuildFile; fileRef = B797D21BFBB11B42CBFDFBE6D5BE84E9 /* EXPMatchers+beInstanceOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFF580AE359407E841BA8D8DDCE6E299 /* EXPMatchers+beLessThan.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9C3709BDE2CC5B2DDE0B28F6672979 /* EXPMatchers+beLessThan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E06376455C1D5E45B97ACDC5438FC15B /* EXPMatchers+beNil.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0E944EE22ABCC93B191FF4079DF61 /* EXPMatchers+beNil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E295AEA74A298B05AC210137E8C580FE /* SPTCallSite.m in Sources */ = {isa = PBXBuildFile; fileRef = D49214BC1AC6E57D71B5A314C53D2613 /* SPTCallSite.m */; };
 		E2EBD18BA89D3FF648947DF31FA12D44 /* EXPMatchers+respondTo.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE9A2F235AA3CBD209566BDAE166F6A /* EXPMatchers+respondTo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E3B2DD901E9308EDD3785727C74ED6C9 /* HYImagePickerPhotoBrowserViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93EB62F497858C9689F2168119065CC5 /* HYImagePickerPhotoBrowserViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E862071AC96B03CEA1490C6D1DCED4A9 /* HYImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722E8DC2F2DDE672FBD0126D336E48D2 /* HYImagePickerViewController.m */; };
+		E3B2DD901E9308EDD3785727C74ED6C9 /* HYImagePickerPhotoBrowserViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DA5ABFBF1AB25C50C4A2186A949F6B58 /* HYImagePickerPhotoBrowserViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E862071AC96B03CEA1490C6D1DCED4A9 /* HYImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E83B054439ABEA3D76668F6A88B31EE /* HYImagePickerViewController.m */; };
 		E867CBF850D20C314BF4BD790432455D /* EXPMatchers+respondTo.h in Headers */ = {isa = PBXBuildFile; fileRef = DCDF2EE80096EA692A2D020A270EDA85 /* EXPMatchers+respondTo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB0F7E03B854A8DF6A022CA37E9BD87A /* SPTSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F6628E8297429965633E647042AB2D /* SPTSpec.m */; };
-		EB42EFA16D9B7F6EF72153FE46002343 /* HYImagePickerZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C6D8B6090A0B60879C963CED952B19 /* HYImagePickerZoomView.m */; };
+		EB42EFA16D9B7F6EF72153FE46002343 /* HYImagePickerZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4307CDC00973A3E8C97C7C0A7E0ECE39 /* HYImagePickerZoomView.m */; };
 		EE52A320EC3155B114104E06396D1B59 /* EXPMatchers+beLessThanOrEqualTo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B24D2EA0152BF622E473E9BFA88F024 /* EXPMatchers+beLessThanOrEqualTo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1F4E65611F5567A86AF797EAC3E225B /* EXPMatchers+beFalsy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1095EECD689CD868AE21F872379B19 /* EXPMatchers+beFalsy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F4CA468B5A9F8FF2A4DB8B236A8E71BF /* EXPMatchers+beFalsy.h in Headers */ = {isa = PBXBuildFile; fileRef = 20639F80438664E97C6C8AFBEE48137F /* EXPMatchers+beFalsy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -147,7 +147,7 @@
 		FCBE4C7062D6082666E232B970285E2F /* SPTExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FBF2463A9963F744CBEDC742068855 /* SPTExampleGroup.m */; };
 		FD4D653D8CDCD2A2710FEA8B6DD30CD7 /* SPTCallSite.h in Headers */ = {isa = PBXBuildFile; fileRef = F3A1EBB90CBB2DF18A77FCC868C815B2 /* SPTCallSite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDF72740DBC37AFACFED73ED42282383 /* Expecta-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CA88B34EA74212E2A24F81A4CAFBF1 /* Expecta-dummy.m */; };
-		FE1403BB75B9E70A7515A970F7F0FF1A /* HYImagePickerCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 698DFDDA95A7CB5F1BC80C462A60FBC9 /* HYImagePickerCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE1403BB75B9E70A7515A970F7F0FF1A /* HYImagePickerCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4202B0FD209E288101A80F25D0A65375 /* HYImagePickerCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,87 +194,84 @@
 		04EB6C0B15278844157A21CB7D283636 /* EXPMatchers+conformTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+conformTo.h"; path = "Expecta/Matchers/EXPMatchers+conformTo.h"; sourceTree = "<group>"; };
 		05C3397F01FCB750D3DF800CE907366A /* EXPMatchers+beCloseTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beCloseTo.m"; path = "Expecta/Matchers/EXPMatchers+beCloseTo.m"; sourceTree = "<group>"; };
 		0627BED0CF985D369A35E1F289999F88 /* EXPMatchers+raiseWithReason.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+raiseWithReason.h"; path = "Expecta/Matchers/EXPMatchers+raiseWithReason.h"; sourceTree = "<group>"; };
-		063D3C16EADE235E8AD3201E1A38E336 /* HYImagePickerZoomView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerZoomView.h; sourceTree = "<group>"; };
 		0A86F6C44BA31F6B98F05C29D03C8D37 /* EXPExpect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPExpect.m; path = Expecta/EXPExpect.m; sourceTree = "<group>"; };
 		0D0914A137331C8B293DB96D26A0E782 /* Pods-HYAlbum_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HYAlbum_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		0D64BBF8A67F6C830AD7CDA7F3A20CB5 /* Specta-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Specta-prefix.pch"; sourceTree = "<group>"; };
 		0EB3DCCB41BD7BB86041081E2DE60D0A /* EXPMatchers+raiseWithReason.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+raiseWithReason.m"; path = "Expecta/Matchers/EXPMatchers+raiseWithReason.m"; sourceTree = "<group>"; };
 		0FD3FD79B5D653CC3EEBF8E97556F032 /* ExpectaObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ExpectaObject.m; path = Expecta/ExpectaObject.m; sourceTree = "<group>"; };
 		10184FBF99B158B53D4B645FD33C4A18 /* Pods-HYAlbum_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HYAlbum_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		105FDD29836DE6ADCEEDA00E4E8B2439 /* HYImagePickerHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerHelper.m; sourceTree = "<group>"; };
+		10BFECE48BAB2623B4052379EB2CC8E0 /* HYAlbum.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYAlbum.m; sourceTree = "<group>"; };
+		10F3D9A4A49F074ED8921D90B8E68C67 /* HYAlbumImageGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYAlbumImageGenerator.m; sourceTree = "<group>"; };
 		1373545FA6E25CA982E9FC9E058FA3DD /* EXPMatchers+beLessThan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beLessThan.m"; path = "Expecta/Matchers/EXPMatchers+beLessThan.m"; sourceTree = "<group>"; };
 		150F1CBC9440CE0B1ABF95C26D9D6ADB /* EXPMatcherHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPMatcherHelpers.m; path = Expecta/Matchers/EXPMatcherHelpers.m; sourceTree = "<group>"; };
 		159987BC8717B7CA1481AB0E10173EFC /* libSpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1660786E71989EBB2F1821313F88B42D /* EXPMatchers+beGreaterThan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beGreaterThan.h"; path = "Expecta/Matchers/EXPMatchers+beGreaterThan.h"; sourceTree = "<group>"; };
 		17DE037982EEC9352A6BA73D8C008A1B /* EXPMatchers+endWith.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+endWith.h"; path = "Expecta/Matchers/EXPMatchers+endWith.h"; sourceTree = "<group>"; };
 		1B7C319A23EBFE841D94D6A35BF7441B /* Pods-HYAlbum_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HYAlbum_Example-dummy.m"; sourceTree = "<group>"; };
-		1C67589789598DE1159065CD1224FA32 /* HYImagePickerPhotoBrowserViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerPhotoBrowserViewController.m; sourceTree = "<group>"; };
 		1F1095EECD689CD868AE21F872379B19 /* EXPMatchers+beFalsy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beFalsy.m"; path = "Expecta/Matchers/EXPMatchers+beFalsy.m"; sourceTree = "<group>"; };
 		20639F80438664E97C6C8AFBEE48137F /* EXPMatchers+beFalsy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beFalsy.h"; path = "Expecta/Matchers/EXPMatchers+beFalsy.h"; sourceTree = "<group>"; };
 		2074104BE8305219A6F2DA7C4CF6B2C6 /* EXPMatchers+beTruthy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beTruthy.h"; path = "Expecta/Matchers/EXPMatchers+beTruthy.h"; sourceTree = "<group>"; };
-		23FB6E3A2B8E7311DF1F7E35F3216A7E /* HYAlbumManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYAlbumManager.m; sourceTree = "<group>"; };
+		21D366C7C3A805829612203257E71E2B /* HYAlbumManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYAlbumManager.m; sourceTree = "<group>"; };
 		2529E531771FB0BF3E7414DE7821111D /* EXPDoubleTuple.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPDoubleTuple.h; path = Expecta/EXPDoubleTuple.h; sourceTree = "<group>"; };
 		26C74E58F3D3F516F0836836B76C1159 /* EXPMatchers+beGreaterThanOrEqualTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beGreaterThanOrEqualTo.m"; path = "Expecta/Matchers/EXPMatchers+beGreaterThanOrEqualTo.m"; sourceTree = "<group>"; };
 		279AA6492631DEFA8C439A9C088EEB8A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2809BC372CCC8D3F4266A84602100F2D /* EXPMatchers+beIdenticalTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beIdenticalTo.m"; path = "Expecta/Matchers/EXPMatchers+beIdenticalTo.m"; sourceTree = "<group>"; };
-		2AB4F2C30044185D00261638904B7F45 /* HYAlbum-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HYAlbum-dummy.m"; sourceTree = "<group>"; };
 		2B523EA0C43C1E1988C7A036A7228D68 /* SPTCompiledExample.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTCompiledExample.m; path = Specta/Specta/SPTCompiledExample.m; sourceTree = "<group>"; };
-		2C4FFE0841BBC46CB19462C530B8C613 /* HYAlbumItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAlbumItem.h; sourceTree = "<group>"; };
+		2ED5F5214A036473C2E2FEBB6AD84237 /* HYAlbumConstant.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAlbumConstant.h; sourceTree = "<group>"; };
 		309012384B2279F82BD6E2CDD79C8E3E /* EXPDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPDefines.h; path = Expecta/EXPDefines.h; sourceTree = "<group>"; };
 		31A41E39909BD8C7385BD92E1A0CF772 /* EXPBlockDefinedMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPBlockDefinedMatcher.m; path = Expecta/EXPBlockDefinedMatcher.m; sourceTree = "<group>"; };
 		33BAF2C07A8651EFE5E2B3EADBC43E7F /* Expecta-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Expecta-prefix.pch"; sourceTree = "<group>"; };
-		33C4265BB56A749EDAFE29827E9B0A48 /* HYImagePickerCollectionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerCollectionViewController.m; sourceTree = "<group>"; };
 		389B791D528B7A266126ACE92BDE4028 /* EXPMatchers+beKindOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beKindOf.h"; path = "Expecta/Matchers/EXPMatchers+beKindOf.h"; sourceTree = "<group>"; };
 		3B24D2EA0152BF622E473E9BFA88F024 /* EXPMatchers+beLessThanOrEqualTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beLessThanOrEqualTo.h"; path = "Expecta/Matchers/EXPMatchers+beLessThanOrEqualTo.h"; sourceTree = "<group>"; };
-		3B8097893E736A82A87DC92D341EAA35 /* HYAlbum-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HYAlbum-prefix.pch"; sourceTree = "<group>"; };
 		3D7336096F1597C328BFE20FDFA106FE /* EXPMatchers+match.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+match.h"; path = "Expecta/Matchers/EXPMatchers+match.h"; sourceTree = "<group>"; };
 		3E999D441F8F606A87FC7665DE9C77B7 /* EXPFloatTuple.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPFloatTuple.m; path = Expecta/EXPFloatTuple.m; sourceTree = "<group>"; };
 		419D04B9DEDB6F56EFBF0759D48DFC7C /* EXPMatchers+beKindOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beKindOf.m"; path = "Expecta/Matchers/EXPMatchers+beKindOf.m"; sourceTree = "<group>"; };
+		4202B0FD209E288101A80F25D0A65375 /* HYImagePickerCollectionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerCollectionViewController.h; sourceTree = "<group>"; };
 		42CEA05ED59AB912BF00C4CD9D4186E4 /* EXPMatchers+beInstanceOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beInstanceOf.m"; path = "Expecta/Matchers/EXPMatchers+beInstanceOf.m"; sourceTree = "<group>"; };
-		47C6D8B6090A0B60879C963CED952B19 /* HYImagePickerZoomView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerZoomView.m; sourceTree = "<group>"; };
+		4307CDC00973A3E8C97C7C0A7E0ECE39 /* HYImagePickerZoomView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerZoomView.m; sourceTree = "<group>"; };
+		46CA32AF26E17256D2AD0FA406DF64B5 /* HYImagePickerHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerHelper.h; sourceTree = "<group>"; };
+		4920F73A67848048F63A90827808E50E /* HYImagePickerCollectionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerCollectionViewController.m; sourceTree = "<group>"; };
 		4A9C3709BDE2CC5B2DDE0B28F6672979 /* EXPMatchers+beLessThan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beLessThan.h"; path = "Expecta/Matchers/EXPMatchers+beLessThan.h"; sourceTree = "<group>"; };
 		4CE48770587FA5D8D8EE00BB3FC985C9 /* XCTestCase+Specta.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XCTestCase+Specta.m"; path = "Specta/Specta/XCTestCase+Specta.m"; sourceTree = "<group>"; };
 		4D474765FA890EC698E06963728C998F /* HYDiskCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HYDiskCache.h; path = Pod/Classes/HYDiskCache/HYDiskCache.h; sourceTree = "<group>"; };
+		4E83B054439ABEA3D76668F6A88B31EE /* HYImagePickerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerViewController.m; sourceTree = "<group>"; };
 		4EC70742C32640F58D189A452A32ABDB /* SPTTestSuite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTTestSuite.h; path = Specta/Specta/SPTTestSuite.h; sourceTree = "<group>"; };
 		4FA3D497BE8C51D1F22F56CD32C2460C /* EXPMatchers+beGreaterThan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beGreaterThan.m"; path = "Expecta/Matchers/EXPMatchers+beGreaterThan.m"; sourceTree = "<group>"; };
-		536D2B8D3F4BD8498783719D29574223 /* HYAlbum.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYAlbum.m; sourceTree = "<group>"; };
+		5236C51FAB04159CF0A93DBE343E3F5D /* HYAlbum-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HYAlbum-dummy.m"; sourceTree = "<group>"; };
 		537457FF9CE176B4258129366409F7D4 /* EXPExpect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPExpect.h; path = Expecta/EXPExpect.h; sourceTree = "<group>"; };
 		5550B0BC6B14599314AE49D88A0E8332 /* EXPMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPMatcher.h; path = Expecta/EXPMatcher.h; sourceTree = "<group>"; };
 		57C90D6E14CBAA5B7D7CE9532D105925 /* HYCache.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HYCache.xcconfig; sourceTree = "<group>"; };
+		5844DAC87FCAF47CEEA82FE2BE202F8A /* HYAlbum.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HYAlbum.xcconfig; sourceTree = "<group>"; };
 		594C5B773E84C0E7F6480128FE3CBC63 /* Pods-HYAlbum_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HYAlbum_Example-resources.sh"; sourceTree = "<group>"; };
+		59C724C9C5D16325E60708DE68756FA4 /* HYAlbumItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAlbumItem.h; sourceTree = "<group>"; };
 		5A51B18F5F8509A90F5CFF30FE9E2CEB /* Pods-HYAlbum_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HYAlbum_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5CCA7232D180D26C70C4FAFABC50941C /* EXPMatcherHelpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPMatcherHelpers.h; path = Expecta/Matchers/EXPMatcherHelpers.h; sourceTree = "<group>"; };
 		5D4545D5F7E310CC4F1B31B5AB139A3A /* SPTCompiledExample.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTCompiledExample.h; path = Specta/Specta/SPTCompiledExample.h; sourceTree = "<group>"; };
 		5DEF1803A36F7C2D7ACA74A6BA540CE1 /* EXPMatchers+conformTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+conformTo.m"; path = "Expecta/Matchers/EXPMatchers+conformTo.m"; sourceTree = "<group>"; };
 		5EC90C2F8D549A405B3CBE7C99CB7D25 /* SPTSharedExampleGroups.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTSharedExampleGroups.m; path = Specta/Specta/SPTSharedExampleGroups.m; sourceTree = "<group>"; };
 		61968563B3DA65A9104570DAD854B9C0 /* EXPMatchers+postNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+postNotification.h"; path = "Expecta/Matchers/EXPMatchers+postNotification.h"; sourceTree = "<group>"; };
+		61FCC7F1DBF107501A32DE340386D44B /* HYImagePickerAlbumViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerAlbumViewController.m; sourceTree = "<group>"; };
+		64D981D2688F1512920569A2C66BCC0C /* HYAlbum.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = HYAlbum.bundle; sourceTree = "<group>"; };
 		67BD70E26C6CDC8DF4B68BC36F51A7A4 /* SPTExcludeGlobalBeforeAfterEach.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTExcludeGlobalBeforeAfterEach.h; path = Specta/Specta/SPTExcludeGlobalBeforeAfterEach.h; sourceTree = "<group>"; };
 		684E5A94DD0F212F5CC5AE83754F0754 /* EXPDoubleTuple.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPDoubleTuple.m; path = Expecta/EXPDoubleTuple.m; sourceTree = "<group>"; };
-		68F04A3B8B98440230F946A27E1F9D5C /* HYImagePickerHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerHelper.h; sourceTree = "<group>"; };
 		6900AE9BF3E7D885AE3F0CCF180628B7 /* Specta-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Specta-dummy.m"; sourceTree = "<group>"; };
 		690FAF1B597DB7CAF30DD13D5A961FF0 /* XCTest+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XCTest+Private.h"; path = "Specta/Specta/XCTest+Private.h"; sourceTree = "<group>"; };
-		698DFDDA95A7CB5F1BC80C462A60FBC9 /* HYImagePickerCollectionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerCollectionViewController.h; sourceTree = "<group>"; };
 		6B7C8CC645C3CC55DBFA58C272BBE0E5 /* EXPMatchers+beInTheRangeOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beInTheRangeOf.m"; path = "Expecta/Matchers/EXPMatchers+beInTheRangeOf.m"; sourceTree = "<group>"; };
 		6BC4EB08052AA819F0A273CD4EDB4F73 /* SPTTestSuite.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTTestSuite.m; path = Specta/Specta/SPTTestSuite.m; sourceTree = "<group>"; };
-		6C07479EFAA2D07372123F5FB54E8F13 /* HYImagePickerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerViewController.h; sourceTree = "<group>"; };
 		6C7BDCB10A95E118ED60EA3D13ECB2C1 /* HYCache-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HYCache-dummy.m"; sourceTree = "<group>"; };
 		6D35ACFED49B30A602BD25BCD7894E78 /* libHYAlbum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHYAlbum.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D77A5CB149ACED980C1178B87B1D979 /* EXPMatchers+beInTheRangeOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beInTheRangeOf.h"; path = "Expecta/Matchers/EXPMatchers+beInTheRangeOf.h"; sourceTree = "<group>"; };
 		6FF312516B18F0DAD1E9D5D091B3E7BB /* EXPMatchers+haveCountOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+haveCountOf.h"; path = "Expecta/Matchers/EXPMatchers+haveCountOf.h"; sourceTree = "<group>"; };
-		722E8DC2F2DDE672FBD0126D336E48D2 /* HYImagePickerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerViewController.m; sourceTree = "<group>"; };
 		73DBD4D2C3ECDBE15549D5D84815DCB5 /* SPTExample.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTExample.h; path = Specta/Specta/SPTExample.h; sourceTree = "<group>"; };
-		76FBED825F8480BECB846A2CE6209158 /* HYAlbumImageGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYAlbumImageGenerator.m; sourceTree = "<group>"; };
-		7A3C28F824C8E1029820025FFDCBDEB0 /* HYImagePickerCollectionCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerCollectionCell.h; sourceTree = "<group>"; };
-		7B13AA4933BA9C34A0533CE157984282 /* HYAlbum.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HYAlbum.xcconfig; sourceTree = "<group>"; };
-		7C2F310A142B0D07848CB9DB87C72B4C /* HYAlbumConstant.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAlbumConstant.h; sourceTree = "<group>"; };
+		7BB8987866B33E74F47CAB6070EF4E46 /* HYImagePickerCollectionCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerCollectionCell.h; sourceTree = "<group>"; };
 		7CEC0BC9113CA8648976FB21DEF279BF /* HYCache-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HYCache-prefix.pch"; sourceTree = "<group>"; };
 		7E3AC46690E7BB167CDA5657BD30C221 /* EXPMatchers+beCloseTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beCloseTo.h"; path = "Expecta/Matchers/EXPMatchers+beCloseTo.h"; sourceTree = "<group>"; };
 		7E4A1EA47EF02B23F8AC636C1325925A /* EXPUnsupportedObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPUnsupportedObject.m; path = Expecta/EXPUnsupportedObject.m; sourceTree = "<group>"; };
+		7F852D9E0F221CB8BE285C05EE19B8A8 /* HYImagePickerAlbumViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerAlbumViewController.h; sourceTree = "<group>"; };
+		7F9563F47B3F333CD0250EE9338911C8 /* HYAlbum-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HYAlbum-prefix.pch"; sourceTree = "<group>"; };
 		802F251FB0BAE228FEC322AF24189B90 /* SPTGlobalBeforeAfterEach.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTGlobalBeforeAfterEach.h; path = Specta/Specta/SPTGlobalBeforeAfterEach.h; sourceTree = "<group>"; };
-		82CD91AF96D48EFC7657A567AFD93C50 /* HYAlbumManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAlbumManager.h; sourceTree = "<group>"; };
 		83CA4EE2C2F333E4F2985827054DAE81 /* EXPMatchers+beNil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beNil.h"; path = "Expecta/Matchers/EXPMatchers+beNil.h"; sourceTree = "<group>"; };
 		8674A29421CC612BF852A83BA3DBE594 /* NSValue+Expecta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValue+Expecta.h"; path = "Expecta/NSValue+Expecta.h"; sourceTree = "<group>"; };
-		86A0A27098B02CD262B015C92D9998B5 /* HYImagePickerCollectionCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerCollectionCell.m; sourceTree = "<group>"; };
 		86FBF2463A9963F744CBEDC742068855 /* SPTExampleGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTExampleGroup.m; path = Specta/Specta/SPTExampleGroup.m; sourceTree = "<group>"; };
 		873C598BC82B83B880FCD1739E61E4B4 /* SpectaUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SpectaUtility.m; path = Specta/Specta/SpectaUtility.m; sourceTree = "<group>"; };
 		89D0E944EE22ABCC93B191FF4079DF61 /* EXPMatchers+beNil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beNil.m"; path = "Expecta/Matchers/EXPMatchers+beNil.m"; sourceTree = "<group>"; };
@@ -282,10 +279,10 @@
 		8DA33F81788BB62AEB40C391B37F990B /* Pods-HYAlbum_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HYAlbum_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		91BD69B6D4C47EFCD29D8B28F3D185BE /* EXPMatchers+postNotification.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+postNotification.m"; path = "Expecta/Matchers/EXPMatchers+postNotification.m"; sourceTree = "<group>"; };
 		9293E1AADCB1A0DE24E3C1A2B02FAF5F /* EXPFloatTuple.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPFloatTuple.h; path = Expecta/EXPFloatTuple.h; sourceTree = "<group>"; };
-		93EB62F497858C9689F2168119065CC5 /* HYImagePickerPhotoBrowserViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerPhotoBrowserViewController.h; sourceTree = "<group>"; };
 		96C98AF8E297E42786A9AAEB411B8D4B /* Expecta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Expecta.h; path = Expecta/Expecta.h; sourceTree = "<group>"; };
 		9919EB319556590B0E0558A53E72010A /* ExpectaSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ExpectaSupport.h; path = Expecta/ExpectaSupport.h; sourceTree = "<group>"; };
 		9A551A33777949B6F1D7E45C18279C74 /* EXPMatchers+haveCountOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+haveCountOf.m"; path = "Expecta/Matchers/EXPMatchers+haveCountOf.m"; sourceTree = "<group>"; };
+		9B716787009377BF88FF5DD636B33140 /* HYImagePickerCollectionCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerCollectionCell.m; sourceTree = "<group>"; };
 		9C991CBE91778851B0AD9B03A3EE8316 /* Pods-HYAlbum_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HYAlbum_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9F2ADD7F744FC838ED33675F567F4319 /* HYDiskCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HYDiskCache.m; path = Pod/Classes/HYDiskCache/HYDiskCache.m; sourceTree = "<group>"; };
 		A38E4FC1544A234E5AD6EE1D012B5427 /* HYCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HYCache.m; path = Pod/Classes/HYCache.m; sourceTree = "<group>"; };
@@ -293,11 +290,11 @@
 		A4CA8EABC74D9F804AAC11F068B2CBD2 /* Pods-HYAlbum_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HYAlbum_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		ABD8360DDB137BA087C583382B4B6E1C /* EXPMatchers+beTruthy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beTruthy.m"; path = "Expecta/Matchers/EXPMatchers+beTruthy.m"; sourceTree = "<group>"; };
 		ACA553944E584F236DDB3DAE54461104 /* EXPBlockDefinedMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPBlockDefinedMatcher.h; path = Expecta/EXPBlockDefinedMatcher.h; sourceTree = "<group>"; };
-		ACB4D7FB5EEB5C9C74A5267453DDAB1C /* HYAlbum.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAlbum.h; sourceTree = "<group>"; };
 		ACE1183202F21D61C2399127136AC4AD /* EXPMatchers+beIdenticalTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beIdenticalTo.h"; path = "Expecta/Matchers/EXPMatchers+beIdenticalTo.h"; sourceTree = "<group>"; };
 		ACF635C77F05D8C5AB168DE508EE136C /* Expecta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Expecta.xcconfig; sourceTree = "<group>"; };
 		B0EA406E18251CCA6F3523652813AC69 /* EXPMatchers+beLessThanOrEqualTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beLessThanOrEqualTo.m"; path = "Expecta/Matchers/EXPMatchers+beLessThanOrEqualTo.m"; sourceTree = "<group>"; };
 		B0EF96DD0170404B013BA441637C828D /* HYMemoryCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HYMemoryCache.m; path = Pod/Classes/HYMemoryCache/HYMemoryCache.m; sourceTree = "<group>"; };
+		B184E50B912258FB1EEE54DBE1C96038 /* HYImagePickerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerViewController.h; sourceTree = "<group>"; };
 		B1A8DD833B396E0688D917471867B8C0 /* libPods-HYAlbum_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HYAlbum_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2912B64A331922793AE7E75E0B5D4A1 /* EXPMatchers+beSubclassOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beSubclassOf.m"; path = "Expecta/Matchers/EXPMatchers+beSubclassOf.m"; sourceTree = "<group>"; };
 		B3C94ACE02239D3DB8810246A64A2833 /* SpectaDSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SpectaDSL.h; path = Specta/Specta/SpectaDSL.h; sourceTree = "<group>"; };
@@ -308,34 +305,37 @@
 		BA53665D8EE99DE7FDB81C63D573D92B /* Pods-HYAlbum_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HYAlbum_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BBE9A2F235AA3CBD209566BDAE166F6A /* EXPMatchers+respondTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+respondTo.m"; path = "Expecta/Matchers/EXPMatchers+respondTo.m"; sourceTree = "<group>"; };
-		BC359D0045778010FFF18A493BD8AD59 /* HYImagePickerAlbumViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerAlbumViewController.m; sourceTree = "<group>"; };
-		BE24943D456475C2DA71E457AC95CBF8 /* HYAlbumImageGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAlbumImageGenerator.h; sourceTree = "<group>"; };
 		BE5201C6C5289FDFDBEE90E33614A486 /* Pods-HYAlbum_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HYAlbum_Tests-resources.sh"; sourceTree = "<group>"; };
 		C0B19944D27D89F49B773CC838170DC1 /* EXPMatchers+contain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+contain.m"; path = "Expecta/Matchers/EXPMatchers+contain.m"; sourceTree = "<group>"; };
-		C2FD5B4CB01344932D38BF2E0D8C34DC /* HYAlbumItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYAlbumItem.m; sourceTree = "<group>"; };
 		C489EFA97D14977E5B32DCA668922371 /* EXPMatchers+beSupersetOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beSupersetOf.h"; path = "Expecta/Matchers/EXPMatchers+beSupersetOf.h"; sourceTree = "<group>"; };
 		C4F6628E8297429965633E647042AB2D /* SPTSpec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTSpec.m; path = Specta/Specta/SPTSpec.m; sourceTree = "<group>"; };
 		C5083F5DEA95BFE17949D12FB528C18D /* EXPMatchers+contain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+contain.h"; path = "Expecta/Matchers/EXPMatchers+contain.h"; sourceTree = "<group>"; };
-		C50DC66E0381AEE1AC86F273CB15EB30 /* HYImagePickerAlbumViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerAlbumViewController.h; sourceTree = "<group>"; };
 		C5D9689C042DA03B15EABAE49C0BB71F /* EXPMatchers+endWith.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+endWith.m"; path = "Expecta/Matchers/EXPMatchers+endWith.m"; sourceTree = "<group>"; };
 		CB5E9B8134E180097CA4C800BF333CEA /* Specta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Specta.xcconfig; sourceTree = "<group>"; };
 		CD8A0F790A7E341537A88BB09735F025 /* NSObject+Expecta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+Expecta.h"; path = "Expecta/NSObject+Expecta.h"; sourceTree = "<group>"; };
 		CE154468C2A7251EEBB2161D769DA5B8 /* libPods-HYAlbum_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HYAlbum_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8EC1FBE0AB11368DBA6134C779438D /* SpectaDSL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SpectaDSL.m; path = Specta/Specta/SpectaDSL.m; sourceTree = "<group>"; };
+		D37CC1E96E117BBB8F0CA1B0666222C8 /* HYImagePickerZoomView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerZoomView.h; sourceTree = "<group>"; };
 		D49214BC1AC6E57D71B5A314C53D2613 /* SPTCallSite.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTCallSite.m; path = Specta/Specta/SPTCallSite.m; sourceTree = "<group>"; };
 		D63B1603506EE35F7D81D2A2D0908086 /* EXPMatchers+beGreaterThanOrEqualTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beGreaterThanOrEqualTo.h"; path = "Expecta/Matchers/EXPMatchers+beGreaterThanOrEqualTo.h"; sourceTree = "<group>"; };
 		D949841A1221D9A000E404C449779ECF /* EXPMatchers+beSubclassOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beSubclassOf.h"; path = "Expecta/Matchers/EXPMatchers+beSubclassOf.h"; sourceTree = "<group>"; };
+		DA5ABFBF1AB25C50C4A2186A949F6B58 /* HYImagePickerPhotoBrowserViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerPhotoBrowserViewController.h; sourceTree = "<group>"; };
+		DA5F2A73AF2695DB6BAD1FAECEBC991E /* HYAlbumManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAlbumManager.h; sourceTree = "<group>"; };
+		DA71346A3A8D8B70052ABAA47EB7D93E /* HYAlbum.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAlbum.h; sourceTree = "<group>"; };
 		DB2F2DB9DC1C0A9AD757ABC04CD2F4FE /* HYMemoryCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HYMemoryCache.h; path = Pod/Classes/HYMemoryCache/HYMemoryCache.h; sourceTree = "<group>"; };
 		DCDF2EE80096EA692A2D020A270EDA85 /* EXPMatchers+respondTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+respondTo.h"; path = "Expecta/Matchers/EXPMatchers+respondTo.h"; sourceTree = "<group>"; };
 		DE769FAA34A6E8BA3C14E38243C24FEA /* EXPMatchers+beginWith.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beginWith.m"; path = "Expecta/Matchers/EXPMatchers+beginWith.m"; sourceTree = "<group>"; };
 		E08028183B4D6817FE621FF3368C0B26 /* SPTExampleGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTExampleGroup.h; path = Specta/Specta/SPTExampleGroup.h; sourceTree = "<group>"; };
 		E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		E4A5F05233B7D968327812C43554CAD1 /* Pods-HYAlbum_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HYAlbum_Example-frameworks.sh"; sourceTree = "<group>"; };
+		E61DE5214148EFD666538E17216984DB /* HYAlbumImageGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAlbumImageGenerator.h; sourceTree = "<group>"; };
 		E6DA79F84B47D4BE9C4EC87DCB43E4D6 /* SPTExample.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTExample.m; path = Specta/Specta/SPTExample.m; sourceTree = "<group>"; };
+		E80B7A1E995D270C4186C5EE23BCF081 /* HYImagePickerPhotoBrowserViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerPhotoBrowserViewController.m; sourceTree = "<group>"; };
 		E9C520C2C4D7F661107B77790DE0B994 /* NSValue+Expecta.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSValue+Expecta.m"; path = "Expecta/NSValue+Expecta.m"; sourceTree = "<group>"; };
 		EB3B6C7554285BC8765531B7D4D31555 /* Specta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Specta.h; path = Specta/Specta/Specta.h; sourceTree = "<group>"; };
 		EB4782E0830A13F3A0719DAE6A3DDB40 /* EXPMatchers+raise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+raise.m"; path = "Expecta/Matchers/EXPMatchers+raise.m"; sourceTree = "<group>"; };
 		EBAFB8CBCCBC2A7B98F11AB1A9EAD549 /* EXPMatchers+raise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+raise.h"; path = "Expecta/Matchers/EXPMatchers+raise.h"; sourceTree = "<group>"; };
+		EC04C38DF52BC1A219721477DD0897F6 /* HYAlbumItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYAlbumItem.m; sourceTree = "<group>"; };
 		EC6BC2810306608D9FFC6084C87D84D9 /* SPTSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTSpec.h; path = Specta/Specta/SPTSpec.h; sourceTree = "<group>"; };
 		EE994977D9341F12CB7DCD6EC6E913B2 /* EXPMatchers+beginWith.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beginWith.h"; path = "Expecta/Matchers/EXPMatchers+beginWith.h"; sourceTree = "<group>"; };
 		EEBCC840DA0D50EE70AA50E64CBC146C /* ExpectaObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ExpectaObject.h; path = Expecta/ExpectaObject.h; sourceTree = "<group>"; };
@@ -350,6 +350,7 @@
 		FB934175F3981ACBC61CA72FD1E97DDC /* EXPMatchers+equal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+equal.h"; path = "Expecta/Matchers/EXPMatchers+equal.h"; sourceTree = "<group>"; };
 		FBC43DAEC379A100D48E346E15267487 /* SPTSharedExampleGroups.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTSharedExampleGroups.h; path = Specta/Specta/SPTSharedExampleGroups.h; sourceTree = "<group>"; };
 		FD2108AEF63688219D0372E87706FCE0 /* ExpectaSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ExpectaSupport.m; path = Expecta/ExpectaSupport.m; sourceTree = "<group>"; };
+		FD94367BFAED04A8902C0876D4069A62 /* HYImagePickerHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYImagePickerHelper.m; sourceTree = "<group>"; };
 		FFCA5D5EE4C475613EAEAC8B9922885D /* EXPMatchers+match.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+match.m"; path = "Expecta/Matchers/EXPMatchers+match.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -449,20 +450,28 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		16C673C7168D25973B6B883B1B1D420F /* AlbumManager */ = {
+		2E07160A3466A404BC6FC00A2DE93F55 /* AlbumManager */ = {
 			isa = PBXGroup;
 			children = (
-				ACB4D7FB5EEB5C9C74A5267453DDAB1C /* HYAlbum.h */,
-				536D2B8D3F4BD8498783719D29574223 /* HYAlbum.m */,
-				7C2F310A142B0D07848CB9DB87C72B4C /* HYAlbumConstant.h */,
-				BE24943D456475C2DA71E457AC95CBF8 /* HYAlbumImageGenerator.h */,
-				76FBED825F8480BECB846A2CE6209158 /* HYAlbumImageGenerator.m */,
-				2C4FFE0841BBC46CB19462C530B8C613 /* HYAlbumItem.h */,
-				C2FD5B4CB01344932D38BF2E0D8C34DC /* HYAlbumItem.m */,
-				82CD91AF96D48EFC7657A567AFD93C50 /* HYAlbumManager.h */,
-				23FB6E3A2B8E7311DF1F7E35F3216A7E /* HYAlbumManager.m */,
+				DA71346A3A8D8B70052ABAA47EB7D93E /* HYAlbum.h */,
+				10BFECE48BAB2623B4052379EB2CC8E0 /* HYAlbum.m */,
+				2ED5F5214A036473C2E2FEBB6AD84237 /* HYAlbumConstant.h */,
+				E61DE5214148EFD666538E17216984DB /* HYAlbumImageGenerator.h */,
+				10F3D9A4A49F074ED8921D90B8E68C67 /* HYAlbumImageGenerator.m */,
+				59C724C9C5D16325E60708DE68756FA4 /* HYAlbumItem.h */,
+				EC04C38DF52BC1A219721477DD0897F6 /* HYAlbumItem.m */,
+				DA5F2A73AF2695DB6BAD1FAECEBC991E /* HYAlbumManager.h */,
+				21D366C7C3A805829612203257E71E2B /* HYAlbumManager.m */,
 			);
 			path = AlbumManager;
+			sourceTree = "<group>";
+		};
+		3B7EF6CE0AC4054D7B9A9E7358DE9F72 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD34183E72FFC507DE662B58749B8FCF /* HYAlbum */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		3BF2C288845DEE433714AE8478B603DA /* Support Files */ = {
@@ -476,27 +485,6 @@
 			path = "../Target Support Files/Specta";
 			sourceTree = "<group>";
 		};
-		3FAF0F89F53A59BBE775838D757F2492 /* AlbumUI */ = {
-			isa = PBXGroup;
-			children = (
-				C50DC66E0381AEE1AC86F273CB15EB30 /* HYImagePickerAlbumViewController.h */,
-				BC359D0045778010FFF18A493BD8AD59 /* HYImagePickerAlbumViewController.m */,
-				7A3C28F824C8E1029820025FFDCBDEB0 /* HYImagePickerCollectionCell.h */,
-				86A0A27098B02CD262B015C92D9998B5 /* HYImagePickerCollectionCell.m */,
-				698DFDDA95A7CB5F1BC80C462A60FBC9 /* HYImagePickerCollectionViewController.h */,
-				33C4265BB56A749EDAFE29827E9B0A48 /* HYImagePickerCollectionViewController.m */,
-				68F04A3B8B98440230F946A27E1F9D5C /* HYImagePickerHelper.h */,
-				105FDD29836DE6ADCEEDA00E4E8B2439 /* HYImagePickerHelper.m */,
-				93EB62F497858C9689F2168119065CC5 /* HYImagePickerPhotoBrowserViewController.h */,
-				1C67589789598DE1159065CD1224FA32 /* HYImagePickerPhotoBrowserViewController.m */,
-				6C07479EFAA2D07372123F5FB54E8F13 /* HYImagePickerViewController.h */,
-				722E8DC2F2DDE672FBD0126D336E48D2 /* HYImagePickerViewController.m */,
-				063D3C16EADE235E8AD3201E1A38E336 /* HYImagePickerZoomView.h */,
-				47C6D8B6090A0B60879C963CED952B19 /* HYImagePickerZoomView.m */,
-			);
-			path = AlbumUI;
-			sourceTree = "<group>";
-		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,12 +493,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		440DD7F37E35E92D4C706A918060DB67 /* Development Pods */ = {
+		45813CEAE9B59D47EC08785AF6BE18B2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7C4E2841089573211402FA3C2676B970 /* HYAlbum */,
+				C8B17C14CE6C943DE0CD89BC5A4D6BF5 /* Pod */,
 			);
-			name = "Development Pods";
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		4AB114F00DAB91AC90ED1F0A790BA898 /* Pods-HYAlbum_Example */ = {
@@ -578,21 +566,19 @@
 			path = "../Target Support Files/HYCache";
 			sourceTree = "<group>";
 		};
-		7C4E2841089573211402FA3C2676B970 /* HYAlbum */ = {
+		722FC3AF9154C9A90AB74987B0FA2DED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F2E6E8943E1269AE16129FEDE2B8AB3F /* Pod */,
-				C9EFCE70D83AF6809AF4558B9DCAA616 /* Support Files */,
+				64D981D2688F1512920569A2C66BCC0C /* HYAlbum.bundle */,
 			);
-			name = HYAlbum;
-			path = ../..;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				440DD7F37E35E92D4C706A918060DB67 /* Development Pods */,
+				3B7EF6CE0AC4054D7B9A9E7358DE9F72 /* Development Pods */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
 				85765E6E68A62B0C1E8AF407E37D091F /* Pods */,
 				54625C53619F9C961C1010EEA247108C /* Products */,
@@ -691,24 +677,50 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		BB01F44E270F73E5D5B226C1B9F90C9D /* Classes */ = {
+		9245CB7DD3E999AB22B36E320FC81478 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				16C673C7168D25973B6B883B1B1D420F /* AlbumManager */,
-				3FAF0F89F53A59BBE775838D757F2492 /* AlbumUI */,
+				2E07160A3466A404BC6FC00A2DE93F55 /* AlbumManager */,
+				BE22A8F63AD5554A0AD072AD48657E8A /* AlbumUI */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		C9EFCE70D83AF6809AF4558B9DCAA616 /* Support Files */ = {
+		BE22A8F63AD5554A0AD072AD48657E8A /* AlbumUI */ = {
 			isa = PBXGroup;
 			children = (
-				7B13AA4933BA9C34A0533CE157984282 /* HYAlbum.xcconfig */,
-				2AB4F2C30044185D00261638904B7F45 /* HYAlbum-dummy.m */,
-				3B8097893E736A82A87DC92D341EAA35 /* HYAlbum-prefix.pch */,
+				7F852D9E0F221CB8BE285C05EE19B8A8 /* HYImagePickerAlbumViewController.h */,
+				61FCC7F1DBF107501A32DE340386D44B /* HYImagePickerAlbumViewController.m */,
+				7BB8987866B33E74F47CAB6070EF4E46 /* HYImagePickerCollectionCell.h */,
+				9B716787009377BF88FF5DD636B33140 /* HYImagePickerCollectionCell.m */,
+				4202B0FD209E288101A80F25D0A65375 /* HYImagePickerCollectionViewController.h */,
+				4920F73A67848048F63A90827808E50E /* HYImagePickerCollectionViewController.m */,
+				46CA32AF26E17256D2AD0FA406DF64B5 /* HYImagePickerHelper.h */,
+				FD94367BFAED04A8902C0876D4069A62 /* HYImagePickerHelper.m */,
+				DA5ABFBF1AB25C50C4A2186A949F6B58 /* HYImagePickerPhotoBrowserViewController.h */,
+				E80B7A1E995D270C4186C5EE23BCF081 /* HYImagePickerPhotoBrowserViewController.m */,
+				B184E50B912258FB1EEE54DBE1C96038 /* HYImagePickerViewController.h */,
+				4E83B054439ABEA3D76668F6A88B31EE /* HYImagePickerViewController.m */,
+				D37CC1E96E117BBB8F0CA1B0666222C8 /* HYImagePickerZoomView.h */,
+				4307CDC00973A3E8C97C7C0A7E0ECE39 /* HYImagePickerZoomView.m */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/HYAlbum";
+			path = AlbumUI;
+			sourceTree = "<group>";
+		};
+		C8B17C14CE6C943DE0CD89BC5A4D6BF5 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				722FC3AF9154C9A90AB74987B0FA2DED /* Resources */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		CF704E75D576F73BA8A2B90D53D7AFAD /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				9245CB7DD3E999AB22B36E320FC81478 /* Classes */,
+			);
+			path = Pod;
 			sourceTree = "<group>";
 		};
 		D63DA1288F291A6A0D275D494D2A5D0F /* Targets Support Files */ = {
@@ -718,6 +730,28 @@
 				5B306188E8E53B971A895313CA66DBE6 /* Pods-HYAlbum_Tests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		DD34183E72FFC507DE662B58749B8FCF /* HYAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				CF704E75D576F73BA8A2B90D53D7AFAD /* Pod */,
+				45813CEAE9B59D47EC08785AF6BE18B2 /* Resources */,
+				E0FEB43EFC521712E53C4C09A8F282C9 /* Support Files */,
+			);
+			name = HYAlbum;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		E0FEB43EFC521712E53C4C09A8F282C9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5844DAC87FCAF47CEEA82FE2BE202F8A /* HYAlbum.xcconfig */,
+				5236C51FAB04159CF0A93DBE343E3F5D /* HYAlbum-dummy.m */,
+				7F9563F47B3F333CD0250EE9338911C8 /* HYAlbum-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/HYAlbum";
 			sourceTree = "<group>";
 		};
 		E7DCBEFDAED66506869032902709A79B /* HYCache */ = {
@@ -732,14 +766,6 @@
 				6D71D930CB0EF0D7A2FE9AB91F254F26 /* Support Files */,
 			);
 			path = HYCache;
-			sourceTree = "<group>";
-		};
-		F2E6E8943E1269AE16129FEDE2B8AB3F /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				BB01F44E270F73E5D5B226C1B9F90C9D /* Classes */,
-			);
-			path = Pod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1282,7 +1308,7 @@
 		};
 		4D857AC9E1201EC954662C8FCAB22C98 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B13AA4933BA9C34A0533CE157984282 /* HYAlbum.xcconfig */;
+			baseConfigurationReference = 5844DAC87FCAF47CEEA82FE2BE202F8A /* HYAlbum.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/HYAlbum/HYAlbum-prefix.pch";
@@ -1357,7 +1383,7 @@
 		};
 		A92F72299856B8AF70E4E5097A04B101 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B13AA4933BA9C34A0533CE157984282 /* HYAlbum.xcconfig */;
+			baseConfigurationReference = 5844DAC87FCAF47CEEA82FE2BE202F8A /* HYAlbum.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/HYAlbum/HYAlbum-prefix.pch";

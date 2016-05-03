@@ -66,6 +66,14 @@
     self.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationBar.translucent = YES;
     self.navigationBar.tintColor = [UIColor whiteColor];
+    
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 #pragma mark rotate
@@ -80,3 +88,12 @@
 }
 
 @end
+
+
+
+
+
+
+
+
+

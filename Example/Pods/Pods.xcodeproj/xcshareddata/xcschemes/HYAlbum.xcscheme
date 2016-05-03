@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '14D4532C900898B3374AADC7'
+               BlueprintIdentifier = '9296A641DBB58210711E0693'
                BlueprintName = 'HYAlbum'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libHYAlbum.a'>

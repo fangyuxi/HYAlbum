@@ -14,8 +14,6 @@
 
 #import "HYImagePickerCollectionViewController.h"
 
-//static const CGFloat HYImagePickerDefaultNavBarHeight = 120;
-
 @interface HYImagePickerAlbumViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -23,21 +21,22 @@
 @implementation HYImagePickerAlbumViewController{
     
     UITableView *_tableView;
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.toolbarHidden = YES;
+    
     self.title = @"相册";
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configNavBar];
     
-    [self createView];
+    [self p_configNavBar];
+    [self p_createView];
     
     [[HYAlbumManager sharedManager] getAllAlbumListWithResult:^(NSArray<HYAlbum *> *albums, NSError *error) {
        
@@ -47,7 +46,7 @@
     }];
 }
 
-- (void)createView
+- (void)p_createView
 {
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -60,13 +59,13 @@
 }
 
 
-- (void)configNavBar
+- (void)p_configNavBar
 {
-    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
-    self.navigationItem.leftBarButtonItem = back;
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(p_backAction)];
+    self.navigationItem.rightBarButtonItem = back;
 }
 
-- (void)backAction
+- (void)p_backAction
 {
     [self dismissViewControllerAnimated:YES completion:^{
         

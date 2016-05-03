@@ -9,6 +9,9 @@
 #import "HYImagePickerCollectionCell.h"
 #import "HYImagePickerHelper.h"
 
+static UIImage *normalImage = nil;
+static UIImage *selectedImage = nil;
+
 @implementation HYImagePickerCollectionCell{
 
     UIButton *_selecteButton;
@@ -20,14 +23,23 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+        if (!normalImage) {
+            normalImage = [UIImage imageNamed:@"HYAlbum.bundle/PhotoSelectedOff"];
+        }
+        
+        if (!selectedImage) {
+            selectedImage = [UIImage imageNamed:@"HYAlbum.bundle/PhotoSelectedOn"];
+        }
+        
         _imageView = [[UIImageView alloc] initWithFrame:self.bounds];
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:_imageView];
         
-        
         _selecteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_selecteButton setBackgroundColor:[UIColor redColor]];
-        _selecteButton.frame = CGRectMake(frame.size.width - 24, 4, 20, 20);
+        [_selecteButton setBackgroundImage:normalImage forState:UIControlStateNormal];
+        [_selecteButton setBackgroundImage:selectedImage forState:UIControlStateSelected];
+        [_selecteButton setBackgroundImage:selectedImage forState:UIControlStateHighlighted];
+        _selecteButton.frame = CGRectMake(frame.size.width - 27, 2, 25, 25);
         [_selecteButton addTarget:self action:@selector(selectButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:_selecteButton];
@@ -65,7 +77,6 @@
     }
     
     _selecteButton.selected = YES;
-    _selecteButton.backgroundColor = [UIColor blueColor];
 }
 
 - (void)unSelectCell
@@ -75,7 +86,6 @@
     }
     
     _selecteButton.selected = NO;
-    _selecteButton.backgroundColor = [UIColor redColor];
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import "HYImagePickerHelper.h"
 
+NSString *const HYImagePickerSelectedCountChanged = @"HYImagePickerSelectedCountChanged";
+
 @interface HYImagePickerHelper ()
 
 @property (nonatomic, strong, readwrite) NSMutableArray *selectedItems;
@@ -64,6 +66,7 @@
 - (void)removeAllSelected
 {
     self.selectedItems = [NSMutableArray array];
+    [[NSNotificationCenter defaultCenter] postNotificationName:HYImagePickerSelectedCountChanged object:self];
 }
 
 - (BOOL)addSelectedItem:(HYAlbumItem *)item
@@ -85,6 +88,7 @@
     }
     
     [self.selectedItems addObject:item];
+    [[NSNotificationCenter defaultCenter] postNotificationName:HYImagePickerSelectedCountChanged object:self];
     return YES;
 }
 
@@ -95,6 +99,7 @@
     }
     
     [self.selectedItems removeObject:item];
+    [[NSNotificationCenter defaultCenter] postNotificationName:HYImagePickerSelectedCountChanged object:self];
 }
 
 @end

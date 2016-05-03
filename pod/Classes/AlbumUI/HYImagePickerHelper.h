@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "HYAlbumItem.h"
 
+extern NSString *const HYImagePickerSelectedCountChanged;
+
 @interface HYImagePickerHelper : NSObject
 {
     
