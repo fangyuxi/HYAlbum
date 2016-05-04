@@ -49,7 +49,7 @@
     if (self)
     {
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                selector:@selector(selectedItemsCountChanged)
+                                                 selector:@selector(selectedItemsCountChanged:)
                                                     name:HYImagePickerSelectedCountChanged
                                                   object:nil];
         
@@ -118,6 +118,7 @@
     flowLayout.itemSize = _itemSize;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+    _collectionView.bounces = YES;
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = [UIColor whiteColor];
@@ -143,6 +144,7 @@
     _previewBarButton.enabled = [[HYImagePickerHelper sharedHelper].selectedItems count] > 0 ? YES : NO;
     
     [self setToolbarItems:@[leftFix, _previewBarButton, fix, _selectNumBarButton, fix2, _doneBarButton, rightFix]];
+    self.navigationController.toolbar.tintColor = [UIColor colorWithRed:255.0f / 255.0f green:99.0f / 255.0f blue:96.0f / 255.0f alpha:1];
 }
 
 - (void)p_cancel
@@ -202,9 +204,21 @@
 
 #pragma mark selected items count changed
 
-- (void)selectedItemsCountChanged
+- (void)selectedItemsCountChanged:(NSNotification *)notification
 {
     _selectNumBarButton.title = [NSString stringWithFormat:@"%ld/%ld", [[HYImagePickerHelper sharedHelper].selectedItems count], [HYImagePickerHelper sharedHelper].maxSelectedCountAllow];
+    
+    HYAlbumItem *item = notification.object;
+    NSInteger indexPathItem = [[HYImagePickerHelper sharedHelper].currentPhotos indexOfObject:item];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:indexPathItem inSection:0];
+    
+    [_collectionView performBatchUpdates:^{
+        
+        [_collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        
+    } completion:^(BOOL finished) {
+        
+    }];
     
     if ([[HYImagePickerHelper sharedHelper].selectedItems count] > 0) {
         _selectNumBarButton.enabled = YES;

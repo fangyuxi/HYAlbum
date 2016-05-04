@@ -22,6 +22,10 @@
     HYAlbumPhotoBrowserType _browserType;
     BOOL _hidenStatusBar;
     NSInteger _nowPageNum;
+    
+    UIButton *_rightSelectButton;
+    
+    NSArray *_preViewItemArray;
 }
 
 - (void)dealloc
@@ -51,9 +55,21 @@
     
     self.view.backgroundColor = [UIColor blackColor];
     
+    if (_browserType == HYAlbumPhotoBrowserTypeNormal)
+    {
+        self.title = @"照片";
+    }
+    else
+    {
+        self.title = @"预览";
+        _preViewItemArray = [[HYImagePickerHelper sharedHelper].selectedItems copy];
+    }
+    
+    [self p_createNavBarItem];
     [self p_createScrollView];
     
-    [self p_updatePageNum:0];
+    NSInteger pageNum = _browserType == HYAlbumPhotoBrowserTypeNormal ? [HYImagePickerHelper sharedHelper].currentShowItemIndex : 0;
+    [self p_updatePageNum:pageNum];
     [self p_fetchZoomViewWithPageNum:_nowPageNum];
     [self p_fetchZoomViewWithPageNum:_nowPageNum - 1];
     [self p_fetchZoomViewWithPageNum:_nowPageNum + 1];
@@ -62,21 +78,25 @@
         
         [_scrollView setContentOffset:CGPointMake(_nowPageNum * _scrollView.frame.size.width, 0)];
     }
-    
-    if (_browserType == HYAlbumPhotoBrowserTypeNormal)
-    {
-        self.title = @"照片";
-    }
-    else
-    {
-        self.title = @"预览";
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationController.toolbarHidden = YES;
+}
+
+- (void)p_createNavBarItem
+{
+    _rightSelectButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_rightSelectButton setBackgroundImage:[UIImage imageNamed:@"HYAlbum.bundle/PhotoSelectedOff"] forState:UIControlStateNormal];
+    [_rightSelectButton setBackgroundImage:[UIImage imageNamed:@"HYAlbum.bundle/PhotoSelectedOn"] forState:UIControlStateSelected];
+    [_rightSelectButton setBackgroundImage:[UIImage imageNamed:@"HYAlbum.bundle/PhotoSelectedOn"] forState:UIControlStateHighlighted];
+    [_rightSelectButton addTarget:self action:@selector(p_selectItem) forControlEvents:UIControlEventTouchUpInside];
+    _rightSelectButton.frame = CGRectMake(0, 0, 25, 25);
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:_rightSelectButton];
+    self.navigationItem.rightBarButtonItem = item;
 }
 
 - (void)p_createScrollView
@@ -106,7 +126,7 @@
     }
     else
     {
-        return [[HYImagePickerHelper sharedHelper].selectedItems count];
+        return [_preViewItemArray count];
     }
 }
 
@@ -119,7 +139,7 @@
  */
 - (HYAlbumItem *)p_itemAtPageNum:(NSInteger)pageNum
 {
-    HYAlbumItem *item = _browserType == HYAlbumPhotoBrowserTypeNormal ? [[HYImagePickerHelper sharedHelper].currentPhotos objectAtIndex:pageNum] : [[HYImagePickerHelper sharedHelper].selectedItems objectAtIndex:pageNum];
+    HYAlbumItem *item = _browserType == HYAlbumPhotoBrowserTypeNormal ? [[HYImagePickerHelper sharedHelper].currentPhotos objectAtIndex:pageNum] : [_preViewItemArray objectAtIndex:pageNum];
     return item;
 }
 
@@ -131,8 +151,19 @@
 - (void)p_updatePageNum:(NSInteger)pageNum
 {
     _nowPageNum = pageNum;
-    if (_browserType == HYAlbumPhotoBrowserTypeNormal) {
+    if (_browserType == HYAlbumPhotoBrowserTypeNormal)
+    {
         [HYImagePickerHelper sharedHelper].currentShowItemIndex = pageNum;
+    }
+    
+    HYAlbumItem *item = [self p_itemAtPageNum:pageNum];
+    if ([[HYImagePickerHelper sharedHelper].selectedItems containsObject:item])
+    {
+        _rightSelectButton.selected = YES;
+    }
+    else
+    {
+        _rightSelectButton.selected = NO;
     }
 }
 
@@ -185,6 +216,20 @@
     if (photoView)
     {
         [photoView removeFromSuperview];
+    }
+}
+
+- (void)p_selectItem
+{
+    HYAlbumItem *item = [self p_itemAtPageNum:_nowPageNum];
+    if ([[HYImagePickerHelper sharedHelper].selectedItems containsObject:item])
+    {
+        _rightSelectButton.selected = NO;
+        [[HYImagePickerHelper sharedHelper] deleteSelectedItem:item];
+    }
+    else
+    {
+        _rightSelectButton.selected = [[HYImagePickerHelper sharedHelper] addSelectedItem:item];
     }
 }
 

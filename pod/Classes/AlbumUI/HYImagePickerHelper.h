@@ -10,6 +10,7 @@
 #import "HYAlbumItem.h"
 
 extern NSString *const HYImagePickerSelectedCountChanged;
+extern NSString *const HYImagePickerCollectionControllerNeedUpdate;
 
 @interface HYImagePickerHelper : NSObject
 {

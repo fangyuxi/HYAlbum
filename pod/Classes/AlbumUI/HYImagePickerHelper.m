@@ -9,6 +9,7 @@
 #import "HYImagePickerHelper.h"
 
 NSString *const HYImagePickerSelectedCountChanged = @"HYImagePickerSelectedCountChanged";
+NSString *const HYImagePickerCollectionControllerNeedUpdate = @"HYImagePickerCollectionControllerNeedUpdate";
 
 @interface HYImagePickerHelper ()
 
@@ -88,7 +89,7 @@ NSString *const HYImagePickerSelectedCountChanged = @"HYImagePickerSelectedCount
     }
     
     [self.selectedItems addObject:item];
-    [[NSNotificationCenter defaultCenter] postNotificationName:HYImagePickerSelectedCountChanged object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:HYImagePickerSelectedCountChanged object:item];
     return YES;
 }
 
@@ -99,7 +100,7 @@ NSString *const HYImagePickerSelectedCountChanged = @"HYImagePickerSelectedCount
     }
     
     [self.selectedItems removeObject:item];
-    [[NSNotificationCenter defaultCenter] postNotificationName:HYImagePickerSelectedCountChanged object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:HYImagePickerSelectedCountChanged object:item];
 }
 
 @end
