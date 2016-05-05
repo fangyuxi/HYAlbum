@@ -33,6 +33,4 @@ didFinishPickingMediaWithInfo:(NSArray<NSDictionary *> *)info;
  */
 - (instancetype)initWithMaxSelectedAllow:(NSInteger)maxSelectedAlow;
 
-@property (nonatomic, strong, readonly) HYImagePickerHelper *helper;
-
 @end

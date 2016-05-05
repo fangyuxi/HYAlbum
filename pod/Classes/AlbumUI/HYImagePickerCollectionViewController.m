@@ -14,6 +14,7 @@
 #import "HYAlbumManager.h"
 #import "HYImagePickerHelper.h"
 #import "HYImagePickerViewController.h"
+#import "HYImagePickerViewControllerPrivate.h"
 #import "HYAlbumImageGenerator.h"
 
 @interface HYImagePickerCollectionViewController ()<UICollectionViewDataSource,
@@ -133,11 +134,11 @@
     
     UIBarButtonItem *leftFix = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     UIBarButtonItem *rightFix = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    _previewBarButton = [[UIBarButtonItem alloc] initWithTitle:@"预览" style:UIBarButtonItemStylePlain target:self action:@selector(preview)];
+    _previewBarButton = [[UIBarButtonItem alloc] initWithTitle:@"预览" style:UIBarButtonItemStylePlain target:self action:@selector(p_preview)];
     UIBarButtonItem *fix = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    _selectNumBarButton = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%ld/%ld", [[HYImagePickerHelper sharedHelper].selectedItems count], [HYImagePickerHelper sharedHelper].maxSelectedCountAllow] style:UIBarButtonItemStylePlain target:nil action:nil];
+    _selectNumBarButton = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%ld/%ld", (unsigned long)[[HYImagePickerHelper sharedHelper].selectedItems count], (long)[HYImagePickerHelper sharedHelper].maxSelectedCountAllow] style:UIBarButtonItemStylePlain target:nil action:nil];
     UIBarButtonItem *fix2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    _doneBarButton = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(choiceDone)];
+    _doneBarButton = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(p_choiceDone)];
     
     _selectNumBarButton.enabled = [[HYImagePickerHelper sharedHelper].selectedItems count] > 0 ? YES : NO;
     _doneBarButton.enabled = [[HYImagePickerHelper sharedHelper].selectedItems count] > 0 ? YES : NO;
@@ -145,13 +146,6 @@
     
     [self setToolbarItems:@[leftFix, _previewBarButton, fix, _selectNumBarButton, fix2, _doneBarButton, rightFix]];
     self.navigationController.toolbar.tintColor = [UIColor colorWithRed:255.0f / 255.0f green:99.0f / 255.0f blue:96.0f / 255.0f alpha:1];
-}
-
-- (void)p_cancel
-{
-    [self.parentViewController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
 }
 
 #pragma mark collection view delegate datasource
@@ -206,7 +200,7 @@
 
 - (void)selectedItemsCountChanged:(NSNotification *)notification
 {
-    _selectNumBarButton.title = [NSString stringWithFormat:@"%ld/%ld", [[HYImagePickerHelper sharedHelper].selectedItems count], [HYImagePickerHelper sharedHelper].maxSelectedCountAllow];
+    _selectNumBarButton.title = [NSString stringWithFormat:@"%ld/%ld", (unsigned long)[[HYImagePickerHelper sharedHelper].selectedItems count], (long)[HYImagePickerHelper sharedHelper].maxSelectedCountAllow];
     
     HYAlbumItem *item = notification.object;
     NSInteger indexPathItem = [[HYImagePickerHelper sharedHelper].currentPhotos indexOfObject:item];
@@ -232,15 +226,31 @@
     }
 }
 
-- (void)preview
+#pragma mark bar button item
+
+- (void)p_cancel
+{
+    HYImagePickerViewController *picker = (HYImagePickerViewController *)self.navigationController;
+    if (picker.pickerDelegate && [picker.pickerDelegate respondsToSelector:@selector(imagePickerControllerDidCancel:)]) {
+        
+        [picker.pickerDelegate imagePickerControllerDidCancel:picker];
+    }
+}
+
+
+- (void)p_preview
 {
     HYImagePickerPhotoBrowserViewController *controller = [[HYImagePickerPhotoBrowserViewController alloc] initWithBrowserType:HYAlbumPhotoBrowserTypePreView];
     [self.navigationController pushViewController:controller animated:YES];
 }
 
-- (void)choiceDone
+- (void)p_choiceDone
 {
-    
+    HYImagePickerViewController *picker = (HYImagePickerViewController *)self.navigationController;
+    if (picker.pickerDelegate && [picker.pickerDelegate respondsToSelector:@selector(imagePickerController:didFinishPickingMediaWithInfo:)]) {
+        
+        [picker.pickerDelegate imagePickerController:picker didFinishPickingMediaWithInfo:nil];
+    }
 }
 
 

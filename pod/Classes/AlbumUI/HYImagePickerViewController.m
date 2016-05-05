@@ -10,10 +10,11 @@
 #import "HYImagePickerAlbumViewController.h"
 #import "HYImagePickerHelper.h"
 #import "HYAlbumImageGenerator.h"
+#import "HYImagePickerViewControllerPrivate.h"
 
 @interface HYImagePickerViewController ()
 
-@property (nonatomic, strong, readwrite) HYImagePickerHelper *helper;
+- (instancetype)initWithRootViewController:(UIViewController  * __nullable)rootViewController;
 
 @end
 
@@ -31,6 +32,7 @@
 
 - (instancetype)init
 {
+    _maxSelectedAlow = 9;
     return [self initWithRootViewController:[[HYImagePickerAlbumViewController alloc] init]];
 }
 
@@ -39,7 +41,8 @@
     self = [super initWithRootViewController:[[HYImagePickerAlbumViewController alloc] init]];
     if (self)
     {
-        _maxSelectedAlow = 9;
+        self.helper = [HYImagePickerHelper sharedHelper];
+        self.helper.maxSelectedCountAllow = _maxSelectedAlow;
         return self;
     }
     return nil;
@@ -47,21 +50,13 @@
 
 - (instancetype)initWithMaxSelectedAllow:(NSInteger)maxSelectedAlow
 {
-    self = [super initWithRootViewController:[[HYImagePickerAlbumViewController alloc] init]];
-    if (self)
-    {
-        _maxSelectedAlow = maxSelectedAlow;
-        return self;
-    }
-    return nil;
+    _maxSelectedAlow = maxSelectedAlow;
+    return [self initWithRootViewController:nil];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.helper = [HYImagePickerHelper sharedHelper];
-    self.helper.maxSelectedCountAllow = 9;
     
     self.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationBar.translucent = YES;

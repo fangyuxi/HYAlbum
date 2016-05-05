@@ -8,6 +8,7 @@
 
 #import "HYImagePickerAlbumViewController.h"
 #import "HYImagePickerViewController.h"
+#import "HYImagePickerViewControllerPrivate.h"
 #import "HYImagePickerHelper.h"
 #import "HYAlbumManager.h"
 #import "HYAlbum.h"
