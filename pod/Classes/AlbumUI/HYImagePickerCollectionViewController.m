@@ -249,7 +249,27 @@
     HYImagePickerViewController *picker = (HYImagePickerViewController *)self.navigationController;
     if (picker.pickerDelegate && [picker.pickerDelegate respondsToSelector:@selector(imagePickerController:didFinishPickingMediaWithInfo:)]) {
         
-        [picker.pickerDelegate imagePickerController:picker didFinishPickingMediaWithInfo:nil];
+        NSMutableArray *array = [NSMutableArray array];
+        dispatch_group_t group = dispatch_group_create();
+        
+        for (HYAlbumItem *item in [HYImagePickerHelper sharedHelper].selectedItems)
+        {
+            dispatch_group_enter(group);
+            [item getFullScreenImageWithSize:[UIScreen mainScreen].bounds.size result:^(UIImage *image) {
+               
+                if (image) {
+                    [array addObject:image];
+                }
+                dispatch_group_leave(group);
+            }];
+        }
+        
+        dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+           
+            NSLog(@"%@", array);
+            [picker.pickerDelegate imagePickerController:picker didFinishPickingMediaWithInfo:nil];
+            
+        });
     }
 }
 

@@ -123,7 +123,8 @@
         return;
     }
     
-    UIImage *fullImage = [_cache objectForKey:item.identifier];
+    NSString *key = [NSString stringWithFormat:@"%@_%@", item.identifier, NSStringFromCGSize(size)];
+    UIImage *fullImage = [_cache objectForKey:key];
     if (fullImage) {
         handler(fullImage);
         return;
@@ -139,7 +140,7 @@
         option.resizeMode = PHImageRequestOptionsResizeModeFast;
         [[PHImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:befittingImageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *fullImage, NSDictionary *info) {
             
-            [_cache setObject:fullImage forKey:item.identifier withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
+            [_cache setObject:fullImage forKey:key withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
                 
             }];
             
@@ -159,6 +160,10 @@
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
                 UIImage *fullImage = [self p_resizeImageForAsset:item.alAsset maxPixelSize:maxPixel];
+                
+                [_cache setObject:fullImage forKey:key withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
+                    
+                }];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
