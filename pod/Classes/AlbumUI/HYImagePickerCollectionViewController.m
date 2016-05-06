@@ -257,9 +257,20 @@
             dispatch_group_enter(group);
             [item getFullScreenImageWithSize:[UIScreen mainScreen].bounds.size result:^(UIImage *image) {
                
-                if (image) {
-                    [array addObject:image];
+                @autoreleasepool
+                {
+                    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                    if (image)
+                    {
+                        NSData *data = UIImageJPEGRepresentation(image, 0.8);
+                        UIImage *depressImage = [UIImage imageWithData:data scale:[[UIScreen mainScreen] scale]];
+                        if (depressImage) {
+                            [dic setObject:depressImage forKey:HYImagePickerFullScreenImageKey];
+                        }
+                        [array addObject:dic];
+                    }
                 }
+                
                 dispatch_group_leave(group);
             }];
         }

@@ -12,6 +12,9 @@
 #import "HYAlbumImageGenerator.h"
 #import "HYImagePickerViewControllerPrivate.h"
 
+NSString *const HYImagePickerFullScreenImageKey = @"HYImagePickerFullScreenImageKey";
+NSString *const HYImagePickerFullResolutImagePathKey = @"HYImagePickerFullResolutImagePathKey";
+
 @interface HYImagePickerViewController ()
 
 - (instancetype)initWithRootViewController:(UIViewController  * __nullable)rootViewController;
@@ -49,6 +52,7 @@
 }
 
 - (instancetype)initWithMaxSelectedAllow:(NSInteger)maxSelectedAlow
+                    andCompresstionLevel:(CGFloat)level
 {
     _maxSelectedAlow = maxSelectedAlow;
     return [self initWithRootViewController:nil];

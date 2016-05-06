@@ -9,7 +9,7 @@
 #import "HYViewController.h"
 #import "HYImagePickerViewController.h"
 
-@interface HYViewController ()
+@interface HYViewController ()<HYImagePickerViewControllerDelegate>
 
 @end
 
@@ -28,7 +28,7 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        HYImagePickerViewController *controller = [[HYImagePickerViewController alloc] initWithMaxSelectedAllow:9];
+        HYImagePickerViewController *controller = [[HYImagePickerViewController alloc] initWithMaxSelectedAllow:9 andCompresstionLevel:0.8];
         controller.pickerDelegate = self;
         [self presentViewController:controller animated:YES completion:^{
             
