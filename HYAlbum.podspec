@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name             = "HYAlbum"
-  s.version          = "0.1"
-  s.summary          = "A Photo Libary For HYAlbum"
-  s.description      = "A Photo Libary"
+  s.version          = "0.2"
+  s.summary          = "A Photo Libary"
+  s.description      = "A Photo Libary For HYAlbum"
 
   s.homepage         = "https://github.com/fangyuxi/HYAlbum"
   s.license          = 'MIT'
@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
   s.resources = 'Pod/Resources/*.{bundle}'
-
+  s.dependency 'HYCache'
 end

@@ -278,7 +278,7 @@
         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
            
             NSLog(@"%@", array);
-            [picker.pickerDelegate imagePickerController:picker didFinishPickingMediaWithInfo:nil];
+            [picker.pickerDelegate imagePickerController:picker didFinishPickingMediaWithInfo:array];
             
         });
     }
