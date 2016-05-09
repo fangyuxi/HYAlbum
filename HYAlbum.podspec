@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "HYAlbum"
-  s.version          = "0.2"
+  s.version          = "0.3"
   s.summary          = "A Photo Libary"
   s.description      = "A Photo Libary For HYAlbum"
 
