@@ -129,7 +129,7 @@
     }
     
     NSString *key = [NSString stringWithFormat:@"%@_%@", item.identifier, NSStringFromCGSize(size)];
-    UIImage *fullImage = [_cache objectForKey:key];
+    __block UIImage *fullImage = [_cache objectForKey:key];
     if (fullImage) {
         handler(fullImage);
         return;
@@ -155,29 +155,41 @@
         }
         else
         {
-            if (maxPixel == 0) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
+                fullImage = [UIImage imageWithCGImage:item.alAsset.defaultRepresentation.fullScreenImage];
+                [_cache setObject:fullImage forKey:key withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
+                    
+                }];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
-                    handler([UIImage imageWithCGImage:item.alAsset.defaultRepresentation.fullResolutionImage]);
+                    handler(fullImage);
                 });
-            }
-            else
-            {
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                    
-                    UIImage *fullImage = [self p_resizeImageForAsset:item.alAsset maxPixelSize:maxPixel];
-                    
-                    [_cache setObject:fullImage forKey:key withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
-                        
-                    }];
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        
-                        handler(fullImage);
-                    });
-                });
-            }
+                
+            });
+            
+//            if (maxPixel == 0) {
+//                
+//                
+//            }
+//            else
+//            {
+//                handler([UIImage imageWithCGImage:item.alAsset.defaultRepresentation.fullScreenImage]);
+//                //handler(fullImage);
+////                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+////                    
+////                    UIImage *fullImage = [self p_resizeImageForAsset:item.alAsset maxPixelSize:maxPixel];
+////                    
+////                    [_cache setObject:fullImage forKey:key withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
+////                        
+////                    }];
+////                    
+////                    dispatch_async(dispatch_get_main_queue(), ^{
+////                        
+////                        handler(fullImage);
+////                    });
+////                });
+//            }
         }
     }];
 }
