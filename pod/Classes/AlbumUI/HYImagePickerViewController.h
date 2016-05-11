@@ -45,7 +45,7 @@ didFinishPickingMediaWithInfo:(NSArray<NSDictionary *> *)info;
  *  创建 Picker
  *
  *  @param maxSelectedAlow 最大允许选择几张图片
- *  @param level           图片的压缩等级
+ *  @param level           图片的压缩等级 0~1 默认0.9 选中了上传原图的图片，会忽略这个参数
  *
  *  @return picker
  */

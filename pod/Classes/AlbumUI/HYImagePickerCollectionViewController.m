@@ -259,9 +259,10 @@
                     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
                     if (image)
                     {
-                        NSData *data = UIImageJPEGRepresentation(image, 0.8);
+                        NSData *data = UIImageJPEGRepresentation(image, [HYImagePickerHelper sharedHelper].compresstionLevel);
                         UIImage *depressImage = [UIImage imageWithData:data scale:[[UIScreen mainScreen] scale]];
-                        if (depressImage) {
+                        if (depressImage)
+                        {
                             [dic setObject:depressImage forKey:HYImagePickerFullScreenImageKey];
                         }
                         [array addObject:dic];
@@ -274,7 +275,6 @@
         
         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
            
-            NSLog(@"%@", array);
             [picker.pickerDelegate imagePickerController:picker didFinishPickingMediaWithInfo:array];
             
         });

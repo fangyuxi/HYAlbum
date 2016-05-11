@@ -37,7 +37,7 @@ NSString *const HYImagePickerCollectionControllerNeedUpdate = @"HYImagePickerCol
         self.currentAlbumIndex = -1;
         self.currentShowItemIndex = -1;
         self.maxSelectedCountAllow = 9;
-        
+        self.compresstionLevel = 0.9;
         _selectedItems = [NSMutableArray array];
         return self;
     }
@@ -79,7 +79,7 @@ NSString *const HYImagePickerCollectionControllerNeedUpdate = @"HYImagePickerCol
     if (self.maxSelectedCountAllow == [self.selectedItems count])
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
-                                                        message:@"超过选图最大限制"
+                                                        message:[NSString stringWithFormat:@"最多能选择%ld张照片", (long)self.maxSelectedCountAllow]
                                                        delegate:nil
                                               cancelButtonTitle:@"好的"
                                               otherButtonTitles:nil, nil];

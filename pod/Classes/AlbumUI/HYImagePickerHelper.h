@@ -55,6 +55,11 @@ extern NSString *const HYImagePickerCollectionControllerNeedUpdate;
 @property (nonatomic, assign) NSInteger maxSelectedCountAllow;
 
 /**
+ *  选中图片的压缩等级
+ */
+@property (nonatomic, assign) CGFloat compresstionLevel;
+
+/**
  *  已经选中的item数组
  */
 @property (nonatomic, strong, readonly) NSMutableArray *selectedItems;

@@ -24,6 +24,7 @@ NSString *const HYImagePickerFullResolutImagePathKey = @"HYImagePickerFullResolu
 @implementation HYImagePickerViewController{
 
     NSInteger _maxSelectedAlow;
+    CGFloat _compresstionLevel;
 }
 
 - (void)dealloc
@@ -36,6 +37,7 @@ NSString *const HYImagePickerFullResolutImagePathKey = @"HYImagePickerFullResolu
 - (instancetype)init
 {
     _maxSelectedAlow = 9;
+    _compresstionLevel = 0.9;
     return [self initWithRootViewController:[[HYImagePickerAlbumViewController alloc] init]];
 }
 
@@ -46,6 +48,7 @@ NSString *const HYImagePickerFullResolutImagePathKey = @"HYImagePickerFullResolu
     {
         self.helper = [HYImagePickerHelper sharedHelper];
         self.helper.maxSelectedCountAllow = _maxSelectedAlow;
+        self.helper.compresstionLevel = _compresstionLevel;
         return self;
     }
     return nil;
@@ -55,6 +58,7 @@ NSString *const HYImagePickerFullResolutImagePathKey = @"HYImagePickerFullResolu
                     andCompresstionLevel:(CGFloat)level
 {
     _maxSelectedAlow = maxSelectedAlow;
+    _compresstionLevel = (level < 0 || level > 1) ? 0.9 : level;
     return [self initWithRootViewController:nil];
 }
 
