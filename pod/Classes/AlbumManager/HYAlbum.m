@@ -8,6 +8,7 @@
 
 #import "HYAlbum.h"
 #import "HYAlbumImageGenerator.h"
+#import "HYAlbumManager.h"
 
 @interface HYAlbum ()
 
@@ -49,38 +50,39 @@
 
 - (NSString *)albumTitle
 {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
-    
-    return self.collection.localizedTitle;
-#else
-    return [self.group valueForProperty:ALAssetsGroupPropertyName];
-#endif
-    
-   
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
+    {
+        return self.collection.localizedTitle;
+    }
+    else
+    {
+        return [self.group valueForProperty:ALAssetsGroupPropertyName];
+    }
 }
 
 - (NSDate *)createDate
 {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
-    
-    return [self.collection startDate];
-#else
-    return nil;
-#endif
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
+    {
+        return [self.collection startDate];
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 - (NSUInteger)count
 {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
-    
-    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:self.collection options:nil];
-    return result.count;
-    
-#else
-    
-    return [self.group numberOfAssets];
-    
-#endif
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
+    {
+        PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:self.collection options:nil];
+        return result.count;
+    }
+    else
+    {
+        return [self.group numberOfAssets];
+    }
 }
 
 - (void)getPosterThumbImageWithSize:(CGSize)size

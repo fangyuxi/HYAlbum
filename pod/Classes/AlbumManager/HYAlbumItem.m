@@ -8,6 +8,7 @@
 
 #import "HYAlbumItem.h"
 #import "HYAlbumImageGenerator.h"
+#import "HYAlbumManager.h"
 
 #define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
 #define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))
@@ -96,13 +97,14 @@
 
 - (NSString *)identifier
 {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
-    
-    return self.phAsset.localIdentifier;
-#else
-    
-    return self.alAsset.defaultRepresentation.url;
-#endif
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
+    {
+         return self.phAsset.localIdentifier;
+    }
+    else
+    {
+        return [self.alAsset.defaultRepresentation.url absoluteString];
+    }
 }
 
 - (NSString *)fileName
@@ -112,14 +114,15 @@
 
 - (CGSize)dimensions
 {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
-    
-    CGSize size = CGSizeMake(self.phAsset.pixelWidth, self.phAsset.pixelHeight);
-    return size;
-#else
-    
-    return self.alAsset.defaultRepresentation.dimensions;
-#endif
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
+    {
+        CGSize size = CGSizeMake(self.phAsset.pixelWidth, self.phAsset.pixelHeight);
+        return size;
+    }
+    else
+    {
+        return self.alAsset.defaultRepresentation.dimensions;
+    }
 }
 
 #pragma mark equal

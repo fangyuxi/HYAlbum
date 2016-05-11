@@ -10,6 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
 #import "HYCache.h"
+#import "HYAlbumManager.h"
 
 @implementation HYAlbumImageGenerator{
 
@@ -49,29 +50,33 @@
     if (!item) {
         return;
     }
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
-    NSInteger retinaMultiplier = [UIScreen mainScreen].scale;
-    CGSize retinaSquare = CGSizeMake(size.width * retinaMultiplier, size.height * retinaMultiplier);
     
-    PHImageRequestOptions *option = [PHImageRequestOptions new];
-    option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
-    option.resizeMode = PHImageRequestOptionsResizeModeExact;
-    [[PHImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
+    {
+        NSInteger retinaMultiplier = [UIScreen mainScreen].scale;
+        CGSize retinaSquare = CGSizeMake(size.width * retinaMultiplier, size.height * retinaMultiplier);
         
-        handler(poster);
-    }];
-#else
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        UIImage *image = [UIImage imageWithCGImage:item.alAsset.aspectRatioThumbnail];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
+        PHImageRequestOptions *option = [PHImageRequestOptions new];
+        option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+        option.resizeMode = PHImageRequestOptionsResizeModeExact;
+        [[PHImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
             
-            handler(image);
+            handler(poster);
+        }];
+    }
+    else
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
+            UIImage *image = [UIImage imageWithCGImage:item.alAsset.aspectRatioThumbnail];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                handler(image);
+                
+            });
         });
-    });
-#endif
+    }
 }
 
 - (void)getPosterThumbImageWithSize:(CGSize)size
@@ -84,34 +89,34 @@
         return;
     }
     
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
-    
-    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:album.collection options:nil];
-    if (result.count == 0) {
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
+    {
+        PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:album.collection options:nil];
+        if (result.count == 0) {
+            
+            handler(nil);
+            return;
+        }
         
-        handler(nil);
-        return;
+        PHAsset *asset = [result objectAtIndex:0];
+        NSInteger retinaMultiplier = [UIScreen mainScreen].scale;
+        CGSize retinaSquare = CGSizeMake(size.width * retinaMultiplier, size.height * retinaMultiplier);
+        
+        PHImageRequestOptions *option = [PHImageRequestOptions new];
+        option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+        option.resizeMode = PHImageRequestOptionsResizeModeExact;
+        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
+            
+            handler(poster);
+        }];
     }
-    
-    PHAsset *asset = [result objectAtIndex:0];
-    NSInteger retinaMultiplier = [UIScreen mainScreen].scale;
-    CGSize retinaSquare = CGSizeMake(size.width * retinaMultiplier, size.height * retinaMultiplier);
-    
-    PHImageRequestOptions *option = [PHImageRequestOptions new];
-    option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
-    option.resizeMode = PHImageRequestOptionsResizeModeExact;
-    [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
-        
-        handler(poster);
-    }];
-#else
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        handler([UIImage imageWithCGImage:album.group.posterImage]);
-    });
-    
-#endif
+    else
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            handler([UIImage imageWithCGImage:album.group.posterImage]);
+        });
+    }
 }
 
 - (void)getFullPreViewImageWithAlbumItem:(HYAlbumItem *)item
@@ -133,46 +138,47 @@
     
     [self p_calculateSizeWithItem:item result:^(CGFloat maxPixel, BOOL islongImage, CGSize befittingImageSize) {
        
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
         
-        PHImageRequestOptions *option = [PHImageRequestOptions new];
-        option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
-        option.resizeMode = PHImageRequestOptionsResizeModeFast;
-        [[PHImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:befittingImageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *fullImage, NSDictionary *info) {
-            
-            [_cache setObject:fullImage forKey:key withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
-                
-            }];
-            
-            handler(fullImage);
-        }];
-        
-#else
-        if (maxPixel == 0) {
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                handler([UIImage imageWithCGImage:item.alAsset.defaultRepresentation.fullResolutionImage]);
-            });
-        }
-        else
+        if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
         {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                
-                UIImage *fullImage = [self p_resizeImageForAsset:item.alAsset maxPixelSize:maxPixel];
+            PHImageRequestOptions *option = [PHImageRequestOptions new];
+            option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+            option.resizeMode = PHImageRequestOptionsResizeModeFast;
+            [[PHImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:befittingImageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *fullImage, NSDictionary *info) {
                 
                 [_cache setObject:fullImage forKey:key withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
                     
                 }];
                 
+                handler(fullImage);
+            }];
+        }
+        else
+        {
+            if (maxPixel == 0) {
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
-                    handler(fullImage);
+                    handler([UIImage imageWithCGImage:item.alAsset.defaultRepresentation.fullResolutionImage]);
                 });
-            });
+            }
+            else
+            {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    
+                    UIImage *fullImage = [self p_resizeImageForAsset:item.alAsset maxPixelSize:maxPixel];
+                    
+                    [_cache setObject:fullImage forKey:key withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
+                        
+                    }];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        handler(fullImage);
+                    });
+                });
+            }
         }
-#endif
-        
     }];
 }
 

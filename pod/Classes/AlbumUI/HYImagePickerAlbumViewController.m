@@ -39,11 +39,17 @@
     [self p_configNavBar];
     [self p_createView];
     
-    [[HYAlbumManager sharedManager] getAllAlbumListWithResult:^(NSArray<HYAlbum *> *albums, NSError *error) {
+    [[HYAlbumManager sharedManager] triggerAlbumAuthWithBlock:^(BOOL couldLoadAlbum) {
        
-        ((HYImagePickerViewController *)self.navigationController).helper.albums = [[NSArray alloc] initWithArray:[[albums reverseObjectEnumerator] allObjects]];
-        
-        [_tableView reloadData];
+        if (couldLoadAlbum) {
+            
+            [[HYAlbumManager sharedManager] getAllAlbumListWithResult:^(NSArray<HYAlbum *> *albums, NSError *error) {
+                
+                ((HYImagePickerViewController *)self.navigationController).helper.albums = [[NSArray alloc] initWithArray:[[albums reverseObjectEnumerator] allObjects]];
+                
+                [_tableView reloadData];
+            }];
+        }
     }];
 }
 

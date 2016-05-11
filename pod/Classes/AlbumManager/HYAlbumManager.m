@@ -34,14 +34,14 @@
     self = [super init];
     if (self)
     {
-        
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
-        
-        _phPhotoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
-#else
-        _assetsLibrary = [[ALAssetsLibrary alloc] init];
-#endif
-        
+        if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
+        {
+            _phPhotoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
+        }
+        else
+        {
+            _assetsLibrary = [[ALAssetsLibrary alloc] init];
+        }
         
         return self;
     }
@@ -58,12 +58,14 @@
 - (void)getAlbumListWithResult:(HYAlbumManagerAlbumsListBlock)result
                      byFilterType:(HYAlbumFilterType)type
 {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
-    
-    [self p_getCollectionByPHPhotoKitWithResult:result byType:type];
-#else
-    [self p_getGroupsByALAssetLibraryWithResult:result byType:type];
-#endif
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
+    {
+        [self p_getCollectionByPHPhotoKitWithResult:result byType:type];
+    }
+    else
+    {
+         [self p_getGroupsByALAssetLibraryWithResult:result byType:type];
+    }
 }
 
 - (void)getItemsInAlbum:(HYAlbum *)album
@@ -73,12 +75,14 @@
     {
         return;
     }
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
-    [self p_getItemsByPHPhotoKitInAlbum:album.collection result:result];
-#else
-    [self p_getItemsByALAssetLibraryInAlbum:album.group result:result];
-#endif
-    
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
+    {
+        [self p_getItemsByPHPhotoKitInAlbum:album.collection result:result];
+    }
+    else
+    {
+        [self p_getItemsByALAssetLibraryInAlbum:album.group result:result];
+    }
 }
 
 - (void)getItemsInCameraRollWithResult:(HYAlbumManagerAlbumPhotosBlock)result
@@ -127,9 +131,12 @@
         }
     };
     
-    [_assetsLibrary enumerateGroupsWithTypes:type
-                            usingBlock:enumerateGroups
-                          failureBlock:emuerateGroupsError];
+    if (type == HYAlbumFilterTypeAll)
+    {
+        [_assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll
+                                      usingBlock:enumerateGroups
+                                    failureBlock:emuerateGroupsError];
+    }
 }
 
 - (void)p_getItemsByALAssetLibraryInAlbum:(ALAssetsGroup *)group
@@ -288,22 +295,26 @@
         
         PHAsset *asset = obj;
         
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
-        if (asset.mediaType == PHAssetMediaTypeImage &&
-            asset.mediaSubtypes != PHAssetMediaSubtypePhotoLive &&
-            asset)
+        if (SYSTEM_VERSION_GREATER_THAN(@"9.0"))
         {
-            HYAlbumItem *item = [[HYAlbumItem alloc] initWithPHAsset:asset];
-            [items addObject:item];
+            if (asset.mediaType == PHAssetMediaTypeImage &&
+                asset.mediaSubtypes != PHAssetMediaSubtypePhotoLive &&
+                asset)
+            {
+                HYAlbumItem *item = [[HYAlbumItem alloc] initWithPHAsset:asset];
+                [items addObject:item];
+            }
         }
-#else
-        if (asset.mediaType == PHAssetMediaTypeImage &&
-            asset)
+        else
         {
-            HYAlbumItem *item = [[HYAlbumItem alloc] initWithPHAsset:asset];
-            [items addObject:item];
+            if (asset.mediaType == PHAssetMediaTypeImage &&
+                asset)
+            {
+                HYAlbumItem *item = [[HYAlbumItem alloc] initWithPHAsset:asset];
+                [items addObject:item];
+            }
         }
-#endif
+
         if (idx == result.count - 1)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -312,6 +323,78 @@
             });
         }
     }];
+}
+
+- (void)triggerAlbumAuthWithBlock:(void(^)(BOOL couldLoadAlbum))result
+{
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
+    {
+        if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusNotDetermined)
+        {
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                
+                if (status == PHAuthorizationStatusAuthorized)
+                {
+                    result(YES);
+                }
+                else
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                    message:@"您已拒绝访问相册，请到APP设置中更改"
+                                                                   delegate:nil cancelButtonTitle:@"好的"
+                                                          otherButtonTitles:nil, nil];
+                    [alert show];
+                    
+                    result(NO);
+                }
+            }];
+        }
+        else if([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusDenied ||
+                [PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusRestricted)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"您已拒绝访问相册，请到APP设置中更改"
+                                                           delegate:nil cancelButtonTitle:@"好的"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+            
+            result(NO);
+        }
+        else
+        {
+            result(YES);
+        }
+
+    }
+    else
+    {
+        if([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusNotDetermined)
+        {
+            [_assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+                
+                result(YES);
+                
+            } failureBlock:^(NSError *error) {
+                result(NO);
+            }];
+        }
+        else if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusRestricted ||
+                 [ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusDenied)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"您已拒绝访问相册，请到APP设置中更改"
+                                                           delegate:nil cancelButtonTitle:@"好的"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+            
+            result(NO);
+        }
+        else
+        {
+            result(YES);
+        }
+
+    }
 }
 
 @end

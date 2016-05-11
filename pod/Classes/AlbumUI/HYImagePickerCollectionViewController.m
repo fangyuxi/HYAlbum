@@ -206,13 +206,7 @@
     NSInteger indexPathItem = [[HYImagePickerHelper sharedHelper].currentPhotos indexOfObject:item];
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:indexPathItem inSection:0];
     
-    [_collectionView performBatchUpdates:^{
-        
-        [_collectionView reloadItemsAtIndexPaths:@[indexPath]];
-        
-    } completion:^(BOOL finished) {
-        
-    }];
+    [_collectionView reloadItemsAtIndexPaths:@[indexPath]];
     
     if ([[HYImagePickerHelper sharedHelper].selectedItems count] > 0) {
         _selectNumBarButton.enabled = YES;
@@ -230,11 +224,14 @@
 
 - (void)p_cancel
 {
-    HYImagePickerViewController *picker = (HYImagePickerViewController *)self.navigationController;
-    if (picker.pickerDelegate && [picker.pickerDelegate respondsToSelector:@selector(imagePickerControllerDidCancel:)]) {
+    [self dismissViewControllerAnimated:YES completion:^{
         
-        [picker.pickerDelegate imagePickerControllerDidCancel:picker];
-    }
+        HYImagePickerViewController *picker = (HYImagePickerViewController *)self.navigationController;
+        if (picker.pickerDelegate && [picker.pickerDelegate respondsToSelector:@selector(imagePickerControllerDidCancel:)]) {
+            
+            [picker.pickerDelegate imagePickerControllerDidCancel:picker];
+        }
+    }];
 }
 
 

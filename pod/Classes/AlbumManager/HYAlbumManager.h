@@ -10,29 +10,18 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
 
-/** 目前仅支持照片获取 **/
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_8_0
+#define SYSTEM_VERSION_GREATER_THAN(v)                                                                              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+
+
+
+/** 目前仅支持照片获取 **/
 
 typedef NS_OPTIONS(NSInteger, HYAlbumFilterType) {
     
     HYAlbumFilterTypeAll = 1,
     HYAlbumFilterTypeCameraRoll = 2,
 };
-
-#else
-
-typedef NS_OPTIONS(NSInteger, HYAlbumFilterType) {
-    
-    HYAlbumFilterTypeAll = (NSInteger)ALAssetsGroupAll,
-    HYAlbumFilterTypeCameraRoll = (NSInteger)ALAssetsGroupSavedPhotos,
-};
-
-#endif
-
-
-
-
 
 @class HYAlbum;
 @class HYAlbumItem;
@@ -81,5 +70,14 @@ typedef void(^HYAlbumManagerAlbumPhotosBlock)(NSArray<HYAlbumItem *> *items , NS
  */
 - (void)getItemsInCameraRollWithResult:(HYAlbumManagerAlbumPhotosBlock)result;
 
+/**
+ *  触发用户认证窗口，返回值为YES的时候，可以load相册
+ *
+ *  @param result block in main thread
+ */
+- (void)triggerAlbumAuthWithBlock:(void(^)(BOOL couldLoadAlbum))result;
 
 @end
+
+
+

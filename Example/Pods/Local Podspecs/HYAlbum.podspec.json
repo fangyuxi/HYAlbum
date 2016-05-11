@@ -1,20 +1,25 @@
 {
   "name": "HYAlbum",
-  "version": "0.1.0",
-  "summary": "A short description of HYAlbum.",
-  "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/HYAlbum",
+  "version": "0.3",
+  "summary": "A Photo Libary",
+  "description": "A Photo Libary For HYAlbum",
+  "homepage": "https://github.com/fangyuxi/HYAlbum",
   "license": "MIT",
   "authors": {
     "fangyuxi": "xcoder.fang@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/HYAlbum.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/fangyuxi/HYAlbum.git",
+    "tag": "0.3"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "7.0"
   },
   "source_files": "Pod/Classes/**/*",
-  "resources": "Pod/Resources/*.{bundle}"
+  "resources": "Pod/Resources/*.{bundle}",
+  "dependencies": {
+    "HYCache": [
+
+    ]
+  }
 }
