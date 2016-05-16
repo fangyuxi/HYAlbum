@@ -118,7 +118,7 @@
         {
             if (result)
             {
-                result(groups, nil);
+                result([[groups reverseObjectEnumerator] allObjects], nil);
             }
         }
     };
@@ -268,7 +268,7 @@
             
             dispatch_group_notify(group, dispatch_get_main_queue(), ^{
                 
-                result(collections, nil);
+                result([[collections reverseObjectEnumerator] allObjects], nil);
             });
             
         }

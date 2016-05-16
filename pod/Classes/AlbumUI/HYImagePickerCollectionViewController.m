@@ -103,6 +103,9 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.toolbarHidden = NO;
+    self.navigationController.toolbar.barTintColor = [UIColor blackColor];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
 - (void)p_createCollectionView
