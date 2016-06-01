@@ -118,6 +118,7 @@
     self.zoomScale = minScale;
     
     _imageView.frame = CGRectMake(0, 0, _imageView.frame.size.width, _imageView.frame.size.height);
+    
     [self setNeedsLayout];    
 }
 

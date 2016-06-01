@@ -1182,7 +1182,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		03CA91998D6773EC5D02B3DB87B8353E /* Release */ = {
+		052A17875CB827423D627183396CEB60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1209,14 +1209,155 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		0B57334D6C23DADAA4F7D802A5760EB2 /* Debug */ = {
+		1F6D41704D6DF2D7EA95BF1DF67A9D93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D0914A137331C8B293DB96D26A0E782 /* Pods-HYAlbum_Tests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5A714F0224A736C9EEDF0E2F3FA4F202 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB5E9B8134E180097CA4C800BF333CEA /* Specta.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		778EBDB9C739B17AF95AA760D17F285A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB5E9B8134E180097CA4C800BF333CEA /* Specta.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7B65FE313609309974DA88959A9F2A2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4B5812FCD94037A8671013EAC2B095D /* Pods-HYAlbum_Example.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		824A740B194E66E1F10C0B0BEBA0ED25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01CDF01716ADC14A8351D9FC9E40C649 /* Pods-HYAlbum_Example.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9D77DAC945EC22411297CBC957C966F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACF635C77F05D8C5AB168DE508EE136C /* Expecta.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9DBC97C26A36661F3C6DE40A77E90F45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5844DAC87FCAF47CEEA82FE2BE202F8A /* HYAlbum.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HYAlbum/HYAlbum-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AC67641141114C20411EBF7A57C303B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57C90D6E14CBAA5B7D7CE9532D105925 /* HYCache.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HYCache/HYCache-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B37F0F91F85060E28F1DAAB522DC7EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1248,74 +1389,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		119ABA76F81A7676CC327C7F1AFCC456 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB5E9B8134E180097CA4C800BF333CEA /* Specta.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		1533B69122592B19CE347FF5D387E634 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ACF635C77F05D8C5AB168DE508EE136C /* Expecta.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		299D22F58F82728CE7B77B151675C114 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4B5812FCD94037A8671013EAC2B095D /* Pods-HYAlbum_Example.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		472554EA75F81EBB4470E1CCE24EA9F5 /* Debug */ = {
+		DA85C5560DAEFADB3C088E0551F48487 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 57C90D6E14CBAA5B7D7CE9532D105925 /* HYCache.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/HYCache/HYCache-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -1324,31 +1412,14 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
-		62898E227DEB20B0AEDCD37CF8AC5B97 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D0914A137331C8B293DB96D26A0E782 /* Pods-HYAlbum_Tests.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		6AA3BF01D69384C17DF5AF99EAD4E360 /* Release */ = {
+		EB4A3ACAD67848AEF19BE4B2C26A5393 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A51B18F5F8509A90F5CFF30FE9E2CEB /* Pods-HYAlbum_Tests.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1360,47 +1431,30 @@
 			};
 			name = Release;
 		};
-		6B36CA720D38BAA97BA22BF493BEE9E2 /* Debug */ = {
+		ED5BF28D682691EC4672356A174BF6EA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01CDF01716ADC14A8351D9FC9E40C649 /* Pods-HYAlbum_Example.debug.xcconfig */;
+			baseConfigurationReference = 5844DAC87FCAF47CEEA82FE2BE202F8A /* HYAlbum.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/HYAlbum/HYAlbum-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		73A0B35204C1AFABC17A0C9CB815C734 /* Release */ = {
+		F84C57B89A97BB8108482354FFD8E157 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ACF635C77F05D8C5AB168DE508EE136C /* Expecta.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		927072F7FB54D88B7FC0C8D1F24C3393 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5844DAC87FCAF47CEEA82FE2BE202F8A /* HYAlbum.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/HYAlbum/HYAlbum-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -1412,60 +1466,6 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
-		};
-		C49902C0637246B99D6B0119F5BCA699 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB5E9B8134E180097CA4C800BF333CEA /* Specta.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		C67EC721F78ACCF1949EADD09934C52B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57C90D6E14CBAA5B7D7CE9532D105925 /* HYCache.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/HYCache/HYCache-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		FE6A7BCA60202C0EC6B90DC3F7FDEEB4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5844DAC87FCAF47CEEA82FE2BE202F8A /* HYAlbum.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/HYAlbum/HYAlbum-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1473,8 +1473,8 @@
 		0C5606E483A05473607562468C0F29F4 /* Build configuration list for PBXNativeTarget "HYCache" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				472554EA75F81EBB4470E1CCE24EA9F5 /* Debug */,
-				C67EC721F78ACCF1949EADD09934C52B /* Release */,
+				AC67641141114C20411EBF7A57C303B8 /* Debug */,
+				DA85C5560DAEFADB3C088E0551F48487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1482,8 +1482,8 @@
 		21E4D1D7BE826B288A18056CC5E3929F /* Build configuration list for PBXNativeTarget "Pods-HYAlbum_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6B36CA720D38BAA97BA22BF493BEE9E2 /* Debug */,
-				299D22F58F82728CE7B77B151675C114 /* Release */,
+				824A740B194E66E1F10C0B0BEBA0ED25 /* Debug */,
+				7B65FE313609309974DA88959A9F2A2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1491,8 +1491,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B57334D6C23DADAA4F7D802A5760EB2 /* Debug */,
-				03CA91998D6773EC5D02B3DB87B8353E /* Release */,
+				B37F0F91F85060E28F1DAAB522DC7EC1 /* Debug */,
+				052A17875CB827423D627183396CEB60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1500,8 +1500,8 @@
 		57205495CF13B4EE93B13B7B0E3A1BD2 /* Build configuration list for PBXNativeTarget "Expecta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1533B69122592B19CE347FF5D387E634 /* Debug */,
-				73A0B35204C1AFABC17A0C9CB815C734 /* Release */,
+				F84C57B89A97BB8108482354FFD8E157 /* Debug */,
+				9D77DAC945EC22411297CBC957C966F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1509,8 +1509,8 @@
 		72C05971C3326CF924B1CA4B4A5C00C1 /* Build configuration list for PBXNativeTarget "HYAlbum" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				927072F7FB54D88B7FC0C8D1F24C3393 /* Debug */,
-				FE6A7BCA60202C0EC6B90DC3F7FDEEB4 /* Release */,
+				ED5BF28D682691EC4672356A174BF6EA /* Debug */,
+				9DBC97C26A36661F3C6DE40A77E90F45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1518,8 +1518,8 @@
 		C7E7FAAD0ACD3403D177D82F60F659C7 /* Build configuration list for PBXNativeTarget "Pods-HYAlbum_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				62898E227DEB20B0AEDCD37CF8AC5B97 /* Debug */,
-				6AA3BF01D69384C17DF5AF99EAD4E360 /* Release */,
+				1F6D41704D6DF2D7EA95BF1DF67A9D93 /* Debug */,
+				EB4A3ACAD67848AEF19BE4B2C26A5393 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1527,8 +1527,8 @@
 		EB7B16F9AF4D74A595782382D58A4F7F /* Build configuration list for PBXNativeTarget "Specta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C49902C0637246B99D6B0119F5BCA699 /* Debug */,
-				119ABA76F81A7676CC327C7F1AFCC456 /* Release */,
+				5A714F0224A736C9EEDF0E2F3FA4F202 /* Debug */,
+				778EBDB9C739B17AF95AA760D17F285A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

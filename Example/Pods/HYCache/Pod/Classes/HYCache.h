@@ -94,15 +94,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  是否包含对象
  *
- *  @param key key
- *
- *  @return BOOL
- */
-- (BOOL)containsObjectForKey:(NSString *)key;
-
-/**
- *  是否包含对象
- *
  *  @param key   key
  *  @param block block
  */

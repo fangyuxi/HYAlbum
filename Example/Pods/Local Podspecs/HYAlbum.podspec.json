@@ -1,6 +1,6 @@
 {
   "name": "HYAlbum",
-  "version": "0.3",
+  "version": "0.5",
   "summary": "A Photo Libary",
   "description": "A Photo Libary For HYAlbum",
   "homepage": "https://github.com/fangyuxi/HYAlbum",
@@ -10,16 +10,34 @@
   },
   "source": {
     "git": "https://github.com/fangyuxi/HYAlbum.git",
-    "tag": "0.3"
+    "tag": "0.5",
+    "submodules": true
   },
   "platforms": {
     "ios": "7.0"
   },
   "source_files": "Pod/Classes/**/*",
   "resources": "Pod/Resources/*.{bundle}",
-  "dependencies": {
-    "HYCache": [
+  "subspecs": [
+    {
+      "name": "AlbumManager",
+      "source_files": "Pod/Classes/AlbumManager.{h,m}",
+      "public_header_files": "Pod/Classes/AlbumManager/*.h",
+      "dependencies": {
+        "HYCache": [
 
-    ]
-  }
+        ]
+      }
+    },
+    {
+      "name": "AlbumUI",
+      "source_files": "Pod/Classes/AlbumUI.{h,m}",
+      "public_header_files": "Pod/Classes/AlbumUI/*.h",
+      "dependencies": {
+        "HYAlbum/AlbumManager": [
+
+        ]
+      }
+    }
+  ]
 }

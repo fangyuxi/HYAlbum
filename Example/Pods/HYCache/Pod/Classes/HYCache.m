@@ -100,20 +100,10 @@
 - (void)removeAllObjectsWithBlock:(void(^)())block
 {
     [self.memCache removeAllObject];
-    [self.memCache removeAllObjectWithBlock:^(HYMemoryCache * _Nonnull cache) {
+    [self.diskCache removeAllObjectWithBlock:^(HYDiskCache * _Nonnull cache) {
        
         block();
     }];
-}
-
-- (BOOL)containsObjectForKey:(NSString *)key
-{
-    BOOL contained = [_memCache containsObjectForKey:key];
-    if (contained){
-        
-        return YES;
-    }
-    return NO;
 }
 
 - (void)containsObjectForKey:(NSString *)key withBlock:(void(^)(BOOL contained))block
