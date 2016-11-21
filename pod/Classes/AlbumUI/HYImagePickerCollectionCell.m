@@ -18,6 +18,10 @@ static UIImage *selectedImage = nil;
 
 }
 
+- (void)setValue:(id)value forKey:(NSString *)key{
+
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
