@@ -13,6 +13,6 @@ typedef NS_ENUM(NSUInteger, HYAlbumItemType)
     HYAlbumItemTypeUnkown  = 0,
     HYAlbumItemTypePhoto   = 1,
     HYAlbumItemTypeVideo   = 2,
-    HYAlbumItemTypeAudio   = 3
+    HYAlbumItemTypeLive    = 3
 };
 

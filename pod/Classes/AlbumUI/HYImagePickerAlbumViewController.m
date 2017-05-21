@@ -44,13 +44,12 @@
     [[HYAlbumManager sharedManager] triggerAlbumAuthWithBlock:^(BOOL couldLoadAlbum) {
        
         if (couldLoadAlbum) {
-            
-            [[HYAlbumManager sharedManager] getAllAlbumListWithResult:^(NSArray<HYAlbum *> *albums, NSError *error) {
+            [[HYAlbumManager sharedManager] getAlbumListWithResult:^(NSArray<HYAlbum *> *albums, NSError *error) {
                 
                 ((HYImagePickerViewController *)self.navigationController).helper.albums = [[NSArray alloc] initWithArray:[[albums reverseObjectEnumerator] allObjects]];
-                
                 [_tableView reloadData];
-            }];
+                
+            } byFilterType:HYAlbumFilterTypeVideo];
         }
     }];
 }
@@ -114,11 +113,10 @@
        
         cell.imageView.image = image;
         [cell setNeedsLayout];
-        
     }];
     
     cell.textLabel.text = album.albumTitle;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu张照片", (unsigned long)album.count];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)album.count];
     
     return cell;
 }

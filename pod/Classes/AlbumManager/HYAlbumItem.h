@@ -39,13 +39,30 @@
 @property (nonatomic, strong) ALAsset *alAsset;
 @property (nonatomic, strong) PHAsset *phAsset;
 
+/**
+ 获取封面图
 
+ @param size 'size'
+ @param handler 'callback'
+ */
 - (void)getThumbImageWithSize:(CGSize)size
                        result:(void(^)(UIImage *image))handler;
 
+/**
+ 获取预览图
+ 
+ @param size 'size'
+ @param handler 'callback'
+ */
 - (void)getFullScreenImageWithSize:(CGSize)size
                             result:(void(^)(UIImage *image))handler;
 
+/**
+ 获取原图
+ 
+ @param size 'size'
+ @param handler 'callback'
+ */
 - (void)getFullResolutionImageWithSize:(CGSize)size
                                 result:(void(^)(UIImage *image))handler;
 

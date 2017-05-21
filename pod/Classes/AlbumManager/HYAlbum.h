@@ -11,8 +11,11 @@
 #import <Photos/Photos.h>
 #import "HYAlbumConstant.h"
 
-/** 代表一个相册 **/
+/** 代表一个相册 
+    ALAssetGroup 已经不再维护
+ **/
 
+@class HYAlbumItem;
 @interface HYAlbum : NSObject
 {
     
@@ -25,20 +28,29 @@
 - (instancetype)initWithPHCollection:(PHAssetCollection *)collectoin NS_DESIGNATED_INITIALIZER;
 
 /**
- *  相册名字
+ 唯一标识
+ */
+@property (nonatomic, copy, readonly) NSString *identifier;
+/**
+ 相册名字
  */
 @property (nonatomic, copy, readonly) NSString *albumTitle;
 
 /**
- *  创建时间 iOS 8.0之后有效
+ 创建时间
  */
 @property (nonatomic, copy, readonly) NSDate *createDate;
 
 /**
- *  相册中资源数量
+ 相册中资源数量
  */
 @property (nonatomic, assign, readwrite) NSUInteger count;
+@property (nonatomic, strong, readonly) NSMutableArray<HYAlbumItem *> *assets;
 
+
+/**
+ internal object
+ */
 @property (nonatomic, strong, readonly) ALAssetsGroup *group;
 @property (nonatomic, strong, readonly) PHAssetCollection *collection;
 

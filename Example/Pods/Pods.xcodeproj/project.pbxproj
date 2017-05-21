@@ -26,6 +26,7 @@
 		18F3DA6BCD4F6D8AB16A5D89AACF0242 /* SPTTestSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4EB08052AA819F0A273CD4EDB4F73 /* SPTTestSuite.m */; };
 		1BE58A89A234C827ADDF2D4F2B7BC654 /* HYImagePickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D2BA2689644B08125B75658EC3DB2044 /* HYImagePickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D10642AC2491D5A66EF33CC3AAC646F /* HYImagePickerCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E61F8D104D0BAEEBA5BD0AA3E11D70FC /* HYImagePickerCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1ECA86671ED1EA4F006BA952 /* HYAlbumPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ECA86661ED1EA4F006BA952 /* HYAlbumPrivate.h */; };
 		204214D0B112F8356A7FC87A8367626B /* SPTExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FBF2463A9963F744CBEDC742068855 /* SPTExampleGroup.m */; };
 		2239B5E63C5D2C1323D66F489F075C42 /* EXPMatchers+match.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCA5D5EE4C475613EAEAC8B9922885D /* EXPMatchers+match.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		22AAC188F1A9D7B0FF078FA897A26360 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
@@ -224,6 +225,7 @@
 		17DE037982EEC9352A6BA73D8C008A1B /* EXPMatchers+endWith.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+endWith.h"; path = "Expecta/Matchers/EXPMatchers+endWith.h"; sourceTree = "<group>"; };
 		1A1825A2C777D0B488AE25D62E942E70 /* HYAlbumManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAlbumManager.h; sourceTree = "<group>"; };
 		1B7C319A23EBFE841D94D6A35BF7441B /* Pods-HYAlbum_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HYAlbum_Example-dummy.m"; sourceTree = "<group>"; };
+		1ECA86661ED1EA4F006BA952 /* HYAlbumPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAlbumPrivate.h; sourceTree = "<group>"; };
 		1EE7030A09073FAF94A09BDAA0C57C4A /* HYImagePickerCollectionCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYImagePickerCollectionCell.h; sourceTree = "<group>"; };
 		1F1095EECD689CD868AE21F872379B19 /* EXPMatchers+beFalsy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beFalsy.m"; path = "Expecta/Matchers/EXPMatchers+beFalsy.m"; sourceTree = "<group>"; };
 		20639F80438664E97C6C8AFBEE48137F /* EXPMatchers+beFalsy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beFalsy.h"; path = "Expecta/Matchers/EXPMatchers+beFalsy.h"; sourceTree = "<group>"; };
@@ -680,6 +682,7 @@
 		A0C5DCB577D4F01987C670CFEB86A0B0 /* AlbumManager */ = {
 			isa = PBXGroup;
 			children = (
+				1ECA86661ED1EA4F006BA952 /* HYAlbumPrivate.h */,
 				C6F62958C472C2C34469414CB40745FD /* HYAlbum.h */,
 				777EDBCBBF7D9AEDB0AA8AF17B876DBB /* HYAlbum.m */,
 				60D18B53EDCCD05064660A7E207EA86E /* HYAlbumConstant.h */,
@@ -879,6 +882,7 @@
 				AAE75938ED3DD46BC00352B82D7CA890 /* EXPMatchers+raise.h in Headers */,
 				6EB2498C2AFB1DF8555CB7C1EF89CA5C /* EXPMatchers+raiseWithReason.h in Headers */,
 				E867CBF850D20C314BF4BD790432455D /* EXPMatchers+respondTo.h in Headers */,
+				1ECA86671ED1EA4F006BA952 /* HYAlbumPrivate.h in Headers */,
 				6924E116731D7079958063A3EE0781ED /* EXPMatchers.h in Headers */,
 				4231743B6C143BDB4A5FBB032E6D3799 /* EXPUnsupportedObject.h in Headers */,
 				956FB3AB698AF3DA776A9F24AA79C229 /* NSObject+Expecta.h in Headers */,

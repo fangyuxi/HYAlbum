@@ -91,12 +91,12 @@
     [self p_createCollectionView];
     [self p_createToolBar];
     
-    [[HYAlbumManager sharedManager] getItemsInAlbum:self.album withResult:^(NSArray<HYAlbumItem *> *items, NSError *error) {
-       
+    [[HYAlbumManager sharedManager] getItemsInAlbum:self.album
+                                         withResult:^(NSArray<HYAlbumItem *> *items,
+                                                      NSError *error) {
         ((HYImagePickerViewController *)self.navigationController).helper.currentPhotos = items;
         [_collectionView reloadData];
-        
-    }];
+    } byFilterType:HYAlbumFilterTypeVideo];
 }
 
 - (void)viewWillAppear:(BOOL)animated

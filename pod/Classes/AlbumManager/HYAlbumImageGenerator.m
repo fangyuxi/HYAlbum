@@ -59,7 +59,7 @@
         PHImageRequestOptions *option = [PHImageRequestOptions new];
         option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
         option.resizeMode = PHImageRequestOptionsResizeModeExact;
-        [[PHImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
+        [[PHCachingImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
             
             handler(poster);
         }];
@@ -84,36 +84,36 @@
                              result:(void(^)(UIImage *image))handler
 {
     if (!album) {
-        
         handler(nil);
         return;
     }
     
-    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
-    {
-        PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:album.collection options:nil];
-        if (result.count == 0) {
-            
-            handler(nil);
-            return;
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0")){
+        PHAsset *asset = nil;
+        if (album.assets.count > 0) {
+            asset = [album.assets firstObject].phAsset;
+        }else{
+            PHFetchResult *result = [PHAsset fetchKeyAssetsInAssetCollection:album.collection options:nil];
+            if (result.count == 0) {
+                handler(nil);
+                return;
+            }
+            asset = [result firstObject];
         }
         
-        PHAsset *asset = [result objectAtIndex:0];
         NSInteger retinaMultiplier = [UIScreen mainScreen].scale;
         CGSize retinaSquare = CGSizeMake(size.width * retinaMultiplier, size.height * retinaMultiplier);
         
         PHImageRequestOptions *option = [PHImageRequestOptions new];
         option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
         option.resizeMode = PHImageRequestOptionsResizeModeExact;
-        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
-            
+        [[PHCachingImageManager defaultManager] requestImageForAsset:asset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
             handler(poster);
         }];
     }
     else
     {
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             handler([UIImage imageWithCGImage:album.group.posterImage]);
         });
     }
@@ -144,7 +144,7 @@
             PHImageRequestOptions *option = [PHImageRequestOptions new];
             option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
             option.resizeMode = PHImageRequestOptionsResizeModeFast;
-            [[PHImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:befittingImageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *fullImage, NSDictionary *info) {
+            [[PHCachingImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:befittingImageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *fullImage, NSDictionary *info) {
                 
                 [_cache setObject:fullImage forKey:key withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
                     
