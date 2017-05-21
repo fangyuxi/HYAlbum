@@ -49,7 +49,7 @@
                 ((HYImagePickerViewController *)self.navigationController).helper.albums = [[NSArray alloc] initWithArray:[[albums reverseObjectEnumerator] allObjects]];
                 [_tableView reloadData];
                 
-            } byFilterType:HYAlbumFilterTypeVideo];
+            } byFilterType:HYAlbumFilterTypeImage];
         }
     }];
 }

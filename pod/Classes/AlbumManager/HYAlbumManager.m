@@ -222,6 +222,16 @@
         }
     }];
     
+    if (subtype == PHAssetCollectionSubtypeSmartAlbumUserLibrary) {
+        if (collections.count > 0) {
+            HYAlbum *album = [collections firstObject];
+            [self p_getItemsByPHPhotoKitInAlbum:album.collection result:^(NSArray<HYAlbumItem *> *items, NSError *error) {
+                album.assets = items;
+            } filterType:HYAlbumFilterTypeImage];
+        }
+        
+    }
+    
     return collections;
 }
 
@@ -247,8 +257,9 @@
         PHAsset *asset = obj;
         HYAlbumItem *item = [[HYAlbumItem alloc] initWithPHAsset:asset];
         [items addObject:item];
-        handler(items, nil);
     }];
+    
+    handler(items, nil);
 }
 
 - (void)triggerAlbumAuthWithBlock:(void(^)(BOOL couldLoadAlbum))result
