@@ -11,7 +11,7 @@
 #import "HYAlbumItem.h"
 #import "HYAlbumPrivate.h"
 
-NSString *const HYAlbumManagerAssetChanged = @"HYAlbumManagerAssetChanged";
+NSString *const HYAlbumManagerAssetChanged = @"HYAlbumManagerAssetChanged"; // ChangedItems // ChangedAlbum
 
 @implementation HYAlbumManager{
 
@@ -367,11 +367,25 @@ NSString *const HYAlbumManagerAssetChanged = @"HYAlbumManagerAssetChanged";
                         [items addObject:item];
                     }];
                     
+                    NSMutableSet *resultSet = nil;
+                    NSMutableSet *set1 = [NSMutableSet setWithArray:album.assets];
+                    NSMutableSet *set2 = [NSMutableSet setWithArray:items];
+                    
                     album.fetchResult = object;
                     album.assets = items;
                     [_albumsFetched setObject:album forKey:album.identifier];
                     
-                    [[NSNotificationCenter defaultCenter] postNotificationName:HYAlbumManagerAssetChanged object:album];
+                    if (set1.count > set2.count) {
+                        [set1 minusSet:set2];
+                        resultSet = set1;
+                        [[NSNotificationCenter defaultCenter] postNotificationName:HYAlbumManagerAssetChanged object:@{@"ChangedItems":resultSet,@"ChangedAlbum":album}];
+                    }else if (set1.count < set2.count){
+                        [set2 minusSet:set1];
+                        resultSet = set2;
+                        [[NSNotificationCenter defaultCenter] postNotificationName:HYAlbumManagerAssetChanged object:@{@"ChangedItems":resultSet,@"ChangedAlbum":album}];
+                    }else{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:HYAlbumManagerAssetChanged object:@{@"ChangedItems":[NSMutableSet new],@"ChangedAlbum":album}];
+                    }
                 }
             }
         }];

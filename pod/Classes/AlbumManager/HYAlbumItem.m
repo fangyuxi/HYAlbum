@@ -9,9 +9,7 @@
 #import "HYAlbumItem.h"
 #import "HYAlbumImageGenerator.h"
 #import "HYAlbumManager.h"
-
-#define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
-#define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))
+#import "HYAlbumConstant.h"
 
 @implementation HYAlbumItem{
     UIImage *_thumbImage;

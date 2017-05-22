@@ -10,6 +10,7 @@
 #import "HYImagePickerHelper.h"
 #import "HYImagePickerZoomView.h"
 #import "HYImagePickerViewController.h"
+#import "HYAlbumManager.h"
 
 #define HYImagePickerZoomViewTag 100
 
@@ -88,6 +89,11 @@
         
         [_scrollView setContentOffset:CGPointMake(_nowPageNum * _scrollView.frame.size.width, 0)];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(assetChanged:)
+                                                 name:HYAlbumManagerAssetChanged
+                                               object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -308,6 +314,10 @@
     {
         _rightSelectButton.selected = [[HYImagePickerHelper sharedHelper] addSelectedItem:item];
     }
+}
+
+- (void)assetChanged:(NSNotification *)notificcation{
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 #pragma mark scrollView Delegate

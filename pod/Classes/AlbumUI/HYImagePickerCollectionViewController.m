@@ -164,7 +164,9 @@
 
 - (void)assetChanged:(NSNotification *)notificcation{
     ((HYImagePickerViewController *)self.navigationController).helper.currentPhotos = self.album.assets;
-    [_collectionView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_collectionView reloadData];
+    });
 }
 
 #pragma mark collection view delegate datasource

@@ -76,7 +76,9 @@
 }
 
 - (void)assetChanged:(NSNotification *)notificcation{
-    [_tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_tableView reloadData];
+    });
 }
 
 - (void)p_configNavBar

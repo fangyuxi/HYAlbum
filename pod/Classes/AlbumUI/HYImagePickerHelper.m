@@ -7,6 +7,7 @@
 //
 
 #import "HYImagePickerHelper.h"
+#import "HYAlbumManager.h"
 
 NSString *const HYImagePickerSelectedCountChanged = @"HYImagePickerSelectedCountChanged";
 NSString *const HYImagePickerCollectionControllerNeedUpdate = @"HYImagePickerCollectionControllerNeedUpdate";
@@ -29,6 +30,10 @@ NSString *const HYImagePickerCollectionControllerNeedUpdate = @"HYImagePickerCol
     return _sharedInstance;
 }
 
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -39,9 +44,27 @@ NSString *const HYImagePickerCollectionControllerNeedUpdate = @"HYImagePickerCol
         self.maxSelectedCountAllow = 9;
         self.compresstionLevel = 0.9;
         _selectedItems = [NSMutableArray array];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(assetChanged:)
+                                                     name:HYAlbumManagerAssetChanged
+                                                   object:nil];
+        
         return self;
     }
     return nil;
+}
+
+- (void)assetChanged:(NSNotification *)notificcation{
+    NSDictionary *param = (NSDictionary *)notificcation.object;
+    NSMutableSet *set = [[param objectForKey:@"ChangedItems"] mutableCopy];
+    NSMutableSet *has = [NSMutableSet setWithArray:[HYImagePickerHelper sharedHelper].selectedItems];
+    [set intersectSet:has];
+    if (set.count > 0) {
+        [set enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+            [[HYImagePickerHelper sharedHelper] deleteSelectedItem:obj];
+        }];
+    }
 }
 
 - (NSInteger)albumCount

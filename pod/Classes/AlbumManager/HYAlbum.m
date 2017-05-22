@@ -11,6 +11,7 @@
 #import "HYAlbumManager.h"
 #import "HYAlbumPrivate.h"
 #import "HYAlbumItem.h"
+#import "HYAlbumConstant.h"
 
 @interface HYAlbum ()
 
@@ -126,7 +127,7 @@
 }
 
 - (NSUInteger)hash {
-    return self.identifier.hash;
+    return NSUINTROTATE([self.identifier hash], NSUINT_BIT / 2);
 }
 
 @end

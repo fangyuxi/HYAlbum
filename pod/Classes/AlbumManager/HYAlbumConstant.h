@@ -16,3 +16,6 @@ typedef NS_ENUM(NSUInteger, HYAlbumItemType)
     HYAlbumItemTypeLive    = 3
 };
 
+
+#define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
+#define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))
