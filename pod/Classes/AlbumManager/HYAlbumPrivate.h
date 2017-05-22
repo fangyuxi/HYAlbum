@@ -8,6 +8,7 @@
 
 @interface HYAlbum ()
 
-@property (nonatomic, strong, readwrite) NSMutableArray<HYAlbumItem *> *assets;
+@property (nonatomic, strong, readwrite) NSArray<HYAlbumItem *> *assets;
+@property (nonatomic, strong) PHFetchResult *fetchResult;
 
 @end

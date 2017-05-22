@@ -12,6 +12,8 @@
 
 #define SYSTEM_VERSION_GREATER_THAN(v)                                                                              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
 
+extern NSString *const HYAlbumManagerAssetChanged;
+
 typedef NS_OPTIONS(NSInteger, HYAlbumFilterType) {
     
     HYAlbumFilterTypeAll,
@@ -29,7 +31,7 @@ typedef void(^HYAlbumManagerAlbumPhotosBlock)(NSArray<HYAlbumItem *> *items , NS
 /**
  获取相册中的资源
  */
-@interface HYAlbumManager : NSObject
+@interface HYAlbumManager : NSObject<PHPhotoLibraryChangeObserver>
 
 + (HYAlbumManager *)sharedManager;
 

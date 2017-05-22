@@ -45,7 +45,7 @@
  相册中资源数量
  */
 @property (nonatomic, assign, readwrite) NSUInteger count;
-@property (nonatomic, strong, readonly) NSMutableArray<HYAlbumItem *> *assets;
+@property (nonatomic, strong, readonly) NSArray<HYAlbumItem *> *assets;
 
 
 /**

@@ -11,12 +11,15 @@
 #import "HYAlbumItem.h"
 #import "HYAlbumPrivate.h"
 
+NSString *const HYAlbumManagerAssetChanged = @"HYAlbumManagerAssetChanged";
+
 @implementation HYAlbumManager{
 
     ALAssetsLibrary *_assetsLibrary;
     PHPhotoLibrary  *_phPhotoLibrary;
     
     dispatch_group_t _getAlbumDispatchGroup;
+    NSMutableDictionary *_albumsFetched;
 }
 
 + (HYAlbumManager *)sharedManager
@@ -34,12 +37,18 @@
     if (self){
         if (SYSTEM_VERSION_GREATER_THAN(@"8.0")){
             _phPhotoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
+            [_phPhotoLibrary registerChangeObserver:self];
+            _albumsFetched = [NSMutableDictionary new];
         }else{
             _assetsLibrary = [[ALAssetsLibrary alloc] init];
         }
         return self;
     }
     return nil;
+}
+
+- (void)dealloc{
+    [_phPhotoLibrary unregisterChangeObserver:self];
 }
 
 #pragma mark public
@@ -65,7 +74,7 @@
         return;
     }
     if (SYSTEM_VERSION_GREATER_THAN(@"8.0")){
-        [self p_getItemsByPHPhotoKitInAlbum:album.collection result:result filterType:type];
+        [self p_getItemsByPHPhotoKitInAlbum:album result:result filterType:type];
     }else{
         [self p_getItemsByALAssetLibraryInAlbum:album.group result:result];
     }
@@ -144,21 +153,33 @@
     
     NSMutableArray *collections = [NSMutableArray new];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary]];
-        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumPanoramas]];
-        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumBursts]];
+        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary
+                                                           filterType:HYAlbumFilterTypeImage
+                                                             preFetch:YES]];
+        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumPanoramas
+                                                           filterType:HYAlbumFilterTypeImage
+                                                             preFetch:YES]];
+        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumBursts
+                                                           filterType:HYAlbumFilterTypeImage
+                                                             preFetch:YES]];
         
         if (SYSTEM_VERSION_GREATER_THAN(@"9.0")) {
-            [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumSelfPortraits]];
-            [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumScreenshots]];
+            [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumSelfPortraits
+                                                               filterType:HYAlbumFilterTypeImage
+                                                                 preFetch:YES]];
+            [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumScreenshots
+                                                               filterType:HYAlbumFilterTypeImage
+                                                                 preFetch:YES]];
         }
         
         if (SYSTEM_VERSION_GREATER_THAN(@"10.0")) {
-            [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumLivePhotos]];
-            [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumDepthEffect]];
+            [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumLivePhotos
+                                                               filterType:HYAlbumFilterTypeImage
+                                                                 preFetch:YES]];
+            [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumDepthEffect
+                                                               filterType:HYAlbumFilterTypeImage
+                                                                 preFetch:YES]];
         }
-        
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             result(collections,nil);
         });
@@ -168,9 +189,15 @@
 - (void)p_getAllVideoAlbum:(HYAlbumManagerAlbumsListBlock)result{
     NSMutableArray *collections = [NSMutableArray new];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumVideos]];
-        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumTimelapses]];
-        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumSlomoVideos]];
+        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumVideos
+                                                           filterType:HYAlbumFilterTypeVideo
+                                                             preFetch:YES]];
+        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumTimelapses
+                                                           filterType:HYAlbumFilterTypeVideo
+                                                             preFetch:YES]];
+        [collections addObjectsFromArray:[self p_getSmartAlbumSubtype:PHAssetCollectionSubtypeSmartAlbumSlomoVideos
+                                                           filterType:HYAlbumFilterTypeVideo
+                                                             preFetch:YES]];
         dispatch_async(dispatch_get_main_queue(), ^{
             result(collections,nil);
         });
@@ -192,17 +219,13 @@
     }
     
     [fetchResultMyAlbum enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSMutableArray *assets = [NSMutableArray new];
-        PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:obj options:options];
-        [result enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            HYAlbumItem *item = [[HYAlbumItem alloc] initWithPHAsset:obj];
-            [assets addObject:item];
-        }];
-        if (assets.count > 0) {
-            HYAlbum *album = [[HYAlbum alloc] initWithPHCollection:obj];
-            album.assets = assets;
-            [collections addObject:album];
-        }
+        HYAlbum *album = [[HYAlbum alloc] initWithPHCollection:obj];
+        [self p_getItemsByPHPhotoKitInAlbum:album result:^(NSArray<HYAlbumItem *> *items, NSError *error) {
+            if (items.count > 0) {
+                album.assets = items;
+                [collections addObject:album];
+            }
+        } filterType:type];
     }];
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -211,7 +234,9 @@
 }
 
 //获取指定智能相册
-- (NSMutableArray *)p_getSmartAlbumSubtype:(PHAssetCollectionSubtype)subtype{
+- (NSMutableArray *)p_getSmartAlbumSubtype:(PHAssetCollectionSubtype)subtype
+                                filterType:(HYAlbumFilterType)type
+                                  preFetch:(BOOL)preFetch{
     NSMutableArray *collections = [NSMutableArray new];
     PHFetchResult *fetchResultMyAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:subtype options:nil];
     [fetchResultMyAlbum enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -221,25 +246,25 @@
             [collections addObject:album];
         }
     }];
-    
-    if (subtype == PHAssetCollectionSubtypeSmartAlbumUserLibrary) {
+    if (preFetch) {
         if (collections.count > 0) {
             HYAlbum *album = [collections firstObject];
-            [self p_getItemsByPHPhotoKitInAlbum:album.collection result:^(NSArray<HYAlbumItem *> *items, NSError *error) {
+            [self p_getItemsByPHPhotoKitInAlbum:album result:^(NSArray<HYAlbumItem *> *items, NSError *error) {
                 album.assets = items;
-            } filterType:HYAlbumFilterTypeImage];
+            } filterType:type];
         }
-        
     }
-    
     return collections;
 }
 
 //获取指定collection中的phassets
-- (void)p_getItemsByPHPhotoKitInAlbum:(PHAssetCollection *)collection
+- (void)p_getItemsByPHPhotoKitInAlbum:(HYAlbum *)album
                                result:(HYAlbumManagerAlbumPhotosBlock)handler
                            filterType:(HYAlbumFilterType)type
 {
+    if (!album.collection) {
+        return;
+    }
     PHFetchOptions *options = [PHFetchOptions new];
     if (type == HYAlbumFilterTypeImage) {
         options.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeImage]; //subType == all
@@ -249,7 +274,7 @@
         options = nil;
     }
 
-    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:collection options:options];
+    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:album.collection options:options];
     NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:result.count];
     
     [result enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -259,6 +284,8 @@
         [items addObject:item];
     }];
     
+    album.fetchResult = result;
+    [_albumsFetched setObject:album forKey:album.identifier];
     handler(items, nil);
 }
 
@@ -314,6 +341,42 @@
     }
 }
 
+#pragma mark notification
+
+- (void)photoLibraryDidChange:(PHChange *)changeInstance{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_albumsFetched enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            HYAlbum *album = (HYAlbum *)obj;
+            if (album.collection) {
+                PHObjectChangeDetails *details = [changeInstance changeDetailsForObject:album.collection];
+                NSObject *object = [details objectAfterChanges];
+                if (object) {
+                    
+                }
+            }
+            
+            if (album.fetchResult) {
+                PHFetchResultChangeDetails *change = [changeInstance changeDetailsForFetchResult:album.fetchResult];
+                PHFetchResult *object = [change fetchResultAfterChanges];
+                if (object) {
+                    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:object.count];
+                    [object enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        
+                        PHAsset *asset = obj;
+                        HYAlbumItem *item = [[HYAlbumItem alloc] initWithPHAsset:asset];
+                        [items addObject:item];
+                    }];
+                    
+                    album.fetchResult = object;
+                    album.assets = items;
+                    [_albumsFetched setObject:album forKey:album.identifier];
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:HYAlbumManagerAssetChanged object:album];
+                }
+            }
+        }];
+    });
+}
 
 #pragma mark get album & item by ALAssetLibrary
 

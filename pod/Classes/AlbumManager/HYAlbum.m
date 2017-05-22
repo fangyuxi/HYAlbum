@@ -76,11 +76,11 @@
 
 - (NSUInteger)count{
     if (SYSTEM_VERSION_GREATER_THAN(@"8.0")){
-        NSInteger count = self.assets.count;
-        if (count == 0) {
-            count = self.collection.estimatedAssetCount;
+        NSInteger num = self.assets.count;
+        if (num == 0) {
+            num = self.collection.estimatedAssetCount;
         }
-        return self.assets.count;
+        return num;
     }else{
         return [self.group numberOfAssets];
     }

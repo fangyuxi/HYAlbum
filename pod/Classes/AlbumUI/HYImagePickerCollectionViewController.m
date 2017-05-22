@@ -54,6 +54,11 @@
                                                     name:HYImagePickerSelectedCountChanged
                                                   object:nil];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(assetChanged:)
+                                                     name:HYAlbumManagerAssetChanged
+                                                   object:nil];
+        
         NSParameterAssert(album);
         self.album = album;
         return self;
@@ -155,6 +160,11 @@
     
     [self setToolbarItems:@[leftFix, _previewBarButton, fix, _selectNumBarButton, fix2, _doneBarButton, rightFix]];
     self.navigationController.toolbar.tintColor = [UIColor colorWithRed:255.0f / 255.0f green:99.0f / 255.0f blue:96.0f / 255.0f alpha:1];
+}
+
+- (void)assetChanged:(NSNotification *)notificcation{
+    ((HYImagePickerViewController *)self.navigationController).helper.currentPhotos = self.album.assets;
+    [_collectionView reloadData];
 }
 
 #pragma mark collection view delegate datasource

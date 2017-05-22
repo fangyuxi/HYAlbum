@@ -24,6 +24,10 @@
     UITableView *_tableView;
 }
 
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -52,6 +56,11 @@
             } byFilterType:HYAlbumFilterTypeImage];
         }
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(assetChanged:)
+                                                 name:HYAlbumManagerAssetChanged
+                                               object:nil];
 }
 
 - (void)p_createView
@@ -66,6 +75,9 @@
     _tableView.dataSource = self;
 }
 
+- (void)assetChanged:(NSNotification *)notificcation{
+    [_tableView reloadData];
+}
 
 - (void)p_configNavBar
 {
