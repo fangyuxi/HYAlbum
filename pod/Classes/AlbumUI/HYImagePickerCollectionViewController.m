@@ -246,10 +246,8 @@
 - (void)p_cancel
 {
     [self dismissViewControllerAnimated:YES completion:^{
-        
         HYImagePickerViewController *picker = (HYImagePickerViewController *)self.navigationController;
         if (picker.pickerDelegate && [picker.pickerDelegate respondsToSelector:@selector(imagePickerControllerDidCancel:)]) {
-            
             [picker.pickerDelegate imagePickerControllerDidCancel:picker];
         }
     }];
@@ -273,30 +271,22 @@
         for (HYAlbumItem *item in [HYImagePickerHelper sharedHelper].selectedItems)
         {
             dispatch_group_enter(group);
-            [item getFullScreenImageWithSize:[UIScreen mainScreen].bounds.size result:^(UIImage *image) {
-               
-                @autoreleasepool
-                {
-                    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-                    if (image)
-                    {
-                        NSData *data = UIImageJPEGRepresentation(image, [HYImagePickerHelper sharedHelper].compresstionLevel);
-                        UIImage *depressImage = [UIImage imageWithData:data scale:[[UIScreen mainScreen] scale]];
-                        if (depressImage)
-                        {
-                            [dic setObject:depressImage forKey:HYImagePickerFullScreenImageKey];
-                        }
-                        [array addObject:dic];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [item getOriginalImageResult:^(UIImage *image) {
+                    if (image) {
+                        [array addObject:image];
                     }
-                }
-                
-                dispatch_group_leave(group);
-            }];
+                    dispatch_group_leave(group);
+                }];
+            });
+            
         }
         
         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-           
             [picker.pickerDelegate imagePickerController:picker didFinishPickingMediaWithInfo:array];
+            [self dismissViewControllerAnimated:YES completion:^{
+            }];
             
         });
     }

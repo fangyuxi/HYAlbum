@@ -65,16 +65,18 @@
         return;
     }
     [[HYAlbumImageGenerator sharedGenerator] getFullPreViewImageWithAlbumItem:self imageSize:size result:^(UIImage *image) {
-       
         handler(image);
     }];
 }
 
-- (void)getFullResolutionImageWithSize:(CGSize)size
-                                result:(void(^)(UIImage *image))handler{
+- (void)getOriginalImageResult:(void(^)(UIImage *image))handler{
     if (!handler) {
         return;
     }
+    
+    [[HYAlbumImageGenerator sharedGenerator] getOriginalImageWithAlbumItem:self result:^(UIImage *image) {
+        handler(image);
+    }];
 }
 
 #pragma mark getters

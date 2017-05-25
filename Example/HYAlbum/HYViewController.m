@@ -9,8 +9,10 @@
 #import "HYViewController.h"
 #import "HYImagePickerViewController.h"
 
-@interface HYViewController ()<HYImagePickerViewControllerDelegate>
-
+@interface HYViewController ()<HYImagePickerViewControllerDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+{
+    NSMutableArray *array;
+}
 @end
 
 @implementation HYViewController
@@ -19,12 +21,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
@@ -33,13 +29,31 @@
         [self presentViewController:controller animated:YES completion:^{
             
         }];
-        
+//        UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+//        controller.delegate = self;
+//        controller.allowsEditing = NO;
+//        controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        array = [NSMutableArray new];
+//        [self presentViewController:controller animated:YES completion:^{
+//            
+//        }];
     });
-    
 }
 
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+//    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+//    NSLog(@"%@", image);
+//    [array addObject:image];
+//}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+// TO DO
 - (void)imagePickerController:(HYImagePickerViewController *)picker
-didFinishPickingMediaWithInfo:(NSArray<NSDictionary *> *)info
+didFinishPickingMediaWithInfo:(NSArray<UIImage *> *)info
 {
     
 }

@@ -13,15 +13,13 @@
 #import "HYAlbumManager.h"
 
 @implementation HYAlbumImageGenerator{
-
     HYMemoryCache *_cache;
 }
 
 
 #pragma mark init method
 
-+ (HYAlbumImageGenerator *)sharedGenerator
-{
++ (HYAlbumImageGenerator *)sharedGenerator{
     static HYAlbumImageGenerator *_sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -30,15 +28,10 @@
     return _sharedInstance;
 }
 
-- (instancetype)init
-{
+- (instancetype)init{
     self = [super init];
-    if (self)
-    {
-        _cache = [[HYMemoryCache alloc] initWithName:@"com.HYAlbum.ImageCache"];
-        return self;
-    }
-    return nil;
+    _cache = [[HYMemoryCache alloc] initWithName:@"com.hyalbum.imagegeneratorcache"];
+    return self;
 }
 
 #pragma mark get image
@@ -51,8 +44,7 @@
         return;
     }
     
-    if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
-    {
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0")){
         NSInteger retinaMultiplier = [UIScreen mainScreen].scale;
         CGSize retinaSquare = CGSizeMake(size.width * retinaMultiplier, size.height * retinaMultiplier);
         
@@ -60,20 +52,13 @@
         option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
         option.resizeMode = PHImageRequestOptionsResizeModeExact;
         [[PHCachingImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:retinaSquare contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *poster, NSDictionary *info) {
-            
             handler(poster);
         }];
-    }
-    else
-    {
+    }else{
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            
             UIImage *image = [UIImage imageWithCGImage:item.alAsset.aspectRatioThumbnail];
-            
             dispatch_async(dispatch_get_main_queue(), ^{
-                
                 handler(image);
-                
             });
         });
     }
@@ -87,7 +72,6 @@
         handler(nil);
         return;
     }
-    
     if (SYSTEM_VERSION_GREATER_THAN(@"8.0")){
         PHAsset *asset = nil;
         if (album.assets.count > 0) {
@@ -134,27 +118,21 @@
         handler(fullImage);
         return;
     }
-    
-    
-    [self p_calculateSizeWithItem:item result:^(CGFloat maxPixel, BOOL islongImage, CGSize befittingImageSize) {
-       
-        
-        if (SYSTEM_VERSION_GREATER_THAN(@"8.0"))
-        {
+    [self p_calculateSizeWithItem:item result:^(CGSize befittingImageSize) {
+        if (SYSTEM_VERSION_GREATER_THAN(@"8.0")){
             PHImageRequestOptions *option = [PHImageRequestOptions new];
             option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
             option.resizeMode = PHImageRequestOptionsResizeModeFast;
-            [[PHCachingImageManager defaultManager] requestImageForAsset:item.phAsset targetSize:befittingImageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *fullImage, NSDictionary *info) {
-                
+            [[PHCachingImageManager defaultManager] requestImageForAsset:item.phAsset
+                                                              targetSize:befittingImageSize
+                                                             contentMode:PHImageContentModeAspectFill
+                                                                 options:option resultHandler:^(UIImage *fullImage, NSDictionary *info) {
                 [_cache setObject:fullImage forKey:key withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
-                    
                 }];
-                
                 handler(fullImage);
             }];
         }
-        else
-        {
+        else{
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
                 fullImage = [UIImage imageWithCGImage:item.alAsset.defaultRepresentation.fullScreenImage];
@@ -165,34 +143,60 @@
                     
                     handler(fullImage);
                 });
-                
             });
-            
-//            if (maxPixel == 0) {
-//                
-//                
-//            }
-//            else
-//            {
-//                handler([UIImage imageWithCGImage:item.alAsset.defaultRepresentation.fullScreenImage]);
-//                //handler(fullImage);
-////                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-////                    
-////                    UIImage *fullImage = [self p_resizeImageForAsset:item.alAsset maxPixelSize:maxPixel];
-////                    
-////                    [_cache setObject:fullImage forKey:key withBlock:^(HYMemoryCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
-////                        
-////                    }];
-////                    
-////                    dispatch_async(dispatch_get_main_queue(), ^{
-////                        
-////                        handler(fullImage);
-////                    });
-////                });
-//            }
         }
     }];
 }
+
+- (void)getOriginalImageWithAlbumItem:(HYAlbumItem *)item
+                               result:(void(^)(UIImage *image))handler{
+    if (!item) {
+        handler(nil);
+        return;
+    }
+    
+    __block UIImage *resultImage;
+    if (SYSTEM_VERSION_GREATER_THAN(@"8.0")) {
+        PHImageRequestOptions *phImageRequestOptions = [[PHImageRequestOptions alloc] init];
+        phImageRequestOptions.version = PHImageRequestOptionsVersionCurrent;
+        phImageRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
+        phImageRequestOptions.synchronous = YES;
+        [[PHCachingImageManager defaultManager] requestImageForAsset:item.phAsset
+                                                          targetSize:PHImageManagerMaximumSize
+                                                         contentMode:PHImageContentModeDefault
+                                                             options:phImageRequestOptions
+                                                       resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            handler(result);
+        }];
+    } else {
+        CGImageRef fullResolutionImageRef = [item.alAsset.defaultRepresentation fullResolutionImage];
+        // 通过 fullResolutionImage 获取到的的高清图实际上并不带上在照片应用中使用“编辑”处理的效果，需要额外在 AlAssetRepresentation 中获取这些信息
+        NSString *adjustment = [[item.alAsset.defaultRepresentation metadata] objectForKey:@"AdjustmentXMP"];
+        if (adjustment) {
+            // 如果有在照片应用中使用“编辑”效果，则需要获取这些编辑后的滤镜，手工叠加到原图中
+            NSData *xmpData = [adjustment dataUsingEncoding:NSUTF8StringEncoding];
+            CIImage *tempImage = [CIImage imageWithCGImage:fullResolutionImageRef];
+            
+            NSError *error;
+            NSArray *filterArray = [CIFilter filterArrayFromSerializedXMP:xmpData
+                                                         inputImageExtent:tempImage.extent
+                                                                    error:&error];
+            CIContext *context = [CIContext contextWithOptions:nil];
+            if (filterArray && !error) {
+                for (CIFilter *filter in filterArray) {
+                    [filter setValue:tempImage forKey:kCIInputImageKey];
+                    tempImage = [filter outputImage];
+                }
+                fullResolutionImageRef = [context createCGImage:tempImage fromRect:[tempImage extent]];
+            }
+        }
+        // 生成最终返回的 UIImage，同时把图片的 orientation 也补充上去
+        resultImage = [UIImage imageWithCGImage:fullResolutionImageRef scale:[item.alAsset.defaultRepresentation scale] orientation:(UIImageOrientation)[item.alAsset.defaultRepresentation orientation]];
+        handler(resultImage);
+    }
+    
+}
+
 
 
 #pragma mark clear memory
@@ -206,14 +210,15 @@
 
 #pragma mark resizing image
 
+
 /**
- *  根据item 算出来合适显示图片的尺寸
- *
- *  @param item   item
- *  @param result block in main thread
+ 根据item 算出来合适显示图片的尺寸
+
+ @param item 'item'
+ @param result 'result'
  */
 - (void)p_calculateSizeWithItem:(HYAlbumItem *)item
-                         result:(void(^)(CGFloat maxPixel, BOOL islongImage, CGSize befittingImageSize))result
+                         result:(void(^)(CGSize befittingImageSize))result
 {
     CGSize dimensions = item.dimensions;
     CGSize finalImageSize = CGSizeZero;
@@ -270,62 +275,7 @@
         }
     }
     
-    result(maxPixel, isLong, finalImageSize);
+    result(finalImageSize);
 }
-
-static size_t getAssetBytesCallback(void *info, void *buffer, off_t position, size_t count)
-{
-    ALAssetRepresentation *rep = (__bridge id)info;
-    
-    NSError *error = nil;
-    size_t countRead = [rep getBytes:(uint8_t *)buffer fromOffset:position length:count error:&error];
-    
-    if (countRead == 0 && error)
-    {
-        NSLog(@"thumbnailForAsset:maxPixelSize: got an error reading an asset: %@", error);
-    }
-    
-    return countRead;
-}
-
-static void releaseAssetCallback(void *info)
-{
-    CFRelease(info);
-}
-
-- (UIImage *)p_resizeImageForAsset:(ALAsset *)asset
-                   maxPixelSize:(NSUInteger)size
-{
-    NSParameterAssert(asset != nil);
-    NSParameterAssert(size > 0);
-    
-    ALAssetRepresentation *rep = [asset defaultRepresentation];
-    
-    CGDataProviderDirectCallbacks callbacks = {
-        .version = 0,
-        .getBytePointer = NULL,
-        .releaseBytePointer = NULL,
-        .getBytesAtPosition = getAssetBytesCallback,
-        .releaseInfo = releaseAssetCallback,
-    };
-    
-    CGDataProviderRef provider = CGDataProviderCreateDirect((void *)CFBridgingRetain(rep), [rep size], &callbacks);
-    CGImageSourceRef source = CGImageSourceCreateWithDataProvider(provider, NULL);
-    
-    CGImageRef imageRef = CGImageSourceCreateThumbnailAtIndex(source, 0, (__bridge CFDictionaryRef)@{(NSString *)kCGImageSourceCreateThumbnailFromImageAlways : @YES,
-        (NSString *)kCGImageSourceThumbnailMaxPixelSize : @(size),
-        (NSString *)kCGImageSourceCreateThumbnailWithTransform : @YES});
-    
-    CFRelease(source);
-    CFRelease(provider);
-    
-    if (!imageRef)
-    {
-        return nil;
-    }
-    
-    return [UIImage imageWithCGImage:imageRef];
-}
-
 
 @end

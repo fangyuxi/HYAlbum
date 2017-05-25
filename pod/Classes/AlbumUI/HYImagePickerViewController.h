@@ -27,7 +27,7 @@ extern NSString *const HYImagePickerFullResolutImagePathKey;
     需要调用方调用dismiss
  */
 - (void)imagePickerController:(HYImagePickerViewController *)picker
-didFinishPickingMediaWithInfo:(NSArray<NSDictionary *> *)info;
+didFinishPickingMediaWithInfo:(NSArray<UIImage *> *)info;
 
 //需要调用方调用dismiss
 - (void)imagePickerControllerDidCancel:(HYImagePickerViewController *)picker;

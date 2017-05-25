@@ -59,11 +59,10 @@
 
 /**
  获取原图
- 
- @param size 'size'
- @param handler 'callback'
+
+ @param handler 'result'
  */
-- (void)getFullResolutionImageWithSize:(CGSize)size
-                                result:(void(^)(UIImage *image))handler;
+- (void)getOriginalImageResult:(void(^)(UIImage *image))handler;
+
 
 @end
