@@ -1,13 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
+project './HYAlbum.xcodeproj'
 
-target 'HYAlbum_Example', :exclusive => true do
+target 'HYAlbum_Example' do
   pod 'HYAlbum', :path => '../'
-  pod 'HYCache', '~> 0.3'
-end
-
-target 'HYAlbum_Tests', :exclusive => true do
-  pod 'HYAlbum', :path => '../'
-
-  pod 'Specta'
-  pod 'Expecta'
 end

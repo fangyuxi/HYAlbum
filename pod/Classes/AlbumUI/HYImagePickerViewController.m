@@ -55,7 +55,7 @@ NSString *const HYImagePickerFullResolutImagePathKey = @"HYImagePickerFullResolu
 }
 
 - (instancetype)initWithMaxSelectedAllow:(NSInteger)maxSelectedAlow
-                    andCompresstionLevel:(CGFloat)level
+                       compresstionLevel:(CGFloat)level
 {
     _maxSelectedAlow = maxSelectedAlow;
     _compresstionLevel = (level < 0 || level > 1) ? 0.9 : level;

@@ -24,27 +24,15 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        HYImagePickerViewController *controller = [[HYImagePickerViewController alloc] initWithMaxSelectedAllow:9 andCompresstionLevel:0.8];
+        HYImagePickerViewController *controller = [[HYImagePickerViewController alloc] initWithMaxSelectedAllow:9
+                                                                                              compresstionLevel:0.8];
         controller.pickerDelegate = self;
         [self presentViewController:controller animated:YES completion:^{
             
         }];
-//        UIImagePickerController *controller = [[UIImagePickerController alloc] init];
-//        controller.delegate = self;
-//        controller.allowsEditing = NO;
-//        controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//        array = [NSMutableArray new];
-//        [self presentViewController:controller animated:YES completion:^{
-//            
-//        }];
+
     });
 }
-
-//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-//    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-//    NSLog(@"%@", image);
-//    [array addObject:image];
-//}
 
 - (void)viewWillAppear:(BOOL)animated
 {

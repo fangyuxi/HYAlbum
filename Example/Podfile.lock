@@ -1,29 +1,19 @@
 PODS:
-  - Expecta (1.0.5)
   - HYAlbum (0.5):
-    - HYAlbum/AlbumManager (= 0.5)
-    - HYAlbum/AlbumUI (= 0.5)
-  - HYAlbum/AlbumManager (0.5):
-    - HYCache
-  - HYAlbum/AlbumUI (0.5):
-    - HYAlbum/AlbumManager
-  - HYCache (0.4)
-  - Specta (1.0.5)
+    - HYDBCache (~> 0.9)
+  - HYDBCache (0.9)
 
 DEPENDENCIES:
-  - Expecta
   - HYAlbum (from `../`)
-  - HYCache (~> 0.3)
-  - Specta
 
 EXTERNAL SOURCES:
   HYAlbum:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  HYAlbum: e8e8f2f6b83a3ce7d6323bf4bdfe278b4726c861
-  HYCache: 6f6d8d576b0dd66547c1c586586fec50a33e838a
-  Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
+  HYAlbum: 5b03588efd89b3ec7efe588126692be0bf4db835
+  HYDBCache: 41fa6079b294f876f7934e9df062d26b62c5a07c
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: af376f954bc8b35fc09652450c43d5de629b5a45
+
+COCOAPODS: 1.2.1

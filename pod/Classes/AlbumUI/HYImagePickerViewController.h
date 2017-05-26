@@ -17,39 +17,26 @@ extern NSString *const HYImagePickerFullResolutImagePathKey;
 @protocol HYImagePickerViewControllerDelegate<NSObject>
 @optional
 
-/**
- *  picker finish delegate
- *
- *  @param picker picker
- *  @param info   全屏预览图片： HYImagePickerFullScreenImageKey
-                  原始图片路径： HYImagePickerFullResolutImagePathKey
- 
-    需要调用方调用dismiss
- */
 - (void)imagePickerController:(HYImagePickerViewController *)picker
 didFinishPickingMediaWithInfo:(NSArray<UIImage *> *)info;
 
-//需要调用方调用dismiss
 - (void)imagePickerControllerDidCancel:(HYImagePickerViewController *)picker;
 
 @end
 
 @interface HYImagePickerViewController : UINavigationController
-{
-    
-}
 
 @property (nonatomic, weak) id<HYImagePickerViewControllerDelegate> pickerDelegate;
 
+
 /**
- *  创建 Picker
- *
- *  @param maxSelectedAlow 最大允许选择几张图片
- *  @param level           图片的压缩等级 0~1 默认0.9 选中了上传原图的图片，会忽略这个参数
- *
- *  @return picker
+ 创建
+
+ @param maxSelectedAlow 最大可选择的数量
+ @param level 原图的压缩比例
+ @return 'instance'
  */
 - (instancetype)initWithMaxSelectedAllow:(NSInteger)maxSelectedAlow
-                    andCompresstionLevel:(CGFloat)level;
+                       compresstionLevel:(CGFloat)level;
 
 @end

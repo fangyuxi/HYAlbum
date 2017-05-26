@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
   s.resources = 'Pod/Resources/*.{bundle}'
-  s.dependency 'HYCache'
+  s.dependency 'HYDBCache','~> 0.9'
 end
